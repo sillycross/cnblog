@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <title>最近的一些无聊折腾过程 | </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="这两天折腾了一下学校的Athena…… 首先是发现了">
+<meta property="og:type" content="article">
+<meta property="og:title" content="最近的一些无聊折腾过程">
+<meta property="og:url" content="2015/03/08/2015-03-08/index.html">
+<meta property="og:site_name">
+<meta property="og:description" content="这两天折腾了一下学校的Athena…… 首先是发现了">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2015-03-08T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-21T05:27:00.644Z">
+<meta property="article:author" content="Haoran Xu">
+<meta property="article:tag" content="杂谈水">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="../../../../atom.xml" title="" type="application/atom+xml">
+  
+  
+  
+    <!--<link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">-->
+    
+<link rel="stylesheet" href="../../../../css/source_code_pro.css">
+
+  
+
+  <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">-->
+  
+<link rel="stylesheet" href="../../../../css/bootstrap/bootstrap.min.css">
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
+
+  
+<link rel="stylesheet" href="../../../../css/styles.css">
+
+  
+
+  
+  <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" integrity="sha384-8gBf6Y4YYq7Jx97PIqmTwLPin4hxIzQw5aDmUg/DDhul9fFpbbLcLh3nTIIDJKhx" crossorigin="anonymous"></script>-->
+  
+<script src="../../../../js/jquery.min.js"></script>
+
+
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><nav class="navbar navbar-inverse">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="main-menu-navbar">
+      <ul class="nav navbar-nav">
+        
+          <li><a class=""
+                 href="../../../../index.html">Archives</a></li>
+        
+          <li><a class=""
+                 href="../../../../about/">About</a></li>
+        
+          <li><a class=""
+                 href="../../../../../">English Blog</a></li>
+        
+      </ul>
+
+      <!--
+      <ul class="nav navbar-nav navbar-right">
+        
+          <li><a href="/atom.xml" title="RSS Feed"><i class="fa fa-rss"></i></a></li>
+        
+      </ul>
+      -->
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+  <div class="container">
+    <div class="blog-header">
+  <h1 class="blog-title"></h1>
+  
+    <p class="blog-description">「こんなきれいな星も、やっぱりここまで来てから、見れたのだと思うから。だから・・もっと遠くへ・・」</p>
+  
+</div>
+
+    <div class="row">
+        <div class="col-sm-8 blog-main">
+          <article id="post-2015-03-08" class="article article-type-post" itemscope itemprop="blogPost">
+
+  <header class="article-header">
+    
+  
+    <h1 class="article-title" itemprop="name">
+      最近的一些无聊折腾过程
+    </h1>
+  
+
+
+  </header>
+
+  <div class="article-meta">
+    <div class="article-datetime">
+  <a href="" class="article-date"><time datetime="2015-03-08T00:00:00.000Z" itemprop="datePublished">2015-03-08</time></a>
+</div>
+
+    
+    
+
+  </div>
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这两天折腾了一下学校的Athena……</p>
+<p>首先是发现了<a id="more"></a>一个很有用的软件sshfs，功能是实现基于ssh的网络磁盘。用法大概是</p>
+<pre><code>sshfs [username]@[server]:[path] [mountpoint] -o transform_symlinks -o follow_symlinks -o StrictHostKeyChecking=no
+</code></pre>
+<p>这样子。然后mountpoint处就挂载了服务器那边的目录，由于相当于建立了一个虚拟的挂载点，对软件是完全透明的，可以像使用本机数据一样直接使用它们。<br>
+命令里两个软链接的选项可以处理链到其他目录的软链接的问题，最后那个选项是为了避免有时候ssh弹出来的unknown host提示把sshfs搞迷糊的事情。<br>
+如果支持public key可以用-o Identity=XXX来使用public key避免挂载时输密码。<br>
+不支持public key的话可以配合-o PreferredAuthentications=password -o password_stdin选项，然后就可以直接echo 密码 | sshfs XXX这样，也不用输密码了，但密码明文保存不太安全…… （学校Athena不支持公钥认证，如果公钥认证连接必须在连接后renew输密码才行……）<br>
+unmount的话直接fusermount -u [挂载点]就可以，也可以sudo umount [挂载点]。</p>
+<p>这样只需要在笔记本上挂一个sshfs，学校Athena服务器里的数据就可以像访问本地磁盘里的数据一样直接访问了。然后在学校Athena服务器那边也用sshfs建一个挂载点，把笔记本的硬盘挂载上去，这样两台设备的数据就无缝共享了。有一个小问题是由于笔记本电脑的IP是会变动的，我的解决方法是利用dropbox自动同步：写一个开机启动的脚本，每隔一分钟把当前IP写入本地dropbox文件夹里，然后dropbox就会自动把这个文件同步到网上，由于dropbox的share link是永久不变的，在Athena端的连接脚本wget这个链接就能自动获取笔记本当前的IP了。</p>
+<p>如果出现断网之类的情况打开sshfs挂载点的窗口会卡死，这时候只要kill掉ssh然后重新连就可以了。（sshfs进程是kill不掉的，但只要kill掉ssh进程sshfs就会自动退出） 也可以sudo umount -f [挂载点]强制卸载挂载点。</p>
+<p>搭好sshfs后从本地访问Athena已经非常方便了，于是想进一步折腾一点什么。由于远程链接到athena只能连接到athena dialup server，机房里那些机器sshd都是禁用的，于是只能打athena dialup的主意了。看了一下发现athena dialup server有七个服务器，每个服务器有6个CPU，每个CPU主频都有我自己笔记本电脑的三倍（虽然我的笔记本CPU是800MHz的）…… 于是想能不能利用这个搞个分布式计算之类的东西玩玩呢2333……</p>
+<p>于是花了一个晚上写了一个程序实现了这个玩意，过程还是挺有意思的。由于在ssh时候没法预先确定会连接到7台服务器中的哪一台（后来发现是有办法的，但发现这点时候已经太晚了233），于是总的思路就是server用ssh在服务器端spawn出一堆client，每个client启动后读取/etc/hostname，然后识别是不是这个host下已经有其他client在跑了，如果有就退出，否则就开始执行。client和server之间的通信一开始想用管道文件，后来发现不行…… 想想也正常，管道文件只是内核模拟出来的一个文件，现在server和client根本不在一台机器上（虽然通过sshfs共享着磁盘），当然没法用管道文件了…… 于是只好用低效的普通文件每隔几秒钟检查一次的方法来通讯了，用文件锁来避免并发问题。有一个比较猎奇的地方是怎么读完内容后清空内容，由于期间锁不能断开（否则就有并发问题了），直接fclose掉再删肯定不行，后来找到一个函数ftruncate可以完成这个事情。还有一个问题是怎么让ssh关闭后client继续执行。似乎nohup或者disown之类都没用，应该是athena dialup服务器特意做了检查，只要一个用户登出了就把他的所有进程都杀掉…… 后来发现一个bug，用公钥认证连接然后renew的话似乎这个机制就失效了23333</p>
+<p>虽然好像这个东西做出来好像暂时也没想到有啥用233，大概只有打GCJ时候有用了23333，30个CPU一起跑数据&gt;_&lt; 或者跑测试数据时候大概能快一点……</p>
+<link rel="stylesheet" href="/cnblog/css/spoiler.css" type="text/css"><script src="/cnblog/js/spoiler.js" type="text/javascript" async></script>
+      
+    </div>
+
+    
+      
+
+    
+
+    <footer class="article-footer">
+    <!--
+      <a data-url="2015/03/08/2015-03-08/" data-id="cl4nq6z8y003ebeoreisuf3si" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+    -->
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/%E6%9D%82%E8%B0%88%E6%B0%B4/" rel="tag">杂谈水</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+    
+<ul id="article-nav" class="nav nav-pills nav-justified">
+  
+  <li role="presentation">
+    <a href="../../../01/15/2015-01-15/" id="article-nav-older" class="article-nav-link-wrap">
+      <i class="fa fa-chevron-left pull-left"></i>
+      <span class="article-nav-link-title">一个很有趣的编程游戏 Manufactoria</span>
+    </a>
+  </li>
+  
+  
+  <li role="presentation">
+    <a href="../../../04/12/2015-04-12/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-link-title">TC SRM655 &amp; TCO2015 R1A</span>
+      <i class="fa fa-chevron-right pull-right"></i>
+    </a>
+  </li>
+  
+</ul>
+
+
+  
+</article>
+
+
+
+
+        </div>
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+          
+  
+
+
+  
+  <div class="sidebar-module">
+    <h4>Tags</h4>
+    <ul class="sidebar-module-list" itemprop="keywords"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/ACM/" rel="tag">ACM</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/OI/" rel="tag">OI</a><span class="sidebar-module-list-count">23</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/" rel="tag">技术杂谈</a><span class="sidebar-module-list-count">12</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%9D%82%E8%B0%88/" rel="tag">杂谈</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%9D%82%E8%B0%88%E6%B0%B4/" rel="tag">杂谈水</a><span class="sidebar-module-list-count">9</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%B5%81%E6%B0%B4%E8%B4%A6/" rel="tag">流水账</a><span class="sidebar-module-list-count">15</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E9%A2%98%E8%A7%A3/" rel="tag">题解</a><span class="sidebar-module-list-count">24</span></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Tag Cloud</h4>
+    <p class="tagcloud">
+      <a href="../../../../tags/ACM/" style="font-size: 10px;">ACM</a> <a href="../../../../tags/OI/" style="font-size: 18.33px;">OI</a> <a href="../../../../tags/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/" style="font-size: 15px;">技术杂谈</a> <a href="../../../../tags/%E6%9D%82%E8%B0%88/" style="font-size: 11.67px;">杂谈</a> <a href="../../../../tags/%E6%9D%82%E8%B0%88%E6%B0%B4/" style="font-size: 13.33px;">杂谈水</a> <a href="../../../../tags/%E6%B5%81%E6%B0%B4%E8%B4%A6/" style="font-size: 16.67px;">流水账</a> <a href="../../../../tags/%E9%A2%98%E8%A7%A3/" style="font-size: 20px;">题解</a>
+    </p>
+  </div>
+
+
+  
+  <div class="sidebar-module">
+    <h4>Archives</h4>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2022/">2022</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2018/">2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2017/">2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2015/">2015</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2014/">2014</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2013/">2013</a><span class="sidebar-module-list-count">7</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2012/">2012</a><span class="sidebar-module-list-count">27</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2011/">2011</a><span class="sidebar-module-list-count">11</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2010/">2010</a><span class="sidebar-module-list-count">1</span></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Recents</h4>
+    <ul class="sidebar-module-list">
+      
+        <li>
+          <a href="../../../../2022/01/31/2022-01-31/">写于PhD的第三年</a>
+        </li>
+      
+        <li>
+          <a href="../../../../2018/03/14/2018-03-14/">胡思乱想</a>
+        </li>
+      
+        <li>
+          <a href="../../../../2017/05/25/2017-05-25/">WF2017 滚粗记</a>
+        </li>
+      
+        <li>
+          <a href="../../../05/21/2015-05-21/">WF2015 滚粗记</a>
+        </li>
+      
+        <li>
+          <a href="../../../04/12/2015-04-12/">TC SRM655 &amp; TCO2015 R1A</a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+
+        </div>
+    </div>
+  </div>
+  <footer class="blog-footer">
+  <div class="container">
+    <div id="footer-info" class="inner">
+      &copy; 2022 Haoran Xu<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+  
+
+<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>-->
+
+<script src="../../../../js/bootstrap/bootstrap.min.js"></script>
+
+
+
+  
+<link rel="stylesheet" href="../../../../fancybox/jquery.fancybox.css">
+
+  
+<script src="../../../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="../../../../js/script.js"></script>
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    menuSettings: {
+      zoom: "None"
+    },
+    showMathMenu: false,
+    jax: ["input/TeX","output/CommonHTML"],
+    extensions: ["tex2jax.js"],
+    TeX: {
+      extensions: ["AMSmath.js","AMSsymbols.js"],
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    },
+    tex2jax: {
+      inlineMath: [["\\(", "\\)"]],
+      displayMath: [["\\[", "\\]"]]
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.1/MathJax.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+ 
+
+</body>
+</html>

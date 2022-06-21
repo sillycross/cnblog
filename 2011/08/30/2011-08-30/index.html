@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <title>POJ2915 Zuma DP | </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="原题地址http:&#x2F;&#x2F;poj.org&#x2F;problem?id&#x3D;2915 题目大意： 经典的zuma游戏！给定一个长度不超过200的zuma序列, 规定大于等于M个同色珠子相碰就会自动消掉（2&lt;&#x3D;M&lt;&#x3D;20），要求射入最少的珠子（位置和颜色没有限制），消掉整个zuma序列。一个特殊条件：射入的珠子的颜色必须是其左右两侧珠子颜色之一。 算法： 先考虑一个比较简单的问题，COCI版zuma（出">
+<meta property="og:type" content="article">
+<meta property="og:title" content="POJ2915 Zuma DP">
+<meta property="og:url" content="2011/08/30/2011-08-30/index.html">
+<meta property="og:site_name">
+<meta property="og:description" content="原题地址http:&#x2F;&#x2F;poj.org&#x2F;problem?id&#x3D;2915 题目大意： 经典的zuma游戏！给定一个长度不超过200的zuma序列, 规定大于等于M个同色珠子相碰就会自动消掉（2&lt;&#x3D;M&lt;&#x3D;20），要求射入最少的珠子（位置和颜色没有限制），消掉整个zuma序列。一个特殊条件：射入的珠子的颜色必须是其左右两侧珠子颜色之一。 算法： 先考虑一个比较简单的问题，COCI版zuma（出">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2011-08-30T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-21T05:27:00.644Z">
+<meta property="article:author" content="Haoran Xu">
+<meta property="article:tag" content="题解">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="../../../../atom.xml" title="" type="application/atom+xml">
+  
+  
+  
+    <!--<link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">-->
+    
+<link rel="stylesheet" href="../../../../css/source_code_pro.css">
+
+  
+
+  <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">-->
+  
+<link rel="stylesheet" href="../../../../css/bootstrap/bootstrap.min.css">
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
+
+  
+<link rel="stylesheet" href="../../../../css/styles.css">
+
+  
+
+  
+  <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" integrity="sha384-8gBf6Y4YYq7Jx97PIqmTwLPin4hxIzQw5aDmUg/DDhul9fFpbbLcLh3nTIIDJKhx" crossorigin="anonymous"></script>-->
+  
+<script src="../../../../js/jquery.min.js"></script>
+
+
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><nav class="navbar navbar-inverse">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="main-menu-navbar">
+      <ul class="nav navbar-nav">
+        
+          <li><a class=""
+                 href="../../../../index.html">Archives</a></li>
+        
+          <li><a class=""
+                 href="../../../../about/">About</a></li>
+        
+          <li><a class=""
+                 href="../../../../../">English Blog</a></li>
+        
+      </ul>
+
+      <!--
+      <ul class="nav navbar-nav navbar-right">
+        
+          <li><a href="/atom.xml" title="RSS Feed"><i class="fa fa-rss"></i></a></li>
+        
+      </ul>
+      -->
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+  <div class="container">
+    <div class="blog-header">
+  <h1 class="blog-title"></h1>
+  
+    <p class="blog-description">「こんなきれいな星も、やっぱりここまで来てから、見れたのだと思うから。だから・・もっと遠くへ・・」</p>
+  
+</div>
+
+    <div class="row">
+        <div class="col-sm-8 blog-main">
+          <article id="post-2011-08-30" class="article article-type-post" itemscope itemprop="blogPost">
+
+  <header class="article-header">
+    
+  
+    <h1 class="article-title" itemprop="name">
+      POJ2915 Zuma DP
+    </h1>
+  
+
+
+  </header>
+
+  <div class="article-meta">
+    <div class="article-datetime">
+  <a href="" class="article-date"><time datetime="2011-08-30T00:00:00.000Z" itemprop="datePublished">2011-08-30</time></a>
+</div>
+
+    
+    
+
+  </div>
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>原题地址http://poj.org/problem?id=2915</p>
+<p>题目大意：</p>
+<p>经典的zuma游戏！给定一个长度不超过200的zuma序列, 规定大于等于M个同色珠子相碰就会自动消掉（2&lt;=M&lt;=20），要求射入最少的珠子（位置和颜色没有限制），消掉整个zuma序列。一个特殊条件：射入的珠子的颜色必须是其左右两侧珠子颜色之一。</p>
+<p>算法：</p>
+<p>先考虑一个比较简单的问题，COCI版zuma（出处2009~2010 contest #5）</p>
+<p>COCI版zuma和2915版zuma的区别是，COCI版中当同色珠子达到M时，可以选择消去（也允许选择不消去，不像2915版zuma是自动消的）</p>
+<p>这个问题用hym神犇在三省题解中的算法就行了：</p>
+<p>dp[i,j,k]表示第i~j的珠子，附带k个和第j个珠子颜色相同的珠子，至少需要多少次射击才能全消</p>
+<p>则当k&lt;M-1时可以选择往最后补一个珠子，花费dp[i,j,k+1]+1步；当k=M-1时可以选择把最后一串消掉，花费dp[i,j-1,0]步</p>
+<p>另外可以找到一个i&lt;=L&lt;j，使得第L个珠子颜色和第j个珠子颜色相同，然后消掉(L+1)~(j-1)这一段珠子，然后转化成dp[i,L,k+1],总代价为dp[i,L,k+1]+dp[L+1,j-1,0]</p>
+<p>这个算法之所以正确，是因为我们可以选择消掉或不消掉已经达到M的珠子</p>
+<p>如果同色珠子到达连续M个就自动爆炸的话，那么这个算法就是错误的了</p>
+<p>例如这个数据</p>
+<p>6 3</p>
+<p>1 2 1 3 1 1</p>
+<p>这时正确的方法应该是先用两个珠子消掉2，然后用两个珠子消掉3，然后1自爆，共计4个珠子</p>
+<p>但用上面的算法就出错了，因为上面的算法认为如果要把第一个1和最后两个1连起来，必须把中间的’2 1 3’全部消掉。而不能处理先消’1 2 1’中的2，然后保留1，转而去消3的做法。</p>
+<p>我们可以修改这个算法。</p>
+<p>上面那个算法之所以出错，是因为有时候不应该过早的把珠子连成串消掉的。</p>
+<p>首先把连续同色珠子合并，合并成二元组(cl,sz)表示颜色为cl，共计sz个的连续珠子。因为射入的珠子必须是其左右两侧珠子颜色之一，所以连续颜色块一定不会被拆散。（如果没有这个条件此题就不可做了，参考GYZ神犇的神文）</p>
+<p>我们不妨把初始队列中大于等于M个的连续同色珠子视为M-1个，这样明显是不会改变结果的，但能为后期的处理带来很大的方便。</p>
+<p>这时，我们发现，如果我们要攒肥了一起消，那么最多只能消掉2M-2个珠子（废话）。同时，碰撞的两段的每一段长度都小于M（废话）。</p>
+<p>我们用zuma[i]表示第i个zuma二元组。</p>
+<p>我们定义状态dp[i,j,k]表示想要消掉第i~j的珠子以及附带的k个和第j个珠子颜色相同的珠子，所需最少射击次数。但这里k的定义和hym神犇的定义有所区别</p>
+<p>当k&lt;m时，表示有k个自由珠子</p>
+<p>当m&lt;=k&lt;2m时，表示已经配出了一段尽量长，但长度小于M的同色珠子，还有k-m个自由珠子可配</p>
+<p>另外，这里的k并不一定是实际存在的连续珠子，而可以是一段序列经过一些操作后，可以达到k个连续珠子这个结果. 也就是说，如果k+zuma[j].sz&gt;=M时并不一定引起消除，因为这时k还是一段安全的队列。我们可以先操作k产生自由珠子，然后操作zuma[j]使其和k中的自由珠子配起来，然后再操作k产生一段非自由的珠子，最后消掉间隔自由珠子和非自由珠子的那一段队列，从而引起消除。因此，只要条件允许，即使k+zuma[j].sz&gt;=M我们依然可以扩展k。</p>
+<p>对于状态dp[i,j,k]我们分情况讨论：</p>
+<p>当i&gt;j时，值为0</p>
+<p>当i&lt;=j时</p>
+<p>转移1：可以把第j段以及附带的k个珠子强行全消掉，变成dp[i,j-1,0]</p>
+<p>转移2：分情况讨论</p>
+<pre><code>情况1：zuma[j].sz+k&lt;M. 这时，zuma[j]和k无论怎么处理都不会引起消除。转移和hym神犇的相同。为dp[i,L,k+zuma[j].sz]+dp[L+1,j-1,0]其中zuma[L].cl=zuma[j].cl
+
+情况2：k&lt;M但zuma[j].sz+k&gt;=M. 这时，k不可以继续吸纳zuma[j]的珠子了，k这一段变成了非自由的序列。zuma[j]变成新的自由珠子。转移为dp[i,L,M+zuma[j].sz]+dp[L+1,j-1,0]其中zuma[L].cl=zuma[j].cl
+
+情况3：k&gt;=M且zuma[j].sz+K&lt;2M-1. 这时，和情况1一样。只是多了一段非自由的珠子。不用管它，因为我们转移只需要考虑自由珠子。转移为dp[i,L,k+zuma[j].sz]+dp[L+1,j-1,0]其中zuma[L].cl=zuma[j].cl
+
+情况4：zuma[j].sz+k&gt;=2M-1. 这时，zuma[j]不可能参与到k的消除中去，因为如果两段序列如总长度能达到2M-1则必然其中一段序列长度会达到M从而引起消除。所以zuma[j]根本不可能参与到k的消除中去。k只能自己消除，zuma[j]变成新的自由珠子。所以转移为dp[i,L,zuma[j].sz]+dp[L+1,j-1,0]其中zuma[L].cl=zuma[j].cl（注意4个方程的细小区别）
+</code></pre>
+<p>这样就可以了。时间复杂度O(N^3*M). 不要用记忆化搜索，否则会tle。</p>
+<link rel="stylesheet" href="/cnblog/css/spoiler.css" type="text/css"><script src="/cnblog/js/spoiler.js" type="text/javascript" async></script>
+      
+    </div>
+
+    
+      
+
+    
+
+    <footer class="article-footer">
+    <!--
+      <a data-url="2011/08/30/2011-08-30/" data-id="cl4nq6z7k000cbeor6ti8ew59" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+    -->
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/%E9%A2%98%E8%A7%A3/" rel="tag">题解</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+    
+<ul id="article-nav" class="nav nav-pills nav-justified">
+  
+  <li role="presentation">
+    <a href="../../28/2011-08-28/" id="article-nav-older" class="article-nav-link-wrap">
+      <i class="fa fa-chevron-left pull-left"></i>
+      <span class="article-nav-link-title">POJ2422 很有意思的博弈搜索</span>
+    </a>
+  </li>
+  
+  
+  <li role="presentation">
+    <a href="../../../09/15/2011-09-15/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-link-title">几题插头DP题</span>
+      <i class="fa fa-chevron-right pull-right"></i>
+    </a>
+  </li>
+  
+</ul>
+
+
+  
+</article>
+
+
+
+
+        </div>
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+          
+  
+
+
+  
+  <div class="sidebar-module">
+    <h4>Tags</h4>
+    <ul class="sidebar-module-list" itemprop="keywords"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/ACM/" rel="tag">ACM</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/OI/" rel="tag">OI</a><span class="sidebar-module-list-count">23</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/" rel="tag">技术杂谈</a><span class="sidebar-module-list-count">12</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%9D%82%E8%B0%88/" rel="tag">杂谈</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%9D%82%E8%B0%88%E6%B0%B4/" rel="tag">杂谈水</a><span class="sidebar-module-list-count">9</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%B5%81%E6%B0%B4%E8%B4%A6/" rel="tag">流水账</a><span class="sidebar-module-list-count">15</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E9%A2%98%E8%A7%A3/" rel="tag">题解</a><span class="sidebar-module-list-count">24</span></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Tag Cloud</h4>
+    <p class="tagcloud">
+      <a href="../../../../tags/ACM/" style="font-size: 10px;">ACM</a> <a href="../../../../tags/OI/" style="font-size: 18.33px;">OI</a> <a href="../../../../tags/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/" style="font-size: 15px;">技术杂谈</a> <a href="../../../../tags/%E6%9D%82%E8%B0%88/" style="font-size: 11.67px;">杂谈</a> <a href="../../../../tags/%E6%9D%82%E8%B0%88%E6%B0%B4/" style="font-size: 13.33px;">杂谈水</a> <a href="../../../../tags/%E6%B5%81%E6%B0%B4%E8%B4%A6/" style="font-size: 16.67px;">流水账</a> <a href="../../../../tags/%E9%A2%98%E8%A7%A3/" style="font-size: 20px;">题解</a>
+    </p>
+  </div>
+
+
+  
+  <div class="sidebar-module">
+    <h4>Archives</h4>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2022/">2022</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2018/">2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2017/">2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2015/">2015</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2014/">2014</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2013/">2013</a><span class="sidebar-module-list-count">7</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2012/">2012</a><span class="sidebar-module-list-count">27</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2011/">2011</a><span class="sidebar-module-list-count">11</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2010/">2010</a><span class="sidebar-module-list-count">1</span></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Recents</h4>
+    <ul class="sidebar-module-list">
+      
+        <li>
+          <a href="../../../../2022/01/31/2022-01-31/">写于PhD的第三年</a>
+        </li>
+      
+        <li>
+          <a href="../../../../2018/03/14/2018-03-14/">胡思乱想</a>
+        </li>
+      
+        <li>
+          <a href="../../../../2017/05/25/2017-05-25/">WF2017 滚粗记</a>
+        </li>
+      
+        <li>
+          <a href="../../../../2015/05/21/2015-05-21/">WF2015 滚粗记</a>
+        </li>
+      
+        <li>
+          <a href="../../../../2015/04/12/2015-04-12/">TC SRM655 &amp; TCO2015 R1A</a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+
+        </div>
+    </div>
+  </div>
+  <footer class="blog-footer">
+  <div class="container">
+    <div id="footer-info" class="inner">
+      &copy; 2022 Haoran Xu<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+  
+
+<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>-->
+
+<script src="../../../../js/bootstrap/bootstrap.min.js"></script>
+
+
+
+  
+<link rel="stylesheet" href="../../../../fancybox/jquery.fancybox.css">
+
+  
+<script src="../../../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="../../../../js/script.js"></script>
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    menuSettings: {
+      zoom: "None"
+    },
+    showMathMenu: false,
+    jax: ["input/TeX","output/CommonHTML"],
+    extensions: ["tex2jax.js"],
+    TeX: {
+      extensions: ["AMSmath.js","AMSsymbols.js"],
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    },
+    tex2jax: {
+      inlineMath: [["\\(", "\\)"]],
+      displayMath: [["\\[", "\\]"]]
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.1/MathJax.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+ 
+
+</body>
+</html>

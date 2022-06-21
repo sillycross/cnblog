@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <title>POJ2422 很有意思的博弈搜索 | </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="原题地址http:&#x2F;&#x2F;poj.org&#x2F;problem?id&#x3D;2422 题目大意： 在一个n*m的棋盘上(n,m&lt;&#x3D;10), 有一些地方是不可进入的障碍物。棋盘上有3只狼和一只羊，按回合制移动，狼先动，羊后动。 狼和羊都不可以进入障碍物或重叠（狼和狼的重叠以及狼和羊的重叠都是不允许的）。 在狼的回合里，三只狼中选一只狼动一格（上下左右），除非3只狼都不能移动，否则不允许不动。 在羊的会合里，羊">
+<meta property="og:type" content="article">
+<meta property="og:title" content="POJ2422 很有意思的博弈搜索">
+<meta property="og:url" content="2011/08/28/2011-08-28/index.html">
+<meta property="og:site_name">
+<meta property="og:description" content="原题地址http:&#x2F;&#x2F;poj.org&#x2F;problem?id&#x3D;2422 题目大意： 在一个n*m的棋盘上(n,m&lt;&#x3D;10), 有一些地方是不可进入的障碍物。棋盘上有3只狼和一只羊，按回合制移动，狼先动，羊后动。 狼和羊都不可以进入障碍物或重叠（狼和狼的重叠以及狼和羊的重叠都是不允许的）。 在狼的回合里，三只狼中选一只狼动一格（上下左右），除非3只狼都不能移动，否则不允许不动。 在羊的会合里，羊">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2011-08-28T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-21T05:27:00.644Z">
+<meta property="article:author" content="Haoran Xu">
+<meta property="article:tag" content="题解">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="../../../../atom.xml" title="" type="application/atom+xml">
+  
+  
+  
+    <!--<link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">-->
+    
+<link rel="stylesheet" href="../../../../css/source_code_pro.css">
+
+  
+
+  <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">-->
+  
+<link rel="stylesheet" href="../../../../css/bootstrap/bootstrap.min.css">
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
+
+  
+<link rel="stylesheet" href="../../../../css/styles.css">
+
+  
+
+  
+  <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" integrity="sha384-8gBf6Y4YYq7Jx97PIqmTwLPin4hxIzQw5aDmUg/DDhul9fFpbbLcLh3nTIIDJKhx" crossorigin="anonymous"></script>-->
+  
+<script src="../../../../js/jquery.min.js"></script>
+
+
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><nav class="navbar navbar-inverse">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="main-menu-navbar">
+      <ul class="nav navbar-nav">
+        
+          <li><a class=""
+                 href="../../../../index.html">Archives</a></li>
+        
+          <li><a class=""
+                 href="../../../../about/">About</a></li>
+        
+          <li><a class=""
+                 href="../../../../../">English Blog</a></li>
+        
+      </ul>
+
+      <!--
+      <ul class="nav navbar-nav navbar-right">
+        
+          <li><a href="/atom.xml" title="RSS Feed"><i class="fa fa-rss"></i></a></li>
+        
+      </ul>
+      -->
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+  <div class="container">
+    <div class="blog-header">
+  <h1 class="blog-title"></h1>
+  
+    <p class="blog-description">「こんなきれいな星も、やっぱりここまで来てから、見れたのだと思うから。だから・・もっと遠くへ・・」</p>
+  
+</div>
+
+    <div class="row">
+        <div class="col-sm-8 blog-main">
+          <article id="post-2011-08-28" class="article article-type-post" itemscope itemprop="blogPost">
+
+  <header class="article-header">
+    
+  
+    <h1 class="article-title" itemprop="name">
+      POJ2422 很有意思的博弈搜索
+    </h1>
+  
+
+
+  </header>
+
+  <div class="article-meta">
+    <div class="article-datetime">
+  <a href="" class="article-date"><time datetime="2011-08-28T00:00:00.000Z" itemprop="datePublished">2011-08-28</time></a>
+</div>
+
+    
+    
+
+  </div>
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>原题地址http://poj.org/problem?id=2422</p>
+<p>题目大意：</p>
+<p>在一个n*m的棋盘上(n,m&lt;=10), 有一些地方是不可进入的障碍物。棋盘上有3只狼和一只羊，按回合制移动，狼先动，羊后动。</p>
+<p>狼和羊都不可以进入障碍物或重叠（狼和狼的重叠以及狼和羊的重叠都是不允许的）。</p>
+<p>在狼的回合里，三只狼中选一只狼动一格（上下左右），除非3只狼都不能移动，否则不允许不动。</p>
+<p>在羊的会合里，羊上下左右移动一格，如果羊移动后逃出了棋盘，则羊胜利。如果羊无法移动，则狼胜利。</p>
+<p>如果羊有一种策略可以使游戏永远进行下去，则也算是羊胜利。</p>
+<p>给定初始棋盘，如果两方都按最优策略移动，求胜利者。</p>
+<p>算法：</p>
+<p>这明显是一道博弈搜索题目。但这个博弈搜索不同于一般的博弈搜索。这个博弈搜索的状态转移是有环的。例如狼往左，羊往左，然后狼往右，羊往右。于是状态又绕回来了。这个也是这道题目的关键所在。</p>
+<p>其实我们可以倒过来考虑。考虑羊被困死的所有状态。如果知道所有这样状态的，那么我们就可以倒推一步，得到一个“狼一步后胜利”的狼必胜态列表，再倒退一步，得到“羊一步后必然被困死”的必输态列表。这样反复倒推，最终可以得出起点的属态。</p>
+<p>但获得一个羊被困死的所有状态是很困难的。其实有一个比较巧妙地解决方法。就是我们依然从起点正向博弈宽搜，但搜索时并不计算这个状态的属性。一旦发现某个状态羊不能移动了（或移出棋盘了），我们就得到了一个必输（必胜）态，然后沿着这个状态倒推回去，把一路上可以算出属性的状态全部算出属性（如果这个状态是必输态，则它的父母（可能有多达16个）都是必胜态；如果一个状态是必胜态，则把它的父母的孩子数量减一，如果一个父母的孩子数量变成0了，则这个父母状态为必输态（这里的必胜必输都是相对于正在走棋的人而言的））。这样就免去了计算所有必输（必胜）态的困难。</p>
+<p>但这样，状态数依然是N^4<em>M^4级别的，转移是3</em>4的（3只狼，4个方向），我们需要剪枝。注意到如果一个态的属性已经确定了，那么他所有的子态的属性也就确定了，而且如果起点在这个状态的子态中，那么也必然可以通过往前倒退到达起点。所以一旦一个状态属性被确定，就不需要扩展这个状态了。如果起点的属态确定了，那么就可以直接结束了。加上这个剪枝后实际上计算的状态数并不多，用hash表存储状态就没有问题了。</p>
+<p>然后就是代码的问题了……细节很多，很恶心……要注意考虑到所有的情况。</p>
+<link rel="stylesheet" href="/cnblog/css/spoiler.css" type="text/css"><script src="/cnblog/js/spoiler.js" type="text/javascript" async></script>
+      
+    </div>
+
+    
+      
+
+    
+
+    <footer class="article-footer">
+    <!--
+      <a data-url="2011/08/28/2011-08-28/" data-id="cl4nq6z7i000abeor7n7r4g5z" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+    -->
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/%E9%A2%98%E8%A7%A3/" rel="tag">题解</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+    
+<ul id="article-nav" class="nav nav-pills nav-justified">
+  
+  <li role="presentation">
+    <a href="../../../05/28/2011-05-28/" id="article-nav-older" class="article-nav-link-wrap">
+      <i class="fa fa-chevron-left pull-left"></i>
+      <span class="article-nav-link-title">POJ2841 斜率优化的DP</span>
+    </a>
+  </li>
+  
+  
+  <li role="presentation">
+    <a href="../../30/2011-08-30/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-link-title">POJ2915 Zuma DP</span>
+      <i class="fa fa-chevron-right pull-right"></i>
+    </a>
+  </li>
+  
+</ul>
+
+
+  
+</article>
+
+
+
+
+        </div>
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+          
+  
+
+
+  
+  <div class="sidebar-module">
+    <h4>Tags</h4>
+    <ul class="sidebar-module-list" itemprop="keywords"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/ACM/" rel="tag">ACM</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/OI/" rel="tag">OI</a><span class="sidebar-module-list-count">23</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/" rel="tag">技术杂谈</a><span class="sidebar-module-list-count">12</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%9D%82%E8%B0%88/" rel="tag">杂谈</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%9D%82%E8%B0%88%E6%B0%B4/" rel="tag">杂谈水</a><span class="sidebar-module-list-count">9</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%B5%81%E6%B0%B4%E8%B4%A6/" rel="tag">流水账</a><span class="sidebar-module-list-count">15</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E9%A2%98%E8%A7%A3/" rel="tag">题解</a><span class="sidebar-module-list-count">24</span></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Tag Cloud</h4>
+    <p class="tagcloud">
+      <a href="../../../../tags/ACM/" style="font-size: 10px;">ACM</a> <a href="../../../../tags/OI/" style="font-size: 18.33px;">OI</a> <a href="../../../../tags/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/" style="font-size: 15px;">技术杂谈</a> <a href="../../../../tags/%E6%9D%82%E8%B0%88/" style="font-size: 11.67px;">杂谈</a> <a href="../../../../tags/%E6%9D%82%E8%B0%88%E6%B0%B4/" style="font-size: 13.33px;">杂谈水</a> <a href="../../../../tags/%E6%B5%81%E6%B0%B4%E8%B4%A6/" style="font-size: 16.67px;">流水账</a> <a href="../../../../tags/%E9%A2%98%E8%A7%A3/" style="font-size: 20px;">题解</a>
+    </p>
+  </div>
+
+
+  
+  <div class="sidebar-module">
+    <h4>Archives</h4>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2022/">2022</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2018/">2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2017/">2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2015/">2015</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2014/">2014</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2013/">2013</a><span class="sidebar-module-list-count">7</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2012/">2012</a><span class="sidebar-module-list-count">27</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2011/">2011</a><span class="sidebar-module-list-count">11</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2010/">2010</a><span class="sidebar-module-list-count">1</span></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Recents</h4>
+    <ul class="sidebar-module-list">
+      
+        <li>
+          <a href="../../../../2022/01/31/2022-01-31/">写于PhD的第三年</a>
+        </li>
+      
+        <li>
+          <a href="../../../../2018/03/14/2018-03-14/">胡思乱想</a>
+        </li>
+      
+        <li>
+          <a href="../../../../2017/05/25/2017-05-25/">WF2017 滚粗记</a>
+        </li>
+      
+        <li>
+          <a href="../../../../2015/05/21/2015-05-21/">WF2015 滚粗记</a>
+        </li>
+      
+        <li>
+          <a href="../../../../2015/04/12/2015-04-12/">TC SRM655 &amp; TCO2015 R1A</a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+
+        </div>
+    </div>
+  </div>
+  <footer class="blog-footer">
+  <div class="container">
+    <div id="footer-info" class="inner">
+      &copy; 2022 Haoran Xu<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+  
+
+<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>-->
+
+<script src="../../../../js/bootstrap/bootstrap.min.js"></script>
+
+
+
+  
+<link rel="stylesheet" href="../../../../fancybox/jquery.fancybox.css">
+
+  
+<script src="../../../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="../../../../js/script.js"></script>
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    menuSettings: {
+      zoom: "None"
+    },
+    showMathMenu: false,
+    jax: ["input/TeX","output/CommonHTML"],
+    extensions: ["tex2jax.js"],
+    TeX: {
+      extensions: ["AMSmath.js","AMSsymbols.js"],
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    },
+    tex2jax: {
+      inlineMath: [["\\(", "\\)"]],
+      displayMath: [["\\[", "\\]"]]
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.1/MathJax.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+ 
+
+</body>
+</html>

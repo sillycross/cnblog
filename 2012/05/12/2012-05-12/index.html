@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <title>APIO2012 | </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="首先作为某连续两年抽不中A类的木RP傻叉表示默默仰慕抽中两次1&#x2F;3概率连续两年A类的QMD 于是作为没有RP的傻叉，某果断被分在了全场最差的机房…… 配置单核2.67GHz CPU，而且要在虚拟机里工作……（其他两个机房一个2*3.7GHz,一个8*3.4GHz）继续默默仰慕能分在福利机房305的QMD Day1 看了第一题，暴力显然能O(N^2)，然后YY了一下，感觉如果将所有权值排序，然后顺次">
+<meta property="og:type" content="article">
+<meta property="og:title" content="APIO2012">
+<meta property="og:url" content="2012/05/12/2012-05-12/index.html">
+<meta property="og:site_name">
+<meta property="og:description" content="首先作为某连续两年抽不中A类的木RP傻叉表示默默仰慕抽中两次1&#x2F;3概率连续两年A类的QMD 于是作为没有RP的傻叉，某果断被分在了全场最差的机房…… 配置单核2.67GHz CPU，而且要在虚拟机里工作……（其他两个机房一个2*3.7GHz,一个8*3.4GHz）继续默默仰慕能分在福利机房305的QMD Day1 看了第一题，暴力显然能O(N^2)，然后YY了一下，感觉如果将所有权值排序，然后顺次">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2012-05-12T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-21T05:27:00.644Z">
+<meta property="article:author" content="Haoran Xu">
+<meta property="article:tag" content="流水账">
+<meta property="article:tag" content="OI">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="../../../../atom.xml" title="" type="application/atom+xml">
+  
+  
+  
+    <!--<link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">-->
+    
+<link rel="stylesheet" href="../../../../css/source_code_pro.css">
+
+  
+
+  <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">-->
+  
+<link rel="stylesheet" href="../../../../css/bootstrap/bootstrap.min.css">
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
+
+  
+<link rel="stylesheet" href="../../../../css/styles.css">
+
+  
+
+  
+  <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" integrity="sha384-8gBf6Y4YYq7Jx97PIqmTwLPin4hxIzQw5aDmUg/DDhul9fFpbbLcLh3nTIIDJKhx" crossorigin="anonymous"></script>-->
+  
+<script src="../../../../js/jquery.min.js"></script>
+
+
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><nav class="navbar navbar-inverse">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="main-menu-navbar">
+      <ul class="nav navbar-nav">
+        
+          <li><a class=""
+                 href="../../../../index.html">Archives</a></li>
+        
+          <li><a class=""
+                 href="../../../../about/">About</a></li>
+        
+          <li><a class=""
+                 href="../../../../../">English Blog</a></li>
+        
+      </ul>
+
+      <!--
+      <ul class="nav navbar-nav navbar-right">
+        
+          <li><a href="/atom.xml" title="RSS Feed"><i class="fa fa-rss"></i></a></li>
+        
+      </ul>
+      -->
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+  <div class="container">
+    <div class="blog-header">
+  <h1 class="blog-title"></h1>
+  
+    <p class="blog-description">「こんなきれいな星も、やっぱりここまで来てから、見れたのだと思うから。だから・・もっと遠くへ・・」</p>
+  
+</div>
+
+    <div class="row">
+        <div class="col-sm-8 blog-main">
+          <article id="post-2012-05-12" class="article article-type-post" itemscope itemprop="blogPost">
+
+  <header class="article-header">
+    
+  
+    <h1 class="article-title" itemprop="name">
+      APIO2012
+    </h1>
+  
+
+
+  </header>
+
+  <div class="article-meta">
+    <div class="article-datetime">
+  <a href="" class="article-date"><time datetime="2012-05-12T00:00:00.000Z" itemprop="datePublished">2012-05-12</time></a>
+</div>
+
+    
+    
+
+  </div>
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>首先作为某连续两年抽不中A类的木RP傻叉表示默默仰慕抽中两次1/3概率连续两年A类的QMD<br>
+于是作为没有RP的傻叉，某果断被分在了全场最差的机房…… 配置单核2.67GHz CPU，而且要在虚拟机里工作……（其他两个机房一个2*3.7GHz,一个8*3.4GHz）继续默默仰慕能分在福利机房305的QMD</p>
+<p><strong>Day1</strong></p>
+<p>看了第一题，暴力显然能O(N^2)，然后YY了一下，感觉如果将所有权值排序，然后顺次插入，问题就转化成了一条路径整体加减和查询一条路径最小值。于是果断写了树链剖分…… 对拍完花了1h45min…… 不过讲题时候发现我傻掉了…… 直接平衡树启发式合并就能AC…… 我这个树链剖分做法完全是非主流做法……</p>
+<p>然后还剩3h15min…… 看了第二题…… YY了一下感觉首先将回答为0的区间全删掉，然后如果剩余的灌木数目就是忍者数目那么直接输出…… 否则将所有包含了其他区间的区间全部删掉…… 然后按左端点排序，那么右端点也是有序的了，可以发现能包含某个灌木的区间必然是连续一段…… 于是问题转化成了，给定N个区间，取不超过K个覆盖[1,M]，哪些区间是必须取的。这样显然能平方…… 然后我就犯2了…… 我把问题进一步转化成了，对于每个区间计算其能“延伸”出去的最远的两个右端点，于是建出一个有向无环图，边数O(2N)的…… 然后就转化成每次询问假如删掉某个点那么S到T最短路是否小于等于K…… 这个想了很久都没想法，于是只好放弃…… 交了O(N^2)朴素…… 事后发现我错在最后一步…… 可以观察到最少区间数目其实就是互不相交的区间个数，这个就好做了…… 我把它直接转化成有向无环图显然丢弃了很多性质，过于一般化了……</p>
+<p>因为YY的太慢，写完第二题的朴素花了整整1h…… 于是只有2h15min了…… 然后看第三题…… 先花了10min写完了10分的朴素…… 然后就开始犯2了…… 我想，对于每个苦无，只要找到和它相撞的最早的苦无就行了…… 然后就矩形面积并…… 然后一YY，感觉直接map套set然后线段树做矩形面积并就行了？ 这个做法显然是错的…… 因为没有考虑和某个苦无理论上到最早相撞的苦无可能更早时刻已经被撞掉了……（吐槽：你丫SB啊不读题？！ 明明题目的图里都说了这种情况了！）因为我过于SB完全没想到这个情况，于是直接开写…… 于是我写啊写啊写啊写啊写了2h终于写完了，然后发现过不了样例，然后就没有然后了= = 虽然这个算法的矩形面积并部分可以直接用在40分算法里，但已经没时间改了…… 于是只能交了10分朴素……</p>
+<p>最后貌似第二题我常数优化做的比较好，搞到了70…… 最后结果100+70+10=180…… 不知道能什么牌囧……</p>
+<p>UPD：Au线161于是就Au了…… &gt;_&lt;</p>
+<link rel="stylesheet" href="/cnblog/css/spoiler.css" type="text/css"><script src="/cnblog/js/spoiler.js" type="text/javascript" async></script>
+      
+    </div>
+
+    
+      
+
+    
+
+    <footer class="article-footer">
+    <!--
+      <a data-url="2012/05/12/2012-05-12/" data-id="cl4nq6z85001jbeor142aaqeh" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+    -->
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/OI/" rel="tag">OI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/%E6%B5%81%E6%B0%B4%E8%B4%A6/" rel="tag">流水账</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+    
+<ul id="article-nav" class="nav nav-pills nav-justified">
+  
+  <li role="presentation">
+    <a href="../../09/2012-05-09/" id="article-nav-older" class="article-nav-link-wrap">
+      <i class="fa fa-chevron-left pull-left"></i>
+      <span class="article-nav-link-title">CTSC2012</span>
+    </a>
+  </li>
+  
+  
+  <li role="presentation">
+    <a href="../../13/2012-05-13/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-link-title">PKU Campus 2012</span>
+      <i class="fa fa-chevron-right pull-right"></i>
+    </a>
+  </li>
+  
+</ul>
+
+
+  
+</article>
+
+
+
+
+        </div>
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+          
+  
+
+
+  
+  <div class="sidebar-module">
+    <h4>Tags</h4>
+    <ul class="sidebar-module-list" itemprop="keywords"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/ACM/" rel="tag">ACM</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/OI/" rel="tag">OI</a><span class="sidebar-module-list-count">23</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/" rel="tag">技术杂谈</a><span class="sidebar-module-list-count">12</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%9D%82%E8%B0%88/" rel="tag">杂谈</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%9D%82%E8%B0%88%E6%B0%B4/" rel="tag">杂谈水</a><span class="sidebar-module-list-count">9</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%B5%81%E6%B0%B4%E8%B4%A6/" rel="tag">流水账</a><span class="sidebar-module-list-count">15</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E9%A2%98%E8%A7%A3/" rel="tag">题解</a><span class="sidebar-module-list-count">24</span></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Tag Cloud</h4>
+    <p class="tagcloud">
+      <a href="../../../../tags/ACM/" style="font-size: 10px;">ACM</a> <a href="../../../../tags/OI/" style="font-size: 18.33px;">OI</a> <a href="../../../../tags/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/" style="font-size: 15px;">技术杂谈</a> <a href="../../../../tags/%E6%9D%82%E8%B0%88/" style="font-size: 11.67px;">杂谈</a> <a href="../../../../tags/%E6%9D%82%E8%B0%88%E6%B0%B4/" style="font-size: 13.33px;">杂谈水</a> <a href="../../../../tags/%E6%B5%81%E6%B0%B4%E8%B4%A6/" style="font-size: 16.67px;">流水账</a> <a href="../../../../tags/%E9%A2%98%E8%A7%A3/" style="font-size: 20px;">题解</a>
+    </p>
+  </div>
+
+
+  
+  <div class="sidebar-module">
+    <h4>Archives</h4>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2022/">2022</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2018/">2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2017/">2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2015/">2015</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2014/">2014</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2013/">2013</a><span class="sidebar-module-list-count">7</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2012/">2012</a><span class="sidebar-module-list-count">27</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2011/">2011</a><span class="sidebar-module-list-count">11</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2010/">2010</a><span class="sidebar-module-list-count">1</span></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Recents</h4>
+    <ul class="sidebar-module-list">
+      
+        <li>
+          <a href="../../../../2022/01/31/2022-01-31/">写于PhD的第三年</a>
+        </li>
+      
+        <li>
+          <a href="../../../../2018/03/14/2018-03-14/">胡思乱想</a>
+        </li>
+      
+        <li>
+          <a href="../../../../2017/05/25/2017-05-25/">WF2017 滚粗记</a>
+        </li>
+      
+        <li>
+          <a href="../../../../2015/05/21/2015-05-21/">WF2015 滚粗记</a>
+        </li>
+      
+        <li>
+          <a href="../../../../2015/04/12/2015-04-12/">TC SRM655 &amp; TCO2015 R1A</a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+
+        </div>
+    </div>
+  </div>
+  <footer class="blog-footer">
+  <div class="container">
+    <div id="footer-info" class="inner">
+      &copy; 2022 Haoran Xu<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+  
+
+<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>-->
+
+<script src="../../../../js/bootstrap/bootstrap.min.js"></script>
+
+
+
+  
+<link rel="stylesheet" href="../../../../fancybox/jquery.fancybox.css">
+
+  
+<script src="../../../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="../../../../js/script.js"></script>
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    menuSettings: {
+      zoom: "None"
+    },
+    showMathMenu: false,
+    jax: ["input/TeX","output/CommonHTML"],
+    extensions: ["tex2jax.js"],
+    TeX: {
+      extensions: ["AMSmath.js","AMSsymbols.js"],
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    },
+    tex2jax: {
+      inlineMath: [["\\(", "\\)"]],
+      displayMath: [["\\[", "\\]"]]
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.1/MathJax.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+ 
+
+</body>
+</html>

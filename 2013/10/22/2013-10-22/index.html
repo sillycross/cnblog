@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <title>某次Archlinux升级后产生的诡异问题及解决过程 | </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="前两天升级了一下arch，然后就产生了一个诡异问题： dolphin中选中某个文件（文件名出现“减号”时），文件名会突然消失……">
+<meta property="og:type" content="article">
+<meta property="og:title" content="某次Archlinux升级后产生的诡异问题及解决过程">
+<meta property="og:url" content="2013/10/22/2013-10-22/index.html">
+<meta property="og:site_name">
+<meta property="og:description" content="前两天升级了一下arch，然后就产生了一个诡异问题： dolphin中选中某个文件（文件名出现“减号”时），文件名会突然消失……">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="/cnblog/images/2013-10-22/1.jpg#inline">
+<meta property="og:image" content="/cnblog/images/2013-10-22/2.jpg#inline">
+<meta property="article:published_time" content="2013-10-22T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-21T05:27:00.644Z">
+<meta property="article:author" content="Haoran Xu">
+<meta property="article:tag" content="杂谈水">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="/cnblog/images/2013-10-22/1.jpg#inline">
+  
+    <link rel="alternate" href="../../../../atom.xml" title="" type="application/atom+xml">
+  
+  
+  
+    <!--<link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">-->
+    
+<link rel="stylesheet" href="../../../../css/source_code_pro.css">
+
+  
+
+  <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">-->
+  
+<link rel="stylesheet" href="../../../../css/bootstrap/bootstrap.min.css">
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
+
+  
+<link rel="stylesheet" href="../../../../css/styles.css">
+
+  
+
+  
+  <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" integrity="sha384-8gBf6Y4YYq7Jx97PIqmTwLPin4hxIzQw5aDmUg/DDhul9fFpbbLcLh3nTIIDJKhx" crossorigin="anonymous"></script>-->
+  
+<script src="../../../../js/jquery.min.js"></script>
+
+
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><nav class="navbar navbar-inverse">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="main-menu-navbar">
+      <ul class="nav navbar-nav">
+        
+          <li><a class=""
+                 href="../../../../index.html">Archives</a></li>
+        
+          <li><a class=""
+                 href="../../../../about/">About</a></li>
+        
+          <li><a class=""
+                 href="../../../../../">English Blog</a></li>
+        
+      </ul>
+
+      <!--
+      <ul class="nav navbar-nav navbar-right">
+        
+          <li><a href="/atom.xml" title="RSS Feed"><i class="fa fa-rss"></i></a></li>
+        
+      </ul>
+      -->
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+  <div class="container">
+    <div class="blog-header">
+  <h1 class="blog-title"></h1>
+  
+    <p class="blog-description">「こんなきれいな星も、やっぱりここまで来てから、見れたのだと思うから。だから・・もっと遠くへ・・」</p>
+  
+</div>
+
+    <div class="row">
+        <div class="col-sm-8 blog-main">
+          <article id="post-2013-10-22" class="article article-type-post" itemscope itemprop="blogPost">
+
+  <header class="article-header">
+    
+  
+    <h1 class="article-title" itemprop="name">
+      某次Archlinux升级后产生的诡异问题及解决过程
+    </h1>
+  
+
+
+  </header>
+
+  <div class="article-meta">
+    <div class="article-datetime">
+  <a href="" class="article-date"><time datetime="2013-10-22T00:00:00.000Z" itemprop="datePublished">2013-10-22</time></a>
+</div>
+
+    
+    
+
+  </div>
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>前两天升级了一下arch，然后就产生了一个诡异问题：<br>
+dolphin中选中某个文件（文件名出现“减号”时），文件名会突然消失……<a id="more"></a><br>
+<span style="display:inline-block; width:262px">正常情况：</span> 选中后文件名消失了：<br>
+<img src="/cnblog/images/2013-10-22/1.jpg#inline" alt=""> <img src="/cnblog/images/2013-10-22/2.jpg#inline" alt=""></p>
+<p>发到archlinux贴吧问了一下，有网友表示应该只是文件名用白色显示了，可能是widget style的问题。 我想了一下觉得很靠谱，可能是oxygen-transparent出问题了，于是到系统设置里把style改回oxygen。 结果打开的那个dolphin窗口立即好了，但更诡异的问题出现了： 新开的dolphin窗口依然会出现那个诡异问题。</p>
+<p>经过若干实验，发现在系统设置里改style确实会使所有已经打开的窗口正常，但对新开的窗口就无效了…… 实在猎奇。 QQ上问了一下wzy大神，他表示可以考虑用命令行启动一个dolphin，看错误信息。</p>
+<p>于是我实验了一下，确实爆出了一堆错误信息。 先发现是，好像dolphin使用了某个奇怪的本地style，那个style好像残缺不全，一堆图片都不存在，于是报错了。 另一个发现是，dolphin好像用的是gtk的风格？ 但dolphin明明是qt程序啊…… 我一开始怀疑是不是kde4_gtk这个包的问题（这个包作用是统一gtk和qt程序的外观），于是先把那个本地的残缺style删了，然后把kde4_gtk这个包给卸了，但再开dolphin，发现虽然没有那堆“图片不存在”的错误信息了，但诡异问题依然没有消失。 而且，dolphin、kate和其他qt程序的界面一下都变的很丑，变成了丑到爆的默认gtk风格。</p>
+<p>于是，问题比较明确了，dolphin等qt程序都因为某些不明原因，使用了默认gtk风格而不是qt风格，而那个gtk风格似乎是有问题的（wzy给了一个bug report链接，表示dolphin使用默认gtk风格时有时确实会发生文件名变白这个问题）。</p>
+<p>我试图强行把那个默认gtk风格用oxygen覆盖掉，于是去查主题包默认存放位置，却偶然看到一个arch wiki上的<a href="https://bbs.archlinux.org/viewtopic.php?id=137257" target="_blank" rel="noopener">求助贴</a>，那个帖子虽然问题内容和我不太一样，但楼主表示最后发现是一个配置文件错误，删掉~/.config/Trolltech.conf让程序自己生成一个新的后就正常了。 我一下理解了我的诡异问题的原因： 把风格改成oxygen后，已经打开的程序界面恢复正常，说明oxygen风格本身没有被损坏；而新开程序依然使用默认gtk风格，说明很可能是配置文件让程序这么做的。</p>
+<p>于是我删掉qt的配置文件~/.config/Trolltech.conf，然后重启。 发现dolphin等qt程序均恢复正常。 估计是我很久没升级，然后从很旧的版本直接升级到最新，软件源维护者没考虑过从这么老的版本升级，忘了更新某个配置文件导致的。 这个问题看上去算解决了，但事情其实没结束……</p>
+<p>几天后，我突然发现，在qt程序内没法使用输入法了！ firefox、gedit等gtk程序中输入法使用正常，但dolphin、kate等qt程序就没法用了。 而且从终端启动的qt程序，输入法使用正常。 因为.bashrc里export了输入法相关的参数，我怀疑是kde启动时可能没有正确设置qt的输入法（但正确设置了gtk的输入法），所以从kde中启动的qt程序就无法使用输入法了。</p>
+<p>一开始怀疑是.xprofile或者.xinitrc之类的配置文件的问题，但各种修改后都没用。 最后也是偶然看到一个帖子，里面提到用qtconfig-qt4设置qt程序的输入法。 我立刻明白真相了，差点一口血喷出来…… 尼玛我当时装系统时明明已经用qtconfig-qt4设置过输入法了，但为啥现在突然没用了？ 因为前两天修那个诡异问题时候我把qt的配置文件给删了！！！ 一口老血喷出来啊…… 打开qtconfig-qt4，发现输入法果然是默认的xim而不是fcitx，于是改回fcitx，重启，问题解决。</p>
+<p>果然arch一升级就要折腾…… arch虽然软件源确实十分丰富，各种软件都找得到，但人性化方面实在略xx…… &gt;_&lt; 哪天再滚动升级滚挂了还是直接转kubuntu好了…… （不用ubuntu是因为kde确实比gnome好用一些。。）</p>
+<link rel="stylesheet" href="/cnblog/css/spoiler.css" type="text/css"><script src="/cnblog/js/spoiler.js" type="text/javascript" async></script>
+      
+    </div>
+
+    
+      
+
+    
+
+    <footer class="article-footer">
+    <!--
+      <a data-url="2013/10/22/2013-10-22/" data-id="cl4nq6z8s002xbeor2uu85ah5" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+    -->
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/%E6%9D%82%E8%B0%88%E6%B0%B4/" rel="tag">杂谈水</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+    
+<ul id="article-nav" class="nav nav-pills nav-justified">
+  
+  <li role="presentation">
+    <a href="../../../07/14/2013-07-14/" id="article-nav-older" class="article-nav-link-wrap">
+      <i class="fa fa-chevron-left pull-left"></i>
+      <span class="article-nav-link-title">IOI2013</span>
+    </a>
+  </li>
+  
+  
+  <li role="presentation">
+    <a href="../../../../2014/01/05/2014-01-05/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-link-title">智商恢复（制造？）计划 01</span>
+      <i class="fa fa-chevron-right pull-right"></i>
+    </a>
+  </li>
+  
+</ul>
+
+
+  
+</article>
+
+
+
+
+        </div>
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+          
+  
+
+
+  
+  <div class="sidebar-module">
+    <h4>Tags</h4>
+    <ul class="sidebar-module-list" itemprop="keywords"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/ACM/" rel="tag">ACM</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/OI/" rel="tag">OI</a><span class="sidebar-module-list-count">23</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/" rel="tag">技术杂谈</a><span class="sidebar-module-list-count">12</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%9D%82%E8%B0%88/" rel="tag">杂谈</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%9D%82%E8%B0%88%E6%B0%B4/" rel="tag">杂谈水</a><span class="sidebar-module-list-count">9</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%B5%81%E6%B0%B4%E8%B4%A6/" rel="tag">流水账</a><span class="sidebar-module-list-count">15</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E9%A2%98%E8%A7%A3/" rel="tag">题解</a><span class="sidebar-module-list-count">24</span></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Tag Cloud</h4>
+    <p class="tagcloud">
+      <a href="../../../../tags/ACM/" style="font-size: 10px;">ACM</a> <a href="../../../../tags/OI/" style="font-size: 18.33px;">OI</a> <a href="../../../../tags/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/" style="font-size: 15px;">技术杂谈</a> <a href="../../../../tags/%E6%9D%82%E8%B0%88/" style="font-size: 11.67px;">杂谈</a> <a href="../../../../tags/%E6%9D%82%E8%B0%88%E6%B0%B4/" style="font-size: 13.33px;">杂谈水</a> <a href="../../../../tags/%E6%B5%81%E6%B0%B4%E8%B4%A6/" style="font-size: 16.67px;">流水账</a> <a href="../../../../tags/%E9%A2%98%E8%A7%A3/" style="font-size: 20px;">题解</a>
+    </p>
+  </div>
+
+
+  
+  <div class="sidebar-module">
+    <h4>Archives</h4>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2022/">2022</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2018/">2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2017/">2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2015/">2015</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2014/">2014</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2013/">2013</a><span class="sidebar-module-list-count">7</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2012/">2012</a><span class="sidebar-module-list-count">27</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2011/">2011</a><span class="sidebar-module-list-count">11</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2010/">2010</a><span class="sidebar-module-list-count">1</span></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Recents</h4>
+    <ul class="sidebar-module-list">
+      
+        <li>
+          <a href="../../../../2022/01/31/2022-01-31/">写于PhD的第三年</a>
+        </li>
+      
+        <li>
+          <a href="../../../../2018/03/14/2018-03-14/">胡思乱想</a>
+        </li>
+      
+        <li>
+          <a href="../../../../2017/05/25/2017-05-25/">WF2017 滚粗记</a>
+        </li>
+      
+        <li>
+          <a href="../../../../2015/05/21/2015-05-21/">WF2015 滚粗记</a>
+        </li>
+      
+        <li>
+          <a href="../../../../2015/04/12/2015-04-12/">TC SRM655 &amp; TCO2015 R1A</a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+
+        </div>
+    </div>
+  </div>
+  <footer class="blog-footer">
+  <div class="container">
+    <div id="footer-info" class="inner">
+      &copy; 2022 Haoran Xu<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+  
+
+<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>-->
+
+<script src="../../../../js/bootstrap/bootstrap.min.js"></script>
+
+
+
+  
+<link rel="stylesheet" href="../../../../fancybox/jquery.fancybox.css">
+
+  
+<script src="../../../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="../../../../js/script.js"></script>
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    menuSettings: {
+      zoom: "None"
+    },
+    showMathMenu: false,
+    jax: ["input/TeX","output/CommonHTML"],
+    extensions: ["tex2jax.js"],
+    TeX: {
+      extensions: ["AMSmath.js","AMSsymbols.js"],
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    },
+    tex2jax: {
+      inlineMath: [["\\(", "\\)"]],
+      displayMath: [["\\[", "\\]"]]
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.1/MathJax.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+ 
+
+</body>
+</html>

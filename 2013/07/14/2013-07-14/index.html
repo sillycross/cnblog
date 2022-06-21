@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <title>IOI2013 | </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="day -3 乘火车前往了北京，住在一个网速只有几KB每秒、厕所里所有东西都坏了的奇葩宾馆。。我和clj住在一个房间，qmd和wkn住在一个房间。 day -2 在pku参加了某热身赛，题目基本以暴力题为主。。 说几个比较有趣的题吧。。 B题： 有k个盒子和n个编号分别为1~n的球（k&lt;&#x3D;25,n&lt;&#x3D;10^10000），要求每个盒子中放一些球，满足对盒子i中每个球（设其编号为x），在盒">
+<meta property="og:type" content="article">
+<meta property="og:title" content="IOI2013">
+<meta property="og:url" content="2013/07/14/2013-07-14/index.html">
+<meta property="og:site_name">
+<meta property="og:description" content="day -3 乘火车前往了北京，住在一个网速只有几KB每秒、厕所里所有东西都坏了的奇葩宾馆。。我和clj住在一个房间，qmd和wkn住在一个房间。 day -2 在pku参加了某热身赛，题目基本以暴力题为主。。 说几个比较有趣的题吧。。 B题： 有k个盒子和n个编号分别为1~n的球（k&lt;&#x3D;25,n&lt;&#x3D;10^10000），要求每个盒子中放一些球，满足对盒子i中每个球（设其编号为x），在盒">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2013-07-14T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-21T05:27:00.644Z">
+<meta property="article:author" content="Haoran Xu">
+<meta property="article:tag" content="流水账">
+<meta property="article:tag" content="OI">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="../../../../atom.xml" title="" type="application/atom+xml">
+  
+  
+  
+    <!--<link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">-->
+    
+<link rel="stylesheet" href="../../../../css/source_code_pro.css">
+
+  
+
+  <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">-->
+  
+<link rel="stylesheet" href="../../../../css/bootstrap/bootstrap.min.css">
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
+
+  
+<link rel="stylesheet" href="../../../../css/styles.css">
+
+  
+
+  
+  <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" integrity="sha384-8gBf6Y4YYq7Jx97PIqmTwLPin4hxIzQw5aDmUg/DDhul9fFpbbLcLh3nTIIDJKhx" crossorigin="anonymous"></script>-->
+  
+<script src="../../../../js/jquery.min.js"></script>
+
+
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><nav class="navbar navbar-inverse">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="main-menu-navbar">
+      <ul class="nav navbar-nav">
+        
+          <li><a class=""
+                 href="../../../../index.html">Archives</a></li>
+        
+          <li><a class=""
+                 href="../../../../about/">About</a></li>
+        
+          <li><a class=""
+                 href="../../../../../">English Blog</a></li>
+        
+      </ul>
+
+      <!--
+      <ul class="nav navbar-nav navbar-right">
+        
+          <li><a href="/atom.xml" title="RSS Feed"><i class="fa fa-rss"></i></a></li>
+        
+      </ul>
+      -->
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+  <div class="container">
+    <div class="blog-header">
+  <h1 class="blog-title"></h1>
+  
+    <p class="blog-description">「こんなきれいな星も、やっぱりここまで来てから、見れたのだと思うから。だから・・もっと遠くへ・・」</p>
+  
+</div>
+
+    <div class="row">
+        <div class="col-sm-8 blog-main">
+          <article id="post-2013-07-14" class="article article-type-post" itemscope itemprop="blogPost">
+
+  <header class="article-header">
+    
+  
+    <h1 class="article-title" itemprop="name">
+      IOI2013
+    </h1>
+  
+
+
+  </header>
+
+  <div class="article-meta">
+    <div class="article-datetime">
+  <a href="" class="article-date"><time datetime="2013-07-14T00:00:00.000Z" itemprop="datePublished">2013-07-14</time></a>
+</div>
+
+    
+    
+
+  </div>
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>day -3</strong></p>
+<p>乘火车前往了北京，住在一个网速只有几KB每秒、厕所里所有东西都坏了的奇葩宾馆。。我和clj住在一个房间，qmd和wkn住在一个房间。</p>
+<p><strong>day -2</strong></p>
+<p>在pku参加了某热身赛，题目基本以暴力题为主。。 说几个比较有趣的题吧。。</p>
+<p>B题： 有k个盒子和n个编号分别为1~n的球（k&lt;=25,n&lt;=10^10000），要求每个盒子中放一些球，满足对盒子i中每个球（设其编号为x），在盒子i+1中必须有编号为2x的球；反之亦然。问第一个盒子里最多能放多少个球。</p>
+<p>solution: 经过一些观察后可以发现，设countodd(n)表示n以内的奇数个数，那么答案是countodd(n/2^(k-1))+countodd(n/2^(2k-1))+countodd(n/2^(3k-1))…</p>
+<p>C题： 序列维护，要求支持区间加，区间乘，区间整体赋值，查询区间和/区间平方和/区间立方和。</p>
+<p>solution: 这个题还是很经典的，当时集训队在清华的选拔赛时候就出过类似的题，但我当时犯2没有去做。 思路还是比较清晰的，只要想清楚线段树懒标记之间的转移就可以了。</p>
+<p>D题： 有一条长度为n的链（n&lt;=50000），然后有个人，如果他在节点k，那么可能会走到[k-5,k+5]中的某个节点，走到各个节点的概率是给出的。 问你从1走到n的期望步数。</p>
+<p>solution: 这题我现场没做出来。 直接高消肯定会T，迭代的话也没法快速收敛到要求的精度。 后来问了clj，clj表示这是经典问题，因为方程中每个变量k都只和[k-5,k+5]相关，然后可以转成变量k+5和[k-5,k+4]相关，这样有了10个变量后，以后每个变量都可以利用这10个变量表示出来，这样方程数目就只有10个了，就可以解了。</p>
+<p>H题： 有n个数（n&lt;=60,每个数是int规模），问你有多少子集，使得子集中的数两两互质。 最多75组数据，时限3秒。</p>
+<p>solution: 这个题好像没什么靠谱做法，只能搜索剪枝了。 首先转化成独立集计数。 然后我想到一个很神的剪枝： 如果当前图已经不连通了，那么肯定可以直接把各个联通块的结果相乘就可以了。 于是我们搜索次序应当选择这样的节点： 当删除这个节点后，图分裂成的各个联通块中，最大的尽可能小。 加上这个剪枝后速度非常快，直接秒出了。</p>
+<p>然后讨论了第二天去澳大利亚brisbane的行程。。 我们NFLS带队老师表示，我们的机票价格17000,实在太贵，虽然能报销但不想浪费NFLS的钱，于是乘另外的飞机从新加坡中转一下，这样就只要9000了。。 说实话我听说机票17000后真吓傻了。。 尼玛去美国都不会这么贵啊。。 CCF果然大手笔，一点都不在乎钱。。</p>
+<p><strong>day -1</strong></p>
+<p>早晨开了动员会，其实就是说了一些注意事项，发了队服。 然后就前往机场坐飞机去悉尼了。。国航的飞机真的不能多说，小桌板高度非常低，座椅之间距离又特别近，导致晚上不能趴在小桌板上睡觉，无比坑爹。。</p>
+<p><strong>day 1</strong></p>
+<p>到达了悉尼，然后又转机前往brisbane，来接站的是个超萌的小萝莉 &gt;_&lt; 然后乘大巴到了University of Queensland，也就是比赛地点。</p>
+<p>澳大利亚似乎是季风气候，当时正是冬季，空气很干燥，早晨晚上冷得要死，中午却热得要死。。 不过空气质量十分好，至少比北京好了很多 &gt;_&lt;</p>
+<p>day1没有什么安排，下午可以乘车巡游校园，不过我因为飞机上完全没睡着，于是下午睡了一觉。。 但起来后还是晕晕乎乎的。。</p>
+<p><strong>day2</strong></p>
+<p>上午是试机赛。试机题很早前就公布了，我写了一下前两题，适应了一下环境。系统环境是ubuntu 12.04+gnome3.</p>
+<p>下午举行了开幕式。感觉澳大利亚环境十分优美，绿化做的非常好，很适合人类居住。。 可能惟一的不足就是食物了。。 中午我和clj吃了食堂的一种奇怪的饼子，一股面碱味，而且像没有熟一样。。 吃了一个后我们就都有想吐的感觉了。。 &gt;__&lt; 然后问clj要了两片胃药，才感觉好点。。 但整个下午肚子都十分难受。。。</p>
+<p>之前动员会上王宏教授提到有个清华的学姐现在就在昆士兰大学任教，她可能会请我们中国队吃饭，结果当天晚上领队就问我们要不要去了。 虽然当时要求一定要等考完了再去吃饭，但clj似乎本来就有胃病，又受了坑爹面饼的致命一击，于是表示再不去就要被饿死了。。 然后我们就去学姐家里吃饭了 &gt;<em>&lt; 终于吃到了味道正常的米饭，真是感人肺腑 &gt;</em>&lt;</p>
+<p><strong>day3 (contest day1)</strong></p>
+<p>day1的比赛各种混乱。。 先是早餐莫名其妙的被推迟了半个小时，导致吃早餐的排起了长队，于是到了原定的比赛时间时，很多人还没有到达比赛现场，比赛只好推迟了。。 拖了半天终于开始了比赛。</p>
+<p>看了一下题目，T1是传统题，和树有关，看起来推一点性质后可以乱搞；T2是很好玩的非传统题，要求识别一幅油画是4种风格中的哪一种； T3看起来是很猎奇的数据结构，一看时限，每个数据点20秒。。</p>
+<p>可能是因为时差原因吧，当时头脑很不清醒。。 看了一会T3觉得可以做，好象是分块？ 然后就写了一下。 写到一半突然发现脑残了，时间复杂度弄错了，于是就当朴素了。。 写完后随便打了两个分块大小，交了两个上去测，然后就去看T1了。</p>
+<p>T1大概是说，有一个森林，边上有权，你要加一些边，边权必须是给定的某个数值，要求得到一棵树，且使得这棵树的直径最小。</p>
+<p>经过简单的观察后很容易发现，我们应该对于森林中每个树，找到一个节点使得这棵树中距离这个节点最远点的距离尽可能小，然后连接时候肯定是往这个节点上连。 也可以发现，连接策略一定是找一个点做根，然后其他点都往这个节点上连。 然后发现只要树形dp一阵乱搞就能做出来了。 写完后交了一下，AC了。</p>
+<p>然后继续想了一会T3,依然没有什么想法，于是准备先写T2。</p>
+<p>T2是非传统题，任务是识别一幅油画是4种风格中的哪一种。 分析了一下，4种风格的图片主要区别就是色块的大小以及色彩的丰富程度，于是我的思路是，对于每个像素点，考虑其周围7*7的点的像素值和它的像素值的差距，根据差距的特点来判定。 我考虑了差距大于1000、2000、3000、4000、5000的点对的比例，以及每个点与周围点差距的标准差的平均值。 然后写了个脚本，对于样例的36张图片计算这些特征值，然后划定界限来进行判定。</p>
+<p>我抱着试试看的心态提交了一下，结果居然一次AC了！ 然后点开看了一下详细信息，我的程序正确率达到了98%,而满分的要求只要90%准确率就行了. 一次AC非传统题，而且比要求的准确率还要高出很多，真是不能更爽 &gt;_&lt;</p>
+<p>这时候我发现我T3的提交只测出一个，另外一个居然还没有测出来，于是问volunteer什么情况。 然后主持人就发公告说，因为第三题时限太长，评测服务器不够多，结果服务器挂了，他们正在修。。。。 然后又过了一会，说因为服务器挂了，现在不允许提交了。。 然后又说比赛延时半个小时。。 etc</p>
+<p>当时离比赛结束还有将近4个小时，我本来完全有机会做出T3的。 但当时因为被评测系统搞的很火大，加上主持人不停的发公告，心里很烦，并没有完全集中精力思考，最后还是没有做出T3。 果然心态还是不够好啊，如果当时冷静的接受现实，直接把T3当作传统OI题来做，不再折腾那个愚蠢的评测系统，很可能就是另外一种结果了。 我1.5h时候的T3的提交，到最后比赛结束都没给我response，我也没能想出T3的正解。 T3的正解是，因为是平面图，转移时候合并的方程是具有单调性的，可以优化到c^2lgc。 当时想到了引水入城那个题，但没有继续想下去，又因为类似题目做的太少，也没能自己推出这个单调性。 还是实力问题+心态问题啊。。 这应该是我OI生涯中的一个遗憾了，不过竞赛本来就是这样。。 T_T</p>
+<p>比赛结束后，中国队其他3个人都做出了T3，只有我没有做出来。 我当时觉得我肯定完蛋了。。 不过最后结果出来后，T3只有中国队做了出来，3个做出T3的人都是中国队的 &gt;_&lt; 果然出数据结构题就是给中国队送分么。。 &gt;__&lt;</p>
+<p>day1结束后，qmd 287分#1, wkn 278分#2, clj 269分#5, 我255分#6。</p>
+<p><strong>day4</strong></p>
+<p>去brisbane著名的黄金海岸玩，中途看了海豹表演。 感觉海豹训练各种NB，不过clj表示和中国的海豹表演比起来还是差远了 &gt;_&lt;</p>
+<p>在海滩上玩的时候clj的鞋子不幸被海浪打湿了，我因为反应快幸免于难 &gt;<em>&lt; 于是第二天clj只好穿拖鞋去考试了 &gt;</em>&lt;</p>
+<p><strong>day5 (contest day2)</strong></p>
+<p>据说主办方负责服务器的人因为feel guilty而哭了，然后day2新加了若干服务器，总体感觉比day1好了很多，评测基本不卡 &gt;_&lt;</p>
+<p>T1是交互题，题目意思大概是有n个门和n个开关（n&lt;=5000），每个开关对应一个门，但你不知道哪个开关对应哪个门； 每个门都有一个正确的开关位置（开或关），如果对应开关位置是正确的，那么这个门就会开启，否则会关闭。 你每次可以指定一个开关状态序列，然后获知此时第一个被关闭的门是哪个。 要求用不超过70000次询问获取所有开关与门的对应情况，以及每个开关的正确状态。</p>
+<p>这道题做法还是很简单的，首先n^2次询问的暴力很显然。。 然后正解也很显然，每次可以改变一半的开关状态，然后就能知道某一扇门对应的开关在这一半还是另外一半。 这样分治下去，可以nlgn次询问就解决问题。</p>
+<p>然后我看了T3，纯数据结构题。 有一个10^9*10^9的网格，一开始所有数字都是0,要求支持： 更新某位置的数，查询一个子矩阵中所有数的gcd。 22000次修改操作，25W次询问，时限13秒。</p>
+<p>我先写了一个trie套trie暴力做，每次操作lg^2n复杂度，内存也是nlg^2n的。本来以为能拿80的（最后一个subtask会爆内存），但交了一下，0分! 马上查bug，查出一个，改了再交，还是0分！ 又继续查，就这样一连交了3、4个零分，当时就吓傻了。</p>
+<p>最后，在离比赛结束还有2h时候终于查到了bug： 里面的那个trie树只维护y坐标是不对的，因为外层trie对应的x坐标是一个区间，这个区间中y坐标相同的点也可能因为x坐标不同而实际是不同的点。因此需要把x坐标也乘进去。 改了后内存又多用了一倍，于是只拿到了63分（倒数第二个subtask也爆内存了）。</p>
+<p>不过只要把里面那层的数据结构换成splay，内存就只有nlgn级别了。 我赶紧写了个splay，在离比赛结束还有1h多一点时候ac了这题。</p>
+<p>最后看了T2，T2的意思大概是，有50W个玩具，每个玩具都有两个属性：重量和体积。 有两种机器人，一种机器人是”小机器人“，它能拿起任意一个体积不超过某个值的玩具（不限重量）；一种是”弱机器人“，它能拿起任意一个重量不超过某个值的玩具（不限体积）；每个机器人要花1分钟拿起一个玩具并放好它。 问最少要多少时间才能放好所有玩具。机器人的数目不超过50000个。</p>
+<p>我想了一个奇怪的贪心原则，就是考虑所有的”小机器人“，我们把玩具按体积排序，那么每个机器人应该拿起”它和前一个机器人对应的体积区间中重量最大的哪个“，”弱机器人“亦然。 这个贪心原则虽然我没证明，但也没找到反例。 于是我写了个朴素算法，交了上去。 结果居然得到了76分！ 而且大数据也都是TLE而不是WA，说明这个贪心原则看起来是对的。</p>
+<p>然后任务就简单了。 用数据结构优化了这个算法就可以了，利用STL各种乱搞很容易就能做到nlgn。写好后还有15min，交上去，还是76分，subtask2和subtask5有数据WA了。 我考虑了一下，subtask2是可以直接暴力做的，于是还是先写个暴力搞过subtask2拿90分比较稳妥。 写完暴力后，还剩大约5min，交上去90分了。我觉得这个贪心原则应该是对的，否则不会过了那么多数据点，应该是我优化时候有什么地方写错了。 于是仔细看了程序，在离比赛结束还有2分钟时候发现了bug： 有一个边界情况没处理好。 改好后交上去，AC了！ 我在离比赛结束还有30秒时完成了绝杀！</p>
+<p>我的IOI day2于是惊险的以300分完美收场了。 赛后问了clj，clj表示T2其实可以二分答案后，考虑把机器人复制这么多遍，然后变成一个覆盖问题，这样就能看出比较简单的贪心原则了，我的做法其实是很非主流的。。</p>
+<p>clj只用了4h就AK了，不能更神。 qmd 270分，他的T3似乎被卡常数只拿了80,然后T2写了个网络流直接做，拿了90,最后10分不管怎么调参数要么T一个要么WA一个，各种囧。。 不过我感觉T2用网络流能跑出这么多数据已经太碉堡了。。。 wkn day2悲剧的只有237分，他的T3用线段树套sbt，然后sbt写挂了，而且怎么都找不到错，只拿了37分。。</p>
+<p>不过最后结果还是很皆大欢喜的，clj 569分 rank 1，qmd 557分 rank 2，我555分 rank 3，wkn 515分rank 11,中国队4金，而且包揽了前3名，取得了历史上最好的成绩，而且看起来以后也很难被超过了。</p>
+<p>江苏最开心的一定是csx和gyj这两位同学了，qmd和我拿au后不再占用NOI江苏省队名额了，于是这两位同学进入了江苏省队，可以去参加NOI了。 &gt;_&lt;</p>
+<p><strong>day6</strong></p>
+<p>去澳大利亚动物园玩，clj表示澳大利亚的特点就是懒，”资本主义的慵懒生活“，袋鼠和考拉都是懒得要命的，所以人也懒的要命。。 2333</p>
+<p><strong>day7</strong></p>
+<p>下午是无聊的颁奖仪式。。 晚上有一个烧烤晚会，我们去找美国队的打牌（美国队有3个华人），美国队的数学碉堡了好么！ 拿出6张牌算163点，我们牌都没看完他们就算出来了。。 最后直接抽3张牌组成一个数，然后6张牌或者8张牌来算。。 有一次抽出来12139,然后弄了10张牌来算，居然还算出来了！ 尼玛啊！ 上万的数啊！ 说好的美国人离开计算器就不会算数的呢。。 &gt;_&lt;</p>
+<p><strong>day8</strong></p>
+<p>乘飞机飞到悉尼，然后再飞回北京，最后乘火车回到了南京。。 我的OI生涯就这样结束了。。 虽然数据结构题没做出来还是有一点遗憾，不过能这样也已经很满足了呢。。 &gt;_&lt; （喂别卖萌了</p>
+<p>p.s 感谢父母、老师、同学等所有帮助我、关心我的人。。 感谢IOI活动中辛勤付出的志愿者们。。 谢谢你们。。</p>
+<link rel="stylesheet" href="/cnblog/css/spoiler.css" type="text/css"><script src="/cnblog/js/spoiler.js" type="text/javascript" async></script>
+      
+    </div>
+
+    
+      
+
+    
+
+    <footer class="article-footer">
+    <!--
+      <a data-url="2013/07/14/2013-07-14/" data-id="cl4nq6z8r002ubeor4v47efp6" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+    -->
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/OI/" rel="tag">OI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/%E6%B5%81%E6%B0%B4%E8%B4%A6/" rel="tag">流水账</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+    
+<ul id="article-nav" class="nav nav-pills nav-justified">
+  
+  <li role="presentation">
+    <a href="../../03/2013-07-03/" id="article-nav-older" class="article-nav-link-wrap">
+      <i class="fa fa-chevron-left pull-left"></i>
+      <span class="article-nav-link-title">一个很有趣的东西——验证码识别</span>
+    </a>
+  </li>
+  
+  
+  <li role="presentation">
+    <a href="../../../10/22/2013-10-22/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-link-title">某次Archlinux升级后产生的诡异问题及解决过程</span>
+      <i class="fa fa-chevron-right pull-right"></i>
+    </a>
+  </li>
+  
+</ul>
+
+
+  
+</article>
+
+
+
+
+        </div>
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+          
+  
+
+
+  
+  <div class="sidebar-module">
+    <h4>Tags</h4>
+    <ul class="sidebar-module-list" itemprop="keywords"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/ACM/" rel="tag">ACM</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/OI/" rel="tag">OI</a><span class="sidebar-module-list-count">23</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/" rel="tag">技术杂谈</a><span class="sidebar-module-list-count">12</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%9D%82%E8%B0%88/" rel="tag">杂谈</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%9D%82%E8%B0%88%E6%B0%B4/" rel="tag">杂谈水</a><span class="sidebar-module-list-count">9</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%B5%81%E6%B0%B4%E8%B4%A6/" rel="tag">流水账</a><span class="sidebar-module-list-count">15</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E9%A2%98%E8%A7%A3/" rel="tag">题解</a><span class="sidebar-module-list-count">24</span></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Tag Cloud</h4>
+    <p class="tagcloud">
+      <a href="../../../../tags/ACM/" style="font-size: 10px;">ACM</a> <a href="../../../../tags/OI/" style="font-size: 18.33px;">OI</a> <a href="../../../../tags/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/" style="font-size: 15px;">技术杂谈</a> <a href="../../../../tags/%E6%9D%82%E8%B0%88/" style="font-size: 11.67px;">杂谈</a> <a href="../../../../tags/%E6%9D%82%E8%B0%88%E6%B0%B4/" style="font-size: 13.33px;">杂谈水</a> <a href="../../../../tags/%E6%B5%81%E6%B0%B4%E8%B4%A6/" style="font-size: 16.67px;">流水账</a> <a href="../../../../tags/%E9%A2%98%E8%A7%A3/" style="font-size: 20px;">题解</a>
+    </p>
+  </div>
+
+
+  
+  <div class="sidebar-module">
+    <h4>Archives</h4>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2022/">2022</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2018/">2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2017/">2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2015/">2015</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2014/">2014</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2013/">2013</a><span class="sidebar-module-list-count">7</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2012/">2012</a><span class="sidebar-module-list-count">27</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2011/">2011</a><span class="sidebar-module-list-count">11</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2010/">2010</a><span class="sidebar-module-list-count">1</span></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Recents</h4>
+    <ul class="sidebar-module-list">
+      
+        <li>
+          <a href="../../../../2022/01/31/2022-01-31/">写于PhD的第三年</a>
+        </li>
+      
+        <li>
+          <a href="../../../../2018/03/14/2018-03-14/">胡思乱想</a>
+        </li>
+      
+        <li>
+          <a href="../../../../2017/05/25/2017-05-25/">WF2017 滚粗记</a>
+        </li>
+      
+        <li>
+          <a href="../../../../2015/05/21/2015-05-21/">WF2015 滚粗记</a>
+        </li>
+      
+        <li>
+          <a href="../../../../2015/04/12/2015-04-12/">TC SRM655 &amp; TCO2015 R1A</a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+
+        </div>
+    </div>
+  </div>
+  <footer class="blog-footer">
+  <div class="container">
+    <div id="footer-info" class="inner">
+      &copy; 2022 Haoran Xu<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+  
+
+<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>-->
+
+<script src="../../../../js/bootstrap/bootstrap.min.js"></script>
+
+
+
+  
+<link rel="stylesheet" href="../../../../fancybox/jquery.fancybox.css">
+
+  
+<script src="../../../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="../../../../js/script.js"></script>
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    menuSettings: {
+      zoom: "None"
+    },
+    showMathMenu: false,
+    jax: ["input/TeX","output/CommonHTML"],
+    extensions: ["tex2jax.js"],
+    TeX: {
+      extensions: ["AMSmath.js","AMSsymbols.js"],
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    },
+    tex2jax: {
+      inlineMath: [["\\(", "\\)"]],
+      displayMath: [["\\[", "\\]"]]
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.1/MathJax.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+ 
+
+</body>
+</html>

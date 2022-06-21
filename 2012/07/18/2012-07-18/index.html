@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <title>一道有意思的题 | </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="昨天做模拟赛碰到的一题，大致意思是，定义树的中心是那个使得其他点到这个点距离的和最小的点。一开始有一些点，要求支持新插入一条边和查询某个树的中心。规模的话朴素反正是过不了的。 当时考试时YY了一个多小时，终于YY出了做法。首先要观察到合并两棵树S1，S2(S1&gt;S2)后，新的中心必然在原来两棵树的中心的路径上。进 一步YY一下朴素做法后可以发现，路径上的点作为中心的代价是单峰的。于是可以发现">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一道有意思的题">
+<meta property="og:url" content="2012/07/18/2012-07-18/index.html">
+<meta property="og:site_name">
+<meta property="og:description" content="昨天做模拟赛碰到的一题，大致意思是，定义树的中心是那个使得其他点到这个点距离的和最小的点。一开始有一些点，要求支持新插入一条边和查询某个树的中心。规模的话朴素反正是过不了的。 当时考试时YY了一个多小时，终于YY出了做法。首先要观察到合并两棵树S1，S2(S1&gt;S2)后，新的中心必然在原来两棵树的中心的路径上。进 一步YY一下朴素做法后可以发现，路径上的点作为中心的代价是单峰的。于是可以发现">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2012-07-18T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-21T05:27:00.644Z">
+<meta property="article:author" content="Haoran Xu">
+<meta property="article:tag" content="题解">
+<meta property="article:tag" content="OI">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="../../../../atom.xml" title="" type="application/atom+xml">
+  
+  
+  
+    <!--<link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">-->
+    
+<link rel="stylesheet" href="../../../../css/source_code_pro.css">
+
+  
+
+  <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">-->
+  
+<link rel="stylesheet" href="../../../../css/bootstrap/bootstrap.min.css">
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
+
+  
+<link rel="stylesheet" href="../../../../css/styles.css">
+
+  
+
+  
+  <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" integrity="sha384-8gBf6Y4YYq7Jx97PIqmTwLPin4hxIzQw5aDmUg/DDhul9fFpbbLcLh3nTIIDJKhx" crossorigin="anonymous"></script>-->
+  
+<script src="../../../../js/jquery.min.js"></script>
+
+
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><nav class="navbar navbar-inverse">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="main-menu-navbar">
+      <ul class="nav navbar-nav">
+        
+          <li><a class=""
+                 href="../../../../index.html">Archives</a></li>
+        
+          <li><a class=""
+                 href="../../../../about/">About</a></li>
+        
+          <li><a class=""
+                 href="../../../../../">English Blog</a></li>
+        
+      </ul>
+
+      <!--
+      <ul class="nav navbar-nav navbar-right">
+        
+          <li><a href="/atom.xml" title="RSS Feed"><i class="fa fa-rss"></i></a></li>
+        
+      </ul>
+      -->
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+  <div class="container">
+    <div class="blog-header">
+  <h1 class="blog-title"></h1>
+  
+    <p class="blog-description">「こんなきれいな星も、やっぱりここまで来てから、見れたのだと思うから。だから・・もっと遠くへ・・」</p>
+  
+</div>
+
+    <div class="row">
+        <div class="col-sm-8 blog-main">
+          <article id="post-2012-07-18" class="article article-type-post" itemscope itemprop="blogPost">
+
+  <header class="article-header">
+    
+  
+    <h1 class="article-title" itemprop="name">
+      一道有意思的题
+    </h1>
+  
+
+
+  </header>
+
+  <div class="article-meta">
+    <div class="article-datetime">
+  <a href="" class="article-date"><time datetime="2012-07-18T00:00:00.000Z" itemprop="datePublished">2012-07-18</time></a>
+</div>
+
+    
+    
+
+  </div>
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>昨天做模拟赛碰到的一题，大致意思是，定义树的中心是那个使得其他点到这个点距离的和最小的点。一开始有一些点，要求支持新插入一条边和查询某个树的中心。规模的话朴素反正是过不了的。<br>
+当时考试时YY了一个多小时，终于YY出了做法。首先要观察到合并两棵树S1，S2(S1&gt;S2)后，新的中心必然在原来两棵树的中心的路径上。进 一步YY一下朴素做法后可以发现，路径上的点作为中心的代价是单峰的。于是可以发现新的中心必然在那棵较大的树里面。然后考虑大树S1的原中心是P1，那 么考虑中心的DP方程P’=P+S1-size<em>2可以发现，加入S2后转移方程变成了P’=P+S1-size</em>2+S2,于是发现转移代价最多比原来 多了S2。而size每走一条边至少会减1，于是可以证明，最多走O(S2)条边，代价就会进入增加的阶段，又因为单峰性，所以新的中心距离S1的距离必 然不超过O(S2)。这样时间复杂度就有保证了。<br>
+然后问题转化成了：怎么快速找两点之间的路径的下一个点和动态维护size。前者可以先把最终的树求出来，然后倍增祖先。后者就相当于给定一棵树，要求支持插入一个节点和查询子树和。这个可以动态树。于是就O(nlg^2n)了<br>
+我因为不会动态树用了一些比较乱搞的2B替代做法，时间复杂度可能多了个n^0.5之类的。</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        code
+    </div>
+    <div class='spoiler-content'>
+        <figure class="highlight pascal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span></span><br><span class="line">	graph=<span class="keyword">object</span></span><br><span class="line">			tail:<span class="keyword">array</span>[<span class="number">0</span>..<span class="number">40010</span>] <span class="keyword">of</span> longint;</span><br><span class="line">			b:<span class="keyword">array</span>[<span class="number">0</span>..<span class="number">200010</span>] <span class="keyword">of</span> <span class="keyword">record</span> id,next:longint; <span class="keyword">end</span>;</span><br><span class="line">			ep:longint;</span><br><span class="line">			<span class="function"><span class="keyword">procedure</span> <span class="title">init</span><span class="params">(n:longint)</span>;</span></span><br><span class="line">			<span class="function"><span class="keyword">function</span> <span class="title">Create</span><span class="params">(x:longint)</span>:</span>longint;</span><br><span class="line">			<span class="function"><span class="keyword">procedure</span> <span class="title">add</span><span class="params">(x,y:longint)</span>;</span></span><br><span class="line">		<span class="keyword">end</span>;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">graph</span>.<span class="title">Create</span><span class="params">(x:longint)</span>:</span>longint;</span><br><span class="line"><span class="keyword">begin</span> inc(ep);</span><br><span class="line">	<span class="keyword">with</span> b[ep] <span class="keyword">do</span></span><br><span class="line">	<span class="keyword">begin</span> id:=x;</span><br><span class="line">		next:=-<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">end</span>;</span><br><span class="line">	<span class="keyword">exit</span>(ep);</span><br><span class="line"><span class="keyword">end</span>;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">procedure</span> <span class="title">graph</span>.<span class="title">init</span><span class="params">(n:longint)</span>;</span></span><br><span class="line"><span class="keyword">var</span> i:longint;</span><br><span class="line"><span class="keyword">begin</span> ep:=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> i:=<span class="number">1</span> <span class="keyword">to</span> n <span class="keyword">do</span> tail[i]:=Create(<span class="number">0</span>);</span><br><span class="line"><span class="keyword">end</span>;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">procedure</span> <span class="title">graph</span>.<span class="title">add</span><span class="params">(x,y:longint)</span>;</span></span><br><span class="line"><span class="keyword">begin</span> b[tail[x]].next:=Create(y);</span><br><span class="line">	tail[x]:=ep;</span><br><span class="line"><span class="keyword">end</span>;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span></span><br><span class="line">g:graph;</span><br><span class="line">p:<span class="keyword">array</span>[<span class="number">0</span>..<span class="number">40010</span>,<span class="number">0</span>..<span class="number">20</span>] <span class="keyword">of</span> longint;</span><br><span class="line">depth,lg2:<span class="keyword">array</span>[<span class="number">0</span>..<span class="number">40010</span>] <span class="keyword">of</span> longint;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">procedure</span> <span class="title">da</span><span class="params">(cur,dep,pre:longint)</span>;</span></span><br><span class="line"><span class="keyword">var</span> now,i:longint;</span><br><span class="line"><span class="keyword">begin</span> depth[cur]:=dep; p[cur,<span class="number">0</span>]:=pre;</span><br><span class="line">	<span class="keyword">for</span> i:=<span class="number">1</span> <span class="keyword">to</span> lg2[dep] <span class="keyword">do</span> p[cur,i]:=p[p[cur,i-<span class="number">1</span>],i-<span class="number">1</span>];</span><br><span class="line">	now:=cur;</span><br><span class="line">	<span class="keyword">with</span> g <span class="keyword">do</span></span><br><span class="line">		<span class="keyword">while</span> b[now].next&lt;&gt;-<span class="number">1</span> <span class="keyword">do</span></span><br><span class="line">		<span class="keyword">begin</span> now:=b[now].next;</span><br><span class="line">			<span class="keyword">if</span> b[now].id=pre <span class="keyword">then</span> <span class="keyword">continue</span>;</span><br><span class="line">			da(b[now].id,dep+<span class="number">1</span>,cur);</span><br><span class="line">		<span class="keyword">end</span>;</span><br><span class="line"><span class="keyword">end</span>;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">movedep</span><span class="params">(x,y:longint)</span>:</span>longint;</span><br><span class="line"><span class="keyword">begin</span> <span class="keyword">while</span> y&gt;<span class="number">0</span> <span class="keyword">do</span> <span class="keyword">begin</span> x:=p[x,lg2[y <span class="keyword">and</span> -y]]; dec(y,y <span class="keyword">and</span> -y); <span class="keyword">end</span>;</span><br><span class="line">	<span class="keyword">exit</span>(x);</span><br><span class="line"><span class="keyword">end</span>;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">lca</span><span class="params">(x,y:longint)</span>:</span>longint;</span><br><span class="line"><span class="keyword">var</span> i:longint;</span><br><span class="line"><span class="keyword">begin</span> <span class="keyword">if</span> depth[x]&gt;depth[y] <span class="keyword">then</span> x:=movedep(x,depth[x]-depth[y]) <span class="keyword">else</span> y:=movedep(y,depth[y]-depth[x]);</span><br><span class="line">	<span class="keyword">for</span> i:=<span class="number">20</span> <span class="keyword">downto</span> <span class="number">0</span> <span class="keyword">do</span> <span class="keyword">if</span> p[x,i]&lt;&gt;p[y,i] <span class="keyword">then</span> <span class="keyword">begin</span> x:=p[x,i]; y:=p[y,i]; <span class="keyword">end</span>;</span><br><span class="line">	<span class="keyword">if</span> x=y <span class="keyword">then</span> <span class="keyword">exit</span>(x) <span class="keyword">else</span> <span class="keyword">exit</span>(p[x,<span class="number">0</span>]);</span><br><span class="line"><span class="keyword">end</span>;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">type</span></span><br><span class="line">	pointer=^node;</span><br><span class="line">	node=<span class="keyword">record</span></span><br><span class="line">			left,right,mid,count:longint;</span><br><span class="line">			lc,rc:pointer;</span><br><span class="line">		<span class="keyword">end</span>;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span></span><br><span class="line">ld,rd,d,belong,tpre,xp,wp:<span class="keyword">array</span>[<span class="number">0</span>..<span class="number">40010</span>] <span class="keyword">of</span> longint;</span><br><span class="line">troot:<span class="keyword">array</span>[<span class="number">0</span>..<span class="number">40010</span>] <span class="keyword">of</span> pointer;</span><br><span class="line">all,ccc:longint;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">build</span><span class="params">(bg,ed:longint)</span>:</span>pointer;</span><br><span class="line"><span class="keyword">begin</span> new(build);</span><br><span class="line">	<span class="keyword">with</span> build^ <span class="keyword">do</span></span><br><span class="line">	<span class="keyword">begin</span> left:=bg; right:=ed; mid:=(bg+ed)&gt;&gt;<span class="number">1</span>;</span><br><span class="line">		count:=ed-bg+<span class="number">1</span>;</span><br><span class="line">		lc:=<span class="keyword">nil</span>; rc:=<span class="keyword">nil</span>;</span><br><span class="line">		<span class="keyword">if</span> bg=ed <span class="keyword">then</span> <span class="keyword">exit</span>;</span><br><span class="line">		lc:=build(bg,mid); rc:=build(mid+<span class="number">1</span>,ed);</span><br><span class="line">	<span class="keyword">end</span>;</span><br><span class="line"><span class="keyword">end</span>;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">procedure</span> <span class="title">serere</span><span class="params">(root:pointer; pl,dt:longint)</span>;</span></span><br><span class="line"><span class="keyword">begin</span> <span class="keyword">with</span> root^ <span class="keyword">do</span></span><br><span class="line">	<span class="keyword">begin</span> inc(count,dt);</span><br><span class="line">		<span class="keyword">if</span> left=right <span class="keyword">then</span> <span class="keyword">exit</span>;</span><br><span class="line">		<span class="keyword">if</span> pl&lt;=mid <span class="keyword">then</span> serere(lc,pl,dt) <span class="keyword">else</span> serere(rc,pl,dt);</span><br><span class="line">	<span class="keyword">end</span>;</span><br><span class="line"><span class="keyword">end</span>;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">query</span><span class="params">(root:pointer; bg,ed:longint)</span>:</span>longint;</span><br><span class="line"><span class="keyword">begin</span> <span class="keyword">with</span> root^ <span class="keyword">do</span></span><br><span class="line">	<span class="keyword">begin</span> <span class="keyword">if</span> (bg&lt;=left)<span class="keyword">and</span>(right&lt;=ed) <span class="keyword">then</span> <span class="keyword">exit</span>(count);</span><br><span class="line">		<span class="keyword">if</span> ed&lt;=mid <span class="keyword">then</span> <span class="keyword">exit</span>(query(lc,bg,ed));</span><br><span class="line">		<span class="keyword">if</span> mid&lt;bg <span class="keyword">then</span> <span class="keyword">exit</span>(query(rc,bg,ed));</span><br><span class="line">		<span class="keyword">exit</span>(query(lc,bg,ed)+query(rc,bg,ed));</span><br><span class="line">	<span class="keyword">end</span>;</span><br><span class="line"><span class="keyword">end</span>;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">query</span><span class="params">(x:longint)</span>:</span>longint;</span><br><span class="line"><span class="keyword">begin</span> <span class="keyword">exit</span>(query(troot[x],ld[x],rd[x])); <span class="keyword">end</span>;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">procedure</span> <span class="title">dfs</span><span class="params">(cur,pre,dep:longint)</span>;</span></span><br><span class="line"><span class="keyword">var</span> now:longint;</span><br><span class="line"><span class="keyword">begin</span> inc(all); ld[cur]:=all; d[all]:=cur; inc(ccc,dep);</span><br><span class="line">	now:=cur;</span><br><span class="line">	<span class="keyword">with</span> g <span class="keyword">do</span></span><br><span class="line">		<span class="keyword">while</span> b[now].next&lt;&gt;-<span class="number">1</span> <span class="keyword">do</span></span><br><span class="line">		<span class="keyword">begin</span> now:=b[now].next;</span><br><span class="line">			<span class="keyword">if</span> b[now].id=pre <span class="keyword">then</span> <span class="keyword">continue</span>;</span><br><span class="line">			dfs(b[now].id,cur,dep+<span class="number">1</span>);</span><br><span class="line">		<span class="keyword">end</span>;</span><br><span class="line">	rd[cur]:=all;</span><br><span class="line"><span class="keyword">end</span>;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">procedure</span> <span class="title">buildup</span><span class="params">(root,_bel,z:longint)</span>;</span></span><br><span class="line"><span class="keyword">var</span> i:longint; temp:pointer;</span><br><span class="line"><span class="keyword">begin</span> all:=<span class="number">0</span>; ccc:=<span class="number">0</span>; dfs(root,-<span class="number">1</span>,<span class="number">0</span>);</span><br><span class="line">	temp:=build(<span class="number">1</span>,all);</span><br><span class="line">	<span class="keyword">for</span> i:=<span class="number">1</span> <span class="keyword">to</span> all <span class="keyword">do</span> <span class="keyword">begin</span> troot[d[i]]:=temp; belong[d[i]]:=_bel; tpre[d[i]]:=z; <span class="keyword">end</span>;</span><br><span class="line"><span class="keyword">end</span>;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">procedure</span> <span class="title">solve</span><span class="params">(n,where,st,cw,ed,zz,dd:longint)</span>;</span></span><br><span class="line"><span class="keyword">var</span> z,dif,x,nw,dis,s1,s2:longint;</span><br><span class="line"><span class="keyword">begin</span> z:=lca(ed,st); dis:=depth[ed]+depth[st]-depth[z]*<span class="number">2</span>+<span class="number">1</span>;</span><br><span class="line">	wp[where]:=wp[where]+dis*zz+dd;</span><br><span class="line">	s1:=query(st);</span><br><span class="line">	<span class="keyword">while</span> st&lt;&gt;z <span class="keyword">do</span></span><br><span class="line">	<span class="keyword">begin</span> st:=p[st,<span class="number">0</span>]; s2:=query(st);</span><br><span class="line">		<span class="keyword">if</span> s1&gt;s2 <span class="keyword">then</span> x:=n-s2*<span class="number">2</span> <span class="keyword">else</span> x:=s1*<span class="number">2</span>-n;</span><br><span class="line">		s1:=s2; nw:=wp[where]+x-zz;</span><br><span class="line">		<span class="keyword">if</span> nw&gt;wp[where] <span class="keyword">then</span> <span class="keyword">exit</span>;</span><br><span class="line">		wp[where]:=nw; xp[where]:=st;</span><br><span class="line">	<span class="keyword">end</span>;</span><br><span class="line">	dif:=depth[ed]-depth[z];</span><br><span class="line">	<span class="keyword">while</span> dif&gt;<span class="number">0</span> <span class="keyword">do</span></span><br><span class="line">	<span class="keyword">begin</span> dec(dif); st:=movedep(ed,dif); s2:=query(st);</span><br><span class="line">		<span class="keyword">if</span> s1&gt;s2 <span class="keyword">then</span> x:=n-s2*<span class="number">2</span> <span class="keyword">else</span> x:=s1*<span class="number">2</span>-n;</span><br><span class="line">		s1:=s2; nw:=wp[where]+x-zz;</span><br><span class="line">		<span class="keyword">if</span> nw&gt;wp[where] <span class="keyword">then</span> <span class="keyword">exit</span>;</span><br><span class="line">		wp[where]:=nw; xp[where]:=st;</span><br><span class="line">	<span class="keyword">end</span>;</span><br><span class="line"><span class="keyword">end</span>;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span></span><br><span class="line">_q:<span class="keyword">array</span>[<span class="number">0</span>..<span class="number">100010</span>] <span class="keyword">of</span> <span class="keyword">record</span> ch:char; x,y:longint; <span class="keyword">end</span>;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">procedure</span> <span class="title">lemon</span><span class="params">()</span>;</span></span><br><span class="line"><span class="keyword">var</span> n,Q,i,j,x,y,zz,ceng,final,temp,tmp,_x:longint; ch:char;</span><br><span class="line"><span class="keyword">begin</span> readln(n,Q); g.init(n);</span><br><span class="line">	<span class="keyword">for</span> i:=<span class="number">1</span> <span class="keyword">to</span> Q <span class="keyword">do</span></span><br><span class="line">	<span class="keyword">begin</span> <span class="keyword">repeat</span> <span class="keyword">read</span>(ch); <span class="keyword">until</span> ch <span class="keyword">in</span> [<span class="string">'A'</span>,<span class="string">'Q'</span>];</span><br><span class="line">		_q[i].ch:=ch;</span><br><span class="line">		<span class="keyword">if</span> ch=<span class="string">'A'</span> <span class="keyword">then</span></span><br><span class="line">		<span class="keyword">begin</span> readln(_q[i].x,_q[i].y);</span><br><span class="line">			g.add(_q[i].x,_q[i].y);</span><br><span class="line">			g.add(_q[i].y,_q[i].x);</span><br><span class="line">		<span class="keyword">end</span>;</span><br><span class="line">	<span class="keyword">end</span>;</span><br><span class="line">	lg2[<span class="number">1</span>]:=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> i:=<span class="number">2</span> <span class="keyword">to</span> <span class="number">40000</span> <span class="keyword">do</span> lg2[i]:=lg2[i&gt;&gt;<span class="number">1</span>]+<span class="number">1</span>;</span><br><span class="line">	da(<span class="number">1</span>,<span class="number">0</span>,-<span class="number">1</span>);</span><br><span class="line">	g.init(n);</span><br><span class="line">	final:=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> i:=<span class="number">1</span> <span class="keyword">to</span> n <span class="keyword">do</span> buildup(i,i,-<span class="number">1</span>);</span><br><span class="line">	<span class="keyword">for</span> i:=<span class="number">1</span> <span class="keyword">to</span> n <span class="keyword">do</span> <span class="keyword">begin</span> xp[i]:=i; wp[i]:=<span class="number">0</span>; <span class="keyword">end</span>;</span><br><span class="line">	<span class="keyword">for</span> i:=<span class="number">1</span> <span class="keyword">to</span> Q <span class="keyword">do</span></span><br><span class="line">		<span class="keyword">if</span> _q[i].ch=<span class="string">'A'</span> <span class="keyword">then</span></span><br><span class="line">		<span class="keyword">begin</span> x:=_q[i].x; y:=_q[i].y;</span><br><span class="line">			<span class="keyword">if</span> query(belong[x])&lt;query(belong[y]) <span class="keyword">then</span> <span class="keyword">begin</span> temp:=x; x:=y; y:=temp; <span class="keyword">end</span>;</span><br><span class="line">			final:=final-wp[belong[x]]-wp[belong[y]];</span><br><span class="line">			<span class="comment">//from p[x] to x</span></span><br><span class="line">			buildup(y,belong[x],x);</span><br><span class="line">			zz:=query(y);</span><br><span class="line">			solve(query(belong[x]),belong[x],xp[belong[x]],wp[belong[x]],x,zz,ccc);</span><br><span class="line">			serere(troot[x],ld[x],zz);</span><br><span class="line">			ceng:=<span class="number">0</span>; _x:=x;</span><br><span class="line">			<span class="keyword">while</span> troot[x]&lt;&gt;troot[belong[x]] <span class="keyword">do</span></span><br><span class="line">			<span class="keyword">begin</span> serere(troot[tpre[x]],ld[tpre[x]],zz);</span><br><span class="line">				x:=tpre[x];</span><br><span class="line">				inc(ceng);</span><br><span class="line">			<span class="keyword">end</span>;</span><br><span class="line">			x:=_x;</span><br><span class="line">			g.add(x,y); g.add(y,x);</span><br><span class="line">			final:=final+wp[belong[x]];</span><br><span class="line">			<span class="keyword">if</span> ceng&gt;<span class="number">100</span> <span class="keyword">then</span> buildup(belong[x],belong[x],-<span class="number">1</span>);</span><br><span class="line">		 <span class="keyword">end</span></span><br><span class="line">		<span class="keyword">else</span>  writeln(final);</span><br><span class="line"><span class="keyword">end</span>;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line">lemon();</span><br><span class="line"><span class="keyword">end</span>.</span><br></pre></td></tr></table></figure>
+    </div>
+</div>
+<link rel="stylesheet" href="/cnblog/css/spoiler.css" type="text/css"><script src="/cnblog/js/spoiler.js" type="text/javascript" async></script>
+      
+    </div>
+
+    
+      
+
+    
+
+    <footer class="article-footer">
+    <!--
+      <a data-url="2012/07/18/2012-07-18/" data-id="cl4nq6z8c0020beorh6jddrgo" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+    -->
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/OI/" rel="tag">OI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/%E9%A2%98%E8%A7%A3/" rel="tag">题解</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+    
+<ul id="article-nav" class="nav nav-pills nav-justified">
+  
+  <li role="presentation">
+    <a href="../../../06/29/2012-06-29/" id="article-nav-older" class="article-nav-link-wrap">
+      <i class="fa fa-chevron-left pull-left"></i>
+      <span class="article-nav-link-title">THUSC Day 3 训练日记</span>
+    </a>
+  </li>
+  
+  
+  <li role="presentation">
+    <a href="../../../08/01/2012-08-01/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-link-title">NOI2012</span>
+      <i class="fa fa-chevron-right pull-right"></i>
+    </a>
+  </li>
+  
+</ul>
+
+
+  
+</article>
+
+
+
+
+        </div>
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+          
+  
+
+
+  
+  <div class="sidebar-module">
+    <h4>Tags</h4>
+    <ul class="sidebar-module-list" itemprop="keywords"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/ACM/" rel="tag">ACM</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/OI/" rel="tag">OI</a><span class="sidebar-module-list-count">23</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/" rel="tag">技术杂谈</a><span class="sidebar-module-list-count">12</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%9D%82%E8%B0%88/" rel="tag">杂谈</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%9D%82%E8%B0%88%E6%B0%B4/" rel="tag">杂谈水</a><span class="sidebar-module-list-count">9</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%B5%81%E6%B0%B4%E8%B4%A6/" rel="tag">流水账</a><span class="sidebar-module-list-count">15</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E9%A2%98%E8%A7%A3/" rel="tag">题解</a><span class="sidebar-module-list-count">24</span></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Tag Cloud</h4>
+    <p class="tagcloud">
+      <a href="../../../../tags/ACM/" style="font-size: 10px;">ACM</a> <a href="../../../../tags/OI/" style="font-size: 18.33px;">OI</a> <a href="../../../../tags/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/" style="font-size: 15px;">技术杂谈</a> <a href="../../../../tags/%E6%9D%82%E8%B0%88/" style="font-size: 11.67px;">杂谈</a> <a href="../../../../tags/%E6%9D%82%E8%B0%88%E6%B0%B4/" style="font-size: 13.33px;">杂谈水</a> <a href="../../../../tags/%E6%B5%81%E6%B0%B4%E8%B4%A6/" style="font-size: 16.67px;">流水账</a> <a href="../../../../tags/%E9%A2%98%E8%A7%A3/" style="font-size: 20px;">题解</a>
+    </p>
+  </div>
+
+
+  
+  <div class="sidebar-module">
+    <h4>Archives</h4>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2022/">2022</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2018/">2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2017/">2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2015/">2015</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2014/">2014</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2013/">2013</a><span class="sidebar-module-list-count">7</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2012/">2012</a><span class="sidebar-module-list-count">27</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2011/">2011</a><span class="sidebar-module-list-count">11</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2010/">2010</a><span class="sidebar-module-list-count">1</span></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Recents</h4>
+    <ul class="sidebar-module-list">
+      
+        <li>
+          <a href="../../../../2022/01/31/2022-01-31/">写于PhD的第三年</a>
+        </li>
+      
+        <li>
+          <a href="../../../../2018/03/14/2018-03-14/">胡思乱想</a>
+        </li>
+      
+        <li>
+          <a href="../../../../2017/05/25/2017-05-25/">WF2017 滚粗记</a>
+        </li>
+      
+        <li>
+          <a href="../../../../2015/05/21/2015-05-21/">WF2015 滚粗记</a>
+        </li>
+      
+        <li>
+          <a href="../../../../2015/04/12/2015-04-12/">TC SRM655 &amp; TCO2015 R1A</a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+
+        </div>
+    </div>
+  </div>
+  <footer class="blog-footer">
+  <div class="container">
+    <div id="footer-info" class="inner">
+      &copy; 2022 Haoran Xu<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+  
+
+<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>-->
+
+<script src="../../../../js/bootstrap/bootstrap.min.js"></script>
+
+
+
+  
+<link rel="stylesheet" href="../../../../fancybox/jquery.fancybox.css">
+
+  
+<script src="../../../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="../../../../js/script.js"></script>
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    menuSettings: {
+      zoom: "None"
+    },
+    showMathMenu: false,
+    jax: ["input/TeX","output/CommonHTML"],
+    extensions: ["tex2jax.js"],
+    TeX: {
+      extensions: ["AMSmath.js","AMSsymbols.js"],
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    },
+    tex2jax: {
+      inlineMath: [["\\(", "\\)"]],
+      displayMath: [["\\[", "\\]"]]
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.1/MathJax.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+ 
+
+</body>
+</html>

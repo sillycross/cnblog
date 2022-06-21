@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <title>CF…… 蛋疼 | </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="RT 我尽量保持更新…… 没做的题就先空着…… 做了的题就补个题解…… 纯给自己看的……T_T">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CF…… 蛋疼">
+<meta property="og:url" content="2012/03/22/2012-03-22/index.html">
+<meta property="og:site_name">
+<meta property="og:description" content="RT 我尽量保持更新…… 没做的题就先空着…… 做了的题就补个题解…… 纯给自己看的……T_T">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2012-03-22T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-21T05:27:00.644Z">
+<meta property="article:author" content="Haoran Xu">
+<meta property="article:tag" content="题解">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="../../../../atom.xml" title="" type="application/atom+xml">
+  
+  
+  
+    <!--<link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">-->
+    
+<link rel="stylesheet" href="../../../../css/source_code_pro.css">
+
+  
+
+  <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">-->
+  
+<link rel="stylesheet" href="../../../../css/bootstrap/bootstrap.min.css">
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
+
+  
+<link rel="stylesheet" href="../../../../css/styles.css">
+
+  
+
+  
+  <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" integrity="sha384-8gBf6Y4YYq7Jx97PIqmTwLPin4hxIzQw5aDmUg/DDhul9fFpbbLcLh3nTIIDJKhx" crossorigin="anonymous"></script>-->
+  
+<script src="../../../../js/jquery.min.js"></script>
+
+
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><nav class="navbar navbar-inverse">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="main-menu-navbar">
+      <ul class="nav navbar-nav">
+        
+          <li><a class=""
+                 href="../../../../index.html">Archives</a></li>
+        
+          <li><a class=""
+                 href="../../../../about/">About</a></li>
+        
+          <li><a class=""
+                 href="../../../../../">English Blog</a></li>
+        
+      </ul>
+
+      <!--
+      <ul class="nav navbar-nav navbar-right">
+        
+          <li><a href="/atom.xml" title="RSS Feed"><i class="fa fa-rss"></i></a></li>
+        
+      </ul>
+      -->
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+  <div class="container">
+    <div class="blog-header">
+  <h1 class="blog-title"></h1>
+  
+    <p class="blog-description">「こんなきれいな星も、やっぱりここまで来てから、見れたのだと思うから。だから・・もっと遠くへ・・」</p>
+  
+</div>
+
+    <div class="row">
+        <div class="col-sm-8 blog-main">
+          <article id="post-2012-03-22" class="article article-type-post" itemscope itemprop="blogPost">
+
+  <header class="article-header">
+    
+  
+    <h1 class="article-title" itemprop="name">
+      CF…… 蛋疼
+    </h1>
+  
+
+
+  </header>
+
+  <div class="article-meta">
+    <div class="article-datetime">
+  <a href="" class="article-date"><time datetime="2012-03-22T00:00:00.000Z" itemprop="datePublished">2012-03-22</time></a>
+</div>
+
+    
+    
+
+  </div>
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>RT 我尽量保持更新…… 没做的题就先空着…… 做了的题就补个题解…… 纯给自己看的……T_T <a id="more"></a></p>
+<p>[ Last Updated : 4.9: 发现题号越来越乱，暂时不更新了…… 有时间整理一下 ]</p>
+<p>167E：</p>
+<p>167D：<br>
+167C：显然最终(A,B)都要转化成(B,A mod B)的情况的。然后如果子问题必胜，那么就要想办法搞到这个局面，于是转化成给定N和A，每次每人可以把N扣掉A^K(K&gt;0)，把N扣成0的人就挂了。这个可以把小数据的胜负表打出来，然后找规律= =</p>
+<p>167B：乱搞</p>
+<p>167A：乱搞</p>
+<p>166E：貌似现在CF题题目难度安排是打乱的了？ 可以矩乘可以暴力，随便搞</p>
+<p>166D：</p>
+<p>166C：乱搞</p>
+<p>166B：其实把所有点放一起求一个凸包，然后判定凸包上是否有点集B里的点就行了。注意这个凸包可能有三点共线或重点，三点共线要保留下来，重点不能留不然要挂，解决办法是重点优先留点集B的点。</p>
+<p>166A：乱搞</p>
+<p>165E：暴力显然不行…… 然后发现只要随便找一个，就可以想个办法预处理…… O(NlgN)</p>
+<p>165D：树链剖分显然可以…… 但貌似题目这个树有点特殊性，可以只分成两条链，于是就不用剖分了，但代码不见得好写多少</p>
+<p>165C：乱搞…… 注意K=0</p>
+<p>165B：乱搞</p>
+<p>165A：乱搞</p>
+<p>163E：首先发现如果用trie图（也就是不退化的AC自动机）的话最坏会是到平方级别的，不行。然后发现其实fail指针必然构成了一棵树。我们每次跑到某个结点然后遍历fail指针实质就是fail指针树上从当前结点到树根的一条路径。于是任务转化成：维护一棵树，支持：修改一个点的权值，查询一个点到树根的路径上所有点的点权和。考试时候想到这一步然后就犯2了，以为必须要树链剖分，然后就放弃了…… 其实只要用树状数组维护一下DFS序就行了…… 诶，DFS序好久不用导致看到题目都没有反应了TAT…… 注意算DFS序的时候必须非递归= = 不然爆栈= =</p>
+<p>163D：</p>
+<p>163C：在看懂题目后，就能发现，题意只是给定一个长2<em>L的环，环上有一些点，然后随便取连续的长度为L</em>v2/(v1+v2)的一段，求覆盖各种点数的几率。直接扫描线即可。这道题只要能把题目看懂就成功了= =</p>
+<p>163B：显然二分答案后判定。 注意卡精度= = 二分答案时候千万不要用当前待分区间的长度&lt;eps来作为二分结束条件，而应该直接固定二分XX次（比如100次），不然死活过不了= =</p>
+<p>163A：可以O(N^2)DP。 dp[i,j]表示T的倒数第i个字符匹配S的第j个字符。然后转移可以用部分和优化到O(1).</p>
+<p>162系列：特殊语言无视</p>
+<p>161E：可以打表，正好不爆代码长度。也可以发现爆搜了了左上角的6个数后中间主对角线的数可以随意填？ 于是预处理一下中间主对角线的数能填神马就过了</p>
+<p>161D：因为长度小于等于100，直接爆DP就行…… 点分治也不是不可以。</p>
+<p>161C：分治…… 可以证明时间复杂度O(lgN)</p>
+<p>161B：构造。 YY一下就知道了，分两个情况讨论……</p>
+<p>161A：乱搞</p>
+<p>160E：离线处理车的时间，然后树状数组套平衡树维护剩下的东西</p>
+<p>160D：想象kruskal的过程，即时缩点，然后发现边权相同的算边双联通分量就能搞出结果了</p>
+<p>160C：</p>
+<p>160B：</p>
+<p>160A：</p>
+<p>159E：</p>
+<p>159D：</p>
+<p>159C：</p>
+<p>159B：</p>
+<p>159A：</p>
+<p>158E：DP乱搞……</p>
+<p>158D：暴力枚举约数然后判就行</p>
+<p>158C：模拟题</p>
+<p>158B：乱搞</p>
+<p>158A：乱搞</p>
+<p>157B：</p>
+<p>157A：</p>
+<p>156E：先把质数分成组…… 可以分成4组…… 然后暴力即可…… 然后发现直接开数组会爆内存…… C++直接vector，PAS可以把2进制的拉出来单独处理就不爆了</p>
+<p>156D：</p>
+<p>156C：假设第i个字符si交换了ai次（注意ai范围是-26N~26N），然后显然可以DP，时间复杂度O(26<em>N^2)每组。但这么搞会TLE…… 然后可以发现一个很强的结论，就是所有字符的和相同的字符串（假设’a’=0,‘b’=1… etc）必然可以互相换到（不会证。。。）这样就直接预处理DP O(100^2</em>26^2) 了……</p>
+<p>156B：</p>
+<p>156A：</p>
+<p>155B：</p>
+<p>155A：</p>
+<p>154E：各种乱搞的计算几何。像凸包那么搞…… 然后有个2B情况就是如果点虽然不符合条件，但跨越了当前这条边的中垂线，就不能删了…… 不然有反例……</p>
+<p>154D：首先判掉一击直接打死的情况。然后假如人可以不动，那就和了…… 根本碰不到也就和了…… 否则就是两个人迎面撞，那就算出余数判一下…… IF—ELSE题</p>
+<p>154C：如果两个人是合法的pair当且仅当他们认识的人的集合相同。于是hashing判一下。分这两个人认识和不认识两种情况讨论…… 就行了…… O(NlgN)就可以过了，当然也能O(N)。</p>
+<p>154B：</p>
+<p>154A：</p>
+<p>153：特殊语言无视</p>
+<p>152E：矩阵上的Steiner-tree problem…… 直接状压DP即可</p>
+<p>152D：首先我们要深深的膜拜写了800+行分类讨论了所有情况的Chenyuguan！！！！！！！！！！ 然后就可以发现其实大多数格子都是木有用的，重复的行、列大于6列的直接压成6列…… 具体哪些列作为关键点要考虑清楚…… 然后就发现这个离散后的矩阵只有21x21了，暴力8次方都过了…… 代码很短，实际跑得也非常快，50ms，貌似是最快的代码之一了</p>
+<p>152C：</p>
+<p>152B：</p>
+<p>152A：乱搞</p>
+<p>151B：</p>
+<p>151A：乱搞</p>
+<p>150E：树分治…… 可以做到3个log或者两个log？ 3个log的话要玩常数，里头那个RMQ线段树一定要写zkw线段树，然后各种玩常数就玩过去了……</p>
+<p>150D：神DP，看了题解才会。dp[l][r][k]表示把[l,r]删的剩一个长k的回文串，最大得分。然后左端点、右端点是否属于剩下的回文串，分类转移</p>
+<p>150C：</p>
+<p>150B：</p>
+<p>150A：</p>
+<p>149E：KMP，然后部分最大值一下，然后乱搞。 目测RK Hashing会被log卡</p>
+<p>149D：</p>
+<p>149C：</p>
+<p>149B：</p>
+<p>149A：</p>
+<p>148E：</p>
+<p>148D：</p>
+<p>148C：</p>
+<p>148B：</p>
+<p>148A：</p>
+<p>147B：倍增预处理，然后一个一个拼上去。O(N^3lg^2N)貌似会被卡，O(N^3lgN)才能过</p>
+<p>147A：</p>
+<p>146B：乱搞</p>
+<p>146A：乱搞</p>
+<p>145E：线段树维护一下，然后乱搞</p>
+<p>145D：</p>
+<p>145C：利用lucky number个数不多，DP…… 貌似还要算个逆元神马的？</p>
+<p>145B：分类构造。IF-ELSE题</p>
+<p>145A：乱搞</p>
+<p>144E：贪心…… 发现不同“层”的人必然不相撞…… 然后貌似要用个堆维护一下？ 记不清了……</p>
+<p>144D：heap+dij求最短路，然后乱搞。注意正好在路的中间点相遇的蛋疼情况</p>
+<p>144C：</p>
+<p>144B：</p>
+<p>144A：</p>
+<p>143B：</p>
+<p>143A：</p>
+<p>142E：</p>
+<p>142D：所谓的Moore k-nim…… 无聊的结论题……</p>
+<p>142C：人类智慧 &gt;_____________&lt;</p>
+<p>142B：</p>
+<p>142A：</p>
+<p>141E：构造。首先想一下发现，取所有蓝色边，结果还不连通，那必然要红色边来补…… 蓝色边构成的一个个连通块，里头可以任意的换红色边…… 当然红色边不能出现环…… 换满红色边后剩下的就是蓝的边。于是并查集乱搞</p>
+<p>141D：找关键点然后建图最短路。</p>
+<p>141C：</p>
+<p>141B；</p>
+<p>141A：</p>
+<p>140F：因为k&lt;=10…… 所以取12个点，必然有两个点是配对的…… 然后hash死判就行了……</p>
+<p>140E：dp[i,j]=dp[i-1,j-1]+dp[i-1,j]*j 这货就是不计次序j个颜色染长度i的方案数…… 然后再每一层DP一次就行了</p>
+<p>140D：</p>
+<p>140C：</p>
+<p>140B：</p>
+<p>140A：</p>
+<p>139B：</p>
+<p>139A：</p>
+<p>138E：发现对于一个约束和给定的末尾，满足条件的起始点必然是连续一段…… 于是一条扫描线扫过去，然后实时维护对于当前的末尾每个起始点满足多少个条件，然后也可以维护出来有多少个起始点满足条件…… 于是就行了。代码实现比较恶心</p>
+<p>138D：SG。 因为区域是斜着的…… 转移坐标自行推公式，写的比较恶心。不用担心复杂度，Codeforces评测机很神的&gt;_&lt;</p>
+<p>138C：</p>
+<p>138B：</p>
+<p>138A：</p>
+<p>137E：推出要满足的公式乱搞。神马数据结构都可以。也可以神马数据结构都不用，直接二分查找= =</p>
+<p>137D：裸DP</p>
+<p>137C：</p>
+<p>137B：</p>
+<p>137A：</p>
+<p>136B：</p>
+<p>136A：</p>
+<p>135E：</p>
+<p>135D：Floodfill分情况乱搞。注意到除了2*2的实心小方块，其他合法Cycle中间必然包含0.从每个0开始8连通floodfill,如果能floodfill到边界上的0就直接挂，如果没挂记录下8连通的‘1’边界。然后对‘1’边界进行4连通floodfill，如果有一个以上连通块直接挂，否则计算每个边界上的’1‘相邻的边界’1‘的个数，如果都正好是两个那这个’1‘边界就是合法解了，拿去更新答案。</p>
+<p>135C：<br>
+135B：</p>
+<p>135A：</p>
+<p>134C：</p>
+<p>134B：</p>
+<p>134A：</p>
+<p>133B：</p>
+<p>133A：</p>
+<p>132E：费用流。 一开始想要拉一条链，但发现不能保证每个点都经过，无法解决。但发现用二分图来表示后继，然后K条路径就可以扣掉K个匹配，然后最小费用流</p>
+<p>132D：贪心构造。显然只要两个或以上连续的1就换成一个大的减去一个小的肯定不亏。注意能连环换</p>
+<p>132C：</p>
+<p>132B：</p>
+<p>132A：</p>
+<p>131F：枚举左、右列边界，然后行用个滑窗扫一遍。O(N^3)</p>
+<p>131E：爆搞</p>
+<p>131D：</p>
+<p>131C：<br>
+131B：</p>
+<p>131A：</p>
+<p>130特殊语言无视</p>
+<p>129B：</p>
+<p>129A：</p>
+<p>128E：可以发现最优解必然是找一条线穿过最多的圆，然后k条线在一个圆上各种相交，于是找到一条线最多穿过多少个圆，剩下的就是推数学公式了。前者就是今年ACM北京赛区现场赛的Fruit Ninja，可以枚举基本圆，然后按照切线关于半径的极角，扫描线搞切线，实时维护切的圆的数量，O(N^2lgN)</p>
+<p>128D：构造…… 找到最小的数。然后能往大的走就往大的走，不能往大的走就往小的走</p>
+<p>128C：</p>
+<p>128B：</p>
+<p>128A：</p>
+<p>127B：</p>
+<p>127A：</p>
+<p>126E：</p>
+<p>126D：dp…… 转移推公式…… 有点无语的题</p>
+<p>126C：从右上角往主对角线顺序，每个按钮是否按了都能推出来，同理下半部分，最后推主对角线</p>
+<p>126B：</p>
+<p>126A：</p>
+<p>125E：我们二分一个权值delta，把所有的和1相邻的边权都+delta，然后MST看看有多少条边。注意二分不与1相连的边的最大边权然后MST最后看看要几条边能把1连进去是错误的，因为这货是离散的，有反例。但二分权值delta的话k的变化就是连续的了，就对了</p>
+<p>125D：</p>
+<p>125C：裸构造</p>
+<p>125B：</p>
+<p>125A：</p>
+<p>124B：</p>
+<p>124A：</p>
+<p>123E：推公式推到最后能推出简洁结论…… 然后就好做了 不过代码还是挺恶心</p>
+<p>123D：后缀数组，然后按height从大到小，并查集维护乱搞。代码恶心。貌似单调栈也可以？</p>
+<p>123C：</p>
+<p>123B：</p>
+<p>123A：</p>
+<p>122B：</p>
+<p>122A：</p>
+<p>121E：</p>
+<p>121D：利用lucky number不多…… 然后用一个滑窗枚举最后覆盖的区间。然后各种自推公式，还要很SB的高精度，很恶心</p>
+<p>121C：</p>
+<p>121B：</p>
+<p>121A：</p>
+<p>120 ACM题，暂时无视</p>
+<p>119E：二分答案然后判N个圆是否有交集就SB了…… 其实就是最小圆覆盖…… 听说貌似卡精度？ 还没写……</p>
+<p>119D：找某个值枚举，然后发现可以KMP或者RK Hashing了…… 找哪个值要想清楚…… 当时被各种找反例……</p>
+<p>119C：</p>
+<p>119B：</p>
+<p>119A：</p>
+<p>118E：显然如果存在割边就直接挂了，否则求割边DFS的时候边走的方向构成的有向图就是一个合法答案。</p>
+<p>118D：裸DP。 dp[n][m][t][k]表示n个footman，m个horseman，最后有k个类型为t的人（t为0或1）。</p>
+<p>118C：</p>
+<p>118B：</p>
+<p>118A：</p>
+<p>117E：极度萎缩的数据结构题。首先注意到如果基环木有完全被覆盖，那么答案就是总数减去被覆盖的边数，如果基环完全被覆盖，那么答案就是前者答案加1…… 先把基环找出来…… 然后对每个外向树进行树链剖分= =，然后用线段树维护重链，支持区级反色和颜色统计操作…… 基环也要破环为链，然后弄个线段树维护一下…… 修改时候各种分类讨论，从基环哪个方向走都是要想清楚的，我分了8种情况…… 然后就行了。</p>
+<p>117D：又是分治，然后各种数学等差数列求和乱搞</p>
+<p>117C：</p>
+<p>117B：</p>
+<p>117A：</p>
+<p>116B：</p>
+<p>116A：</p>
+<p>115E：线段树+DP</p>
+<p>115D：</p>
+<p>115C：把每个格子中心作为“点”，然后就发现只要随意往外连一条横一条竖就对了…… 然后发现行如果有限制就直接确定了，没有限制就是2个。列同理。如果限制根本无法满足就直接0.</p>
+<p>115B：</p>
+<p>115A：</p>
+<p>114B：</p>
+<p>114A：</p>
+<p>113E：虽然是E题，但是确实是乱搞题。各种乱搞……</p>
+<p>113D：可以高斯消元…… 也可以迭代…… 高斯消元要各种常数优化……</p>
+<p>113C：可以分段打表……&gt;_&lt; 每隔30000个数打一个表，然后怎么搞都能过。 貌似有结论说4n+1形式的质数都可以表示成a^2+b^2形式？ 不清楚……</p>
+<p>113B：</p>
+<p>113A：</p>
+<p>112B：</p>
+<p>112A：</p>
+<p>111E：</p>
+<p>111D：枚举最左和最右列各有几种颜色，几种相同颜色。然后数学推公式，排列组合</p>
+<p>111C：因为规模实在太小，N*M&lt;=40，所以必然有一维小于等于6，显然可以状压DP…… 貌似也可以找规律强推公式？</p>
+<p>111B：</p>
+<p>111A：</p>
+<p>109E：</p>
+<p>109D：</p>
+<p>109C：乱搞…… 用并查集把所有不是lucky number的边加上…… 那么i能经过lucky edge到达的点必然是所有和i不在一个联通块里的点。</p>
+<p>109B：</p>
+<p>109A：</p>
+<p>108B：</p>
+<p>108A：</p>
+<p>107E：simpson被卡。tried but failed</p>
+<p>107D：因为所有的multiple乘起来才120…… 直接构造矩阵矩乘</p>
+<p>107C：</p>
+<p>107B：</p>
+<p>107A：</p>
+<p>106E：退火。 其实我觉得这个算法很有问题，很大程度是蒙过去的</p>
+<p>106D：暴力模拟</p>
+<p>106C：</p>
+<p>106B：</p>
+<p>106A：</p>
+<p>105E：</p>
+<p>105D：<br>
+105C：</p>
+<p>105B：</p>
+<p>105A：</p>
+<p>104A：</p>
+<p>103E：</p>
+<p>103D：O(Nsqrt(N))。乱搞。B大就直接暴力，小就放一起，然后扫一次把B值一样的询问答案一起算出来</p>
+<p>103C：构造…… 各种分类构造就行了……</p>
+<p>103B：</p>
+<p>103A：</p>
+<p>102B：</p>
+<p>102A：</p>
+<p>101E：SB题。卡内存不能直接DP。但可以DP一下找到在中间那一行走到哪里是最优的（不记录解），然后两头分治下去生成最优解…… 很搞笑的题目</p>
+<p>101D：树形DP…… 然后到某个结点，按照总边权/子树大小从小到大排序，就是最优解。不会证，但2个子树时候是对的，似乎可以推广多个子树。</p>
+<p>101C：爆搞…… 可以发现C旋转拼长度必然是(p<em>Cx-q</em>Cy,q<em>Cx+p</em>Cy) 或 (p<em>Cx+q</em>Cy,p<em>Cy-q</em>Cx) 于是解二元一次方程组是否有整数解，各种分类讨论IF-ELSE题。</p>
+<p>101B：</p>
+<p>101A：</p>
+<p>100：ACM题暂时无视</p>
+<p>99B：</p>
+<p>99A：</p>
+<p>98E：每个人可以选择故意猜自己手上的牌来骗对方，也可以猜自己手上没有的牌来正常玩。对方也可以在没有牌可弃时选择是翻底牌还是相信对方在骗人。都可以推出方程。最后就是2x2收益矩阵算期望最优解。做法就是对方选择某个策略的几率P必然使得不管自己怎么选，对方期望收益都一样。于是解方程算出P就能算出期望胜率了。</p>
+<p>98D：</p>
+<p>98C：</p>
+<p>98B：</p>
+<p>98A：</p>
+<p>97E：</p>
+<p>97D：暴力题。用二进制压位来让时间复杂度/32.就能过了。</p>
+<p>97C：</p>
+<p>97B：构造题…… 先找个X坐标正好把点集平分成两份，然后X坐标上每个点集里的Y坐标都放一个点，这样跨越X的点就都配对了，然后分治下去，总点数O(NlgN)</p>
+<p>97A：</p>
+<p>96B：</p>
+<p>96A：</p>
+<p>95E：连通块先算出来…… 然后发现直接背包TLE。 但物品总重量才10^5,于是直接把相同重量物品放一起变成多重背包，于是就只有sqrt(10^5)种物品了，用单调队列搞多重背包就过了。貌似二进制拆多重背包也能过。</p>
+<p>95D：简单的类似数位DP的玩意…… 预处理O(N^2)，然后从高位到低位算询问…… 每次O(N)</p>
+<p>95C：</p>
+<p>95B：<br>
+95A：</p>
+<p>94B：</p>
+<p>94A：</p>
+<p>93E：用dp[s,n]表示1~s内不被a1~an的数的个数。则dp[s,n]=dp[s,n-1]-dp[s/n,n-1]. 然后把s&lt;=10^5的部分记忆化掉，然后按a权值从大到小算，那么最多转移3次s就掉到10W以内被记忆化掉了。然后时间复杂度大概是100^3+10^5*100，就过了</p>
+<p>93D：</p>
+<p>93C：</p>
+<p>93B：贪心+分类讨论+构造。显然能灌就灌，不能灌就挂了。。。</p>
+<p>93A：</p>
+<p>92B：</p>
+<p>92A：</p>
+<p>91E：每个人时间-高度图是一条直线，于是转化成询问一些直线在x=XX时候的最大Y值。于是半平面交，因为还尼玛是区间查询，所以显然要线段树维护半平面交，每个线段树结点存储当前区间的半平面交，建树时候可以从子树的结果合并上来，查询时候二分答案，可以做到每次询问O(lg^2N)。然后就各种实现问题了…… 尼玛各种实现细节，还卡精度。</p>
+<p>91D：</p>
+<p>91C：这么奇葩的题目描述，看上去完全不可做，所以是结论题…… 看样例好好像是2的XX次方减1？ 手画几组确实是的，事实上假设当前的一个连通块里又多了一条边，那么答案*2. 于是并查集搞一下好了。</p>
+<p>91B：</p>
+<p>91A：</p>
+<p>90B：</p>
+<p>90A：</p>
+<p>89E：</p>
+<p>89D：看懂题意就简单了。注意“线”的有效碰撞点仅仅是线的末端而不是整条线段…… 所以就非常简单了，直接暴力解析流解方程解出每个对象的最早碰撞时间取最小值即可</p>
+<p>89C：用dancing links维护一下就行了……</p>
+<p>89B：</p>
+<p>89A：</p>
+<p>88B：</p>
+<p>88A：</p>
+<p>87E：</p>
+<p>87D：考虑每条边被种了多少棵树。这样朴素是对每条边两端的子树dfs一遍，总复杂度O(N^2)不行。然后考虑按照权值大小从小到大依次考虑这些边。权值小于当前权值的联通分量可以缩点，但这样如果重复权值太多的话就会退化到O(N^2)，依然不行。再考虑，缩点后权值相同的边每次都是组成森林，显然对森林里每颗树进行DP就能O(N)算出所有权值相同的边，然后因为这颗树下一次就被缩点了，所以均摊下来总复杂度还是O(N)，算上排序就是O(NlgN)就过了。</p>
+<p>87C：裸SG。</p>
+<p>87B：</p>
+<p>87A：</p>
+<p>86E：</p>
+<p>86D：首先发现在线维护的根本不可做…… 然后想到离线…… 按右端点排序，然后用数据结构维护当前右端点是某个值时候左端点是X的答案…… 但发现这样还是不太好用树形结构维护…… 于是想到分块…… 首先D[i]表示数i在区间[i,R]贡献的代价，然后发现如果i出现了K次，那么D[i]=(2K-1)<em>a[i]. 于是查询就可以表示为查询一段D[i]的和。然后往右端新加入一个数就相当于对所有的满足a[i]=a[R]的i值，把D[i]加上2</em>a[i]. 于是考虑用块链维护，分成O(sqrt(N))块，然后修改时候整块的修改可以维护XXX做到每块O(1)，不完整的块的修改可以暴力。查询时候也这么搞，于是O(sqrt(N))就可过了。我设定的每块长度300.</p>
+<p>86C：AC自动机DP…… dp[n][node][L]表示长度为n，现在最深匹配到node，且suffix上最后L个字符木有被覆盖的字符串个数。转移枚举下一个字符取值，然后沿着fail指针跑一遍看看L能不能更新……</p>
+<p>86B：</p>
+<p>86A：</p>
+<p>85E：先把任意两点之间距离排序（因为尽管有多达1250万个点，但距离的规模只有10000，所以桶排序不会TLE），然后假设答案是S，那么大于S的边两端的点必须不属于一个集合。于是按从大到小的顺序加边，然后用并查集维护当前是否是一个二分图。最后如果加出环来了那就是答案了。最后方案统计，显然每个二分图联通块都有2种方案，于是最后方案数就是2^联通块数目种。有点卡常数，要常数优化。</p>
+<p>85D：数据弱了朴素常数别太大就过了= =</p>
+<p>85C：首先想到某个结点往某个方向走错路的话最后结果就确定了。所以先DFS预处理，可以O(N)把所有区间的答案算出来（各种细节各种乱搞）然后排序，然后查询时候在里面二分查找就行了O(NlgN)</p>
+<p>85B：</p>
+<p>85A：</p>
+<p>84C：因为所有圆都在X轴上排成一排还不相交。。。 所以直接扫描线就行了。。。</p>
+<p>84A：</p>
+<p>83E：非常非常神的题目。首先定义w[a,b]表示a串后面拼b串会增加多少个字符。最朴素的状态表示dp[n,k]表示前n个string，第二队列末端是第k个string的最小总长。转移dp[n,k]=dp[n-1,k]+w[s[n-1],s[n]] 对于k&lt;&gt;n-1 和 dp[n,n-1]=min{dp[n-1,k]+w[s[k],s[n]]}. 这个是O(N^2)的显然不行。这时候观察方程可以发现其实可以“优化”一维，dp[n]表示串n和串n-1不在一个队列里的最小长度，则dp[n]=min{dp[k]+sum[n-1]-sum[k]+w[s[k-1],s[n]]} 其中sum[n]=sigma{ w[s[i-1],s[i]] } 2&lt;=i&lt;=n. 但发现w[s[k-1],s[n]]这个玩意没有任何有用的性质，根本不能优化转移的复杂度。于是这货还是O(N^2)的照样不行。继续YY，可以想到考虑对于某个给定的N，dp[n][k]这个序列能不能用数据结构维护。发现依然不可以= =，矛盾在于w[s[k],s[i]]这玩意是同时和s[k],s[i]有关的，而且几乎没有任何有用性质。突破口在于串长小于等于20，w[]这个函数值也小于20. 于是我们考虑枚举w的值。然后要分离s[k]这个变量，解决方法是发现w确定时候（假设w=x）那么s[k]只有后X位有效的，而且状态数只有2^x种。于是我们定义新状态dp[n][L][STATE]表示前n个数，第二队列的最后一个数要求恰好末L位被覆盖，而且这末L位状态是STATE。这样假设每个小串串场LEN,转移就变成了1. dp[n][L][STATE]+w[s[n-1],s[n]] =&gt; dp[n+1][L][STATE] 和 2. dp[n][L][s[n+1]的末L位]+LEN-L =&gt; dp[n+1][K][s[n+1]的最后K位]. 其中0&lt;=L,K&lt;=LEN 这样考虑n确定时候剩下两维，发现对于确定的L, 剩下的STATE这一维只是要支持全体加一个数，和查询某一个数。这个显然什么数据结构都不需要，就是线性表。这样从dp[n][][]转移到dp[n+1][][]就变成了O(LEN)的了。总时间复杂度只有O(N*LEN)，完全可以接受。最后答案只要把整个表扫一遍就出来了，时间复杂度是O(2^LEN)的，也完全可以接受。</p>
+<p>83D：显然可以转化成求[1,L]之间有多少个数不被前XX个质数整除…… L是longint规模的，XX最多就1000来个…… 显然部分记忆化搜索DP就行了。我取L&lt;=50000,XX&lt;=200时候进行记忆化。</p>
+<p>83C：</p>
+<p>83B：</p>
+<p>83A：</p>
+<p>82E：扫描线爆搞的话是O(N^3)会TLE。然后发现任何一个地方最多只被两个梯形覆盖，于是就是总面积减去重复覆盖的面积，于是枚举两个梯形，用半平面交之类的算出覆盖面积，减去就好了，就O(N^2)了。</p>
+<p>82D：</p>
+<p>82C：</p>
+<p>82B：</p>
+<p>82A：</p>
+<p>81E：</p>
+<p>81D：</p>
+<p>81C：<br>
+81B：</p>
+<p>81A：</p>
+<p>80B：</p>
+<p>80A：</p>
+<p>79E：</p>
+<p>79D：很给力的题目。首先发现对连续一段数反色很蛋疼，所以可以进行一个转换，如果ai和ai+1颜色相同，那么bi=1否则bi=0,于是区间反色就变成了对bi和bi+x反色了。然后就发现bi为1的最多只有20个，而且如果两个bi都是0那么反色显然没意义，如果两个都是1就直接消掉了，所以bi和bi+x一个1一个0时候反色才有意义，这时候就相当于bi的1移动到了bi+x，于是先BFS求出每个1移动到其他位置至少需要几次，然后只要能移到一起就算消掉了，于是就可以状压DP了。</p>
+<p>79C：乱搞题，算出每个字符后面最多能延伸到哪里，然后用个滑窗+堆维护一下扫一遍就好了。</p>
+<p>79B：</p>
+<p>79A：</p>
+<p>78E：</p>
+<p>78D：</p>
+<p>78C：裸SG。 因为约数个数不超过1024个，所以先预处理所有约数到一张表里，然后SG就好了……</p>
+<p>78B：</p>
+<p>78A：</p>
+<p>77E：</p>
+<p>77D：</p>
+<p>77C：树形DP…… 首先考虑子树X的情况…… 那么先考虑往某个孩子Y走，那么假设能得到C的收益，而且Y还剩下Z个beaver…… 那么显然最优方案是先尽量贪心收益大的，最后如果X还有多余的虫子就不停的往返于孩子和自己之间直到所有孩子的beaver全吃完或者X的beaver全吃完…… 好像讲的有点乱。。。</p>
+<p>77B：</p>
+<p>77A：</p>
+<link rel="stylesheet" href="/cnblog/css/spoiler.css" type="text/css"><script src="/cnblog/js/spoiler.js" type="text/javascript" async></script>
+      
+    </div>
+
+    
+      
+
+    
+
+    <footer class="article-footer">
+    <!--
+      <a data-url="2012/03/22/2012-03-22/" data-id="cl4nq6z7y0012beor47nzdt8i" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+    -->
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/%E9%A2%98%E8%A7%A3/" rel="tag">题解</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+    
+<ul id="article-nav" class="nav nav-pills nav-justified">
+  
+  <li role="presentation">
+    <a href="../../11/2012-03-11/" id="article-nav-older" class="article-nav-link-wrap">
+      <i class="fa fa-chevron-left pull-left"></i>
+      <span class="article-nav-link-title">ZJU Monthly 2012.03</span>
+    </a>
+  </li>
+  
+  
+  <li role="presentation">
+    <a href="../../../04/16/2012-04-16/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-link-title">传说中的函数式块状链表</span>
+      <i class="fa fa-chevron-right pull-right"></i>
+    </a>
+  </li>
+  
+</ul>
+
+
+  
+</article>
+
+
+
+
+        </div>
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+          
+  
+
+
+  
+  <div class="sidebar-module">
+    <h4>Tags</h4>
+    <ul class="sidebar-module-list" itemprop="keywords"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/ACM/" rel="tag">ACM</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/OI/" rel="tag">OI</a><span class="sidebar-module-list-count">23</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/" rel="tag">技术杂谈</a><span class="sidebar-module-list-count">12</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%9D%82%E8%B0%88/" rel="tag">杂谈</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%9D%82%E8%B0%88%E6%B0%B4/" rel="tag">杂谈水</a><span class="sidebar-module-list-count">9</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%B5%81%E6%B0%B4%E8%B4%A6/" rel="tag">流水账</a><span class="sidebar-module-list-count">15</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E9%A2%98%E8%A7%A3/" rel="tag">题解</a><span class="sidebar-module-list-count">24</span></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Tag Cloud</h4>
+    <p class="tagcloud">
+      <a href="../../../../tags/ACM/" style="font-size: 10px;">ACM</a> <a href="../../../../tags/OI/" style="font-size: 18.33px;">OI</a> <a href="../../../../tags/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/" style="font-size: 15px;">技术杂谈</a> <a href="../../../../tags/%E6%9D%82%E8%B0%88/" style="font-size: 11.67px;">杂谈</a> <a href="../../../../tags/%E6%9D%82%E8%B0%88%E6%B0%B4/" style="font-size: 13.33px;">杂谈水</a> <a href="../../../../tags/%E6%B5%81%E6%B0%B4%E8%B4%A6/" style="font-size: 16.67px;">流水账</a> <a href="../../../../tags/%E9%A2%98%E8%A7%A3/" style="font-size: 20px;">题解</a>
+    </p>
+  </div>
+
+
+  
+  <div class="sidebar-module">
+    <h4>Archives</h4>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2022/">2022</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2018/">2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2017/">2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2015/">2015</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2014/">2014</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2013/">2013</a><span class="sidebar-module-list-count">7</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2012/">2012</a><span class="sidebar-module-list-count">27</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2011/">2011</a><span class="sidebar-module-list-count">11</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2010/">2010</a><span class="sidebar-module-list-count">1</span></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Recents</h4>
+    <ul class="sidebar-module-list">
+      
+        <li>
+          <a href="../../../../2022/01/31/2022-01-31/">写于PhD的第三年</a>
+        </li>
+      
+        <li>
+          <a href="../../../../2018/03/14/2018-03-14/">胡思乱想</a>
+        </li>
+      
+        <li>
+          <a href="../../../../2017/05/25/2017-05-25/">WF2017 滚粗记</a>
+        </li>
+      
+        <li>
+          <a href="../../../../2015/05/21/2015-05-21/">WF2015 滚粗记</a>
+        </li>
+      
+        <li>
+          <a href="../../../../2015/04/12/2015-04-12/">TC SRM655 &amp; TCO2015 R1A</a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+
+        </div>
+    </div>
+  </div>
+  <footer class="blog-footer">
+  <div class="container">
+    <div id="footer-info" class="inner">
+      &copy; 2022 Haoran Xu<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+  
+
+<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>-->
+
+<script src="../../../../js/bootstrap/bootstrap.min.js"></script>
+
+
+
+  
+<link rel="stylesheet" href="../../../../fancybox/jquery.fancybox.css">
+
+  
+<script src="../../../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="../../../../js/script.js"></script>
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    menuSettings: {
+      zoom: "None"
+    },
+    showMathMenu: false,
+    jax: ["input/TeX","output/CommonHTML"],
+    extensions: ["tex2jax.js"],
+    TeX: {
+      extensions: ["AMSmath.js","AMSsymbols.js"],
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    },
+    tex2jax: {
+      inlineMath: [["\\(", "\\)"]],
+      displayMath: [["\\[", "\\]"]]
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.1/MathJax.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+ 
+
+</body>
+</html>

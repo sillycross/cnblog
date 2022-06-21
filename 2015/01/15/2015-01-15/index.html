@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <title>一个很有趣的编程游戏 Manufactoria | </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="地址 http:&#x2F;&#x2F;www.matrix67.com&#x2F;data&#x2F;manufactoria.swf 忽略细节的话，游戏就是一个图灵机的变种，游戏目标是识别出某类字符串（比如以蓝色开头的字符串）或者对某个字符串进行某种操作（比如将字符串反色）。 输入串只有红蓝两种字符（某些题目有绿色），我们可以用红蓝黄绿四种字符，机器有一个读取头和一个写入头，不能移动，读取头只能读取串的第一个字符，读完后字符自动被吃">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一个很有趣的编程游戏 Manufactoria">
+<meta property="og:url" content="2015/01/15/2015-01-15/index.html">
+<meta property="og:site_name">
+<meta property="og:description" content="地址 http:&#x2F;&#x2F;www.matrix67.com&#x2F;data&#x2F;manufactoria.swf 忽略细节的话，游戏就是一个图灵机的变种，游戏目标是识别出某类字符串（比如以蓝色开头的字符串）或者对某个字符串进行某种操作（比如将字符串反色）。 输入串只有红蓝两种字符（某些题目有绿色），我们可以用红蓝黄绿四种字符，机器有一个读取头和一个写入头，不能移动，读取头只能读取串的第一个字符，读完后字符自动被吃">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2015-01-15T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-21T05:27:00.644Z">
+<meta property="article:author" content="Haoran Xu">
+<meta property="article:tag" content="杂谈水">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="../../../../atom.xml" title="" type="application/atom+xml">
+  
+  
+  
+    <!--<link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">-->
+    
+<link rel="stylesheet" href="../../../../css/source_code_pro.css">
+
+  
+
+  <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">-->
+  
+<link rel="stylesheet" href="../../../../css/bootstrap/bootstrap.min.css">
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
+
+  
+<link rel="stylesheet" href="../../../../css/styles.css">
+
+  
+
+  
+  <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" integrity="sha384-8gBf6Y4YYq7Jx97PIqmTwLPin4hxIzQw5aDmUg/DDhul9fFpbbLcLh3nTIIDJKhx" crossorigin="anonymous"></script>-->
+  
+<script src="../../../../js/jquery.min.js"></script>
+
+
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><nav class="navbar navbar-inverse">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="main-menu-navbar">
+      <ul class="nav navbar-nav">
+        
+          <li><a class=""
+                 href="../../../../index.html">Archives</a></li>
+        
+          <li><a class=""
+                 href="../../../../about/">About</a></li>
+        
+          <li><a class=""
+                 href="../../../../../">English Blog</a></li>
+        
+      </ul>
+
+      <!--
+      <ul class="nav navbar-nav navbar-right">
+        
+          <li><a href="/atom.xml" title="RSS Feed"><i class="fa fa-rss"></i></a></li>
+        
+      </ul>
+      -->
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+  <div class="container">
+    <div class="blog-header">
+  <h1 class="blog-title"></h1>
+  
+    <p class="blog-description">「こんなきれいな星も、やっぱりここまで来てから、見れたのだと思うから。だから・・もっと遠くへ・・」</p>
+  
+</div>
+
+    <div class="row">
+        <div class="col-sm-8 blog-main">
+          <article id="post-2015-01-15" class="article article-type-post" itemscope itemprop="blogPost">
+
+  <header class="article-header">
+    
+  
+    <h1 class="article-title" itemprop="name">
+      一个很有趣的编程游戏 Manufactoria
+    </h1>
+  
+
+
+  </header>
+
+  <div class="article-meta">
+    <div class="article-datetime">
+  <a href="" class="article-date"><time datetime="2015-01-15T00:00:00.000Z" itemprop="datePublished">2015-01-15</time></a>
+</div>
+
+    
+    
+
+  </div>
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>地址 http://www.matrix67.com/data/manufactoria.swf</p>
+<p>忽略细节的话，游戏就是一个图灵机的变种，游戏目标是识别出某类字符串（比如以蓝色开头的字符串）或者对某个字符串进行某种操作（比如将字符串反色）。<br>
+输入串只有红蓝两种字符（某些题目有绿色），我们可以用红蓝黄绿四种字符，机器有一个读取头和一个写入头，不能移动，读取头只能读取串的第一个字符，读完后字符自动被吃掉（没有办法只读取不吃掉字符），写入头只能在串最后写入字符（颜色任意）。<br>
+整个机器必须被排在限制大小的方格棋盘上，控制部件之间用传送带连接（各种控制部件和传送带都占一格）。为了避免歧义，部件不能重叠，惟一的例外是传送带可以垂直交叉（交叉时优先走平行方向传送带），但反向交叉也是不可以的。<a id="more"></a></p>
+<p>首先发现给定的这个机器是图灵完备的，因为我们可以用黄色字符当“标记”，先在串末尾加一个黄色字符，这样整个串就有序了。然后图灵机的基本操作我们都能用给定的部件完成（比如左移读写头可以通过当前位置插入一个绿标记，然后把整个序列循环一遍，一边读一边写，同时把前一个字符是啥用状态记住，读到绿字符把前一个字符视为当前字符就行了）。</p>
+<p>这样的话游戏的意义就是怎么在限制大小的棋盘上把机器实现出来了…… 也就是怎么比较简单地实现出来而不是直接实现一台电脑……</p>
+<p>前面若干关都是正则语言，显然给的机器可以直接实现一个DFA…… 就略过了。</p>
+<p>一些好玩的关卡：<br>
+Androids: <font color="blue">第一个有难度的关卡，识别形如R^nB^n的串。</font>思路很简单，加一个黄色字符作为标记，这样整个串就有序了。每次读取第一个和最后一个字符，看看是不是R和B，然后把它们删掉。</p>
+<p>Robotanks: <font color="blue">蓝色视为1，红色视为0。识别所有作为二进制数时数值大于15的串（可以有前导零）。</font>先去掉前导零，然后就是看是否有至少5位了。</p>
+<p>Robo-children: <font color="blue">识别蓝色和红色字符数目相同的串。</font>每次去掉一个红色一个蓝色即可。Politicians那题是识别蓝色是红色两倍的串，做法相同。</p>
+<p>Officers: <font color="blue">蓝色视为1，红色视为0。给这个二进制数+1，输出结果。</font>这题比较坑…… 首先注意到答案是允许前导零的…… 为了减少特判，我们直接在前面加两个零…… 然后同样用黄色标记末尾，然后再用一个绿字符标记当前正在处理的位（一开始在最后一位）。这样的话每次扫串，记录前一个字符，读到绿色字符时候，如果前一个字符是0，把它改成1结束，如果是1，把它改成0，然后把绿色字符和它交换，这样反复做就行了。</p>
+<p>Generals: <font color="blue">+1变成-1，其他和上题一样。</font>做法也和上题一样。</p>
+<p>Police: <font color="blue">保证给定串长度为偶数，在串的正中间加一个黄色字符。</font>这题我做法复杂了。我的做法是先把每两个字符之间都加上黄色（显然有奇数个黄色），然后每次删掉第一个和最后一个黄色，直到剩一个为止。最后一个黄色可以通过它后面的第二个字符是否是黄色判定，所以只要记一个字符就行。但细节一大堆，比如空串或者只有两个字符的情况，终止条件也略麻烦，各种挤压才在棋盘里撑下。更简单的方法见下。</p>
+<p>Teachers: <font color="blue">识别形如B^nR^nB^n的串。</font>先检查形状（是否是B^aR^bB^c的形式），在确定形状没问题后，加一个黄色字符确定次序，然后每次删掉第一个碰到的蓝色、第一个碰到的红色、第一个碰到的蓝色即可。任何一步找不到就是挂了。</p>
+<p>Rocket planes: <font color="blue">对给定串排序，把所有蓝色字符放到最前面。</font>还是加一个字符定序，然后反复扫，每次额外打一个蓝色，然后下次遇到的第一个蓝色就可以吃掉了。如果没有蓝色就吃掉第一个蓝色（这是刚才额外打的）然后结束。</p>
+<p>Judiciary: <font color="blue">保证给定串长度是偶数，识别所有形如xx的串，其中x是任意字符串。</font>识思路是首先想办法在正中间加一个绿色字符，然后反复扫，每次读第一个字符和绿色后第一个字符，比较，不一样就挂，一样就删掉。在正中间加一个字符的一个更简单的方法是，先在首尾各加一个绿字符，然后每次开头的绿字符向后移一个位置，最后的绿字符向前移一个位置，相遇为止。这个比之前那个方法好写多了。</p>
+<p>Academics: <font color="blue">将给定串反序输出。</font>做法是先黄字符定序，然后用一个绿字符标记已经翻转的部分。每次找到绿字前的最后一个字符，把它和绿字交换。</p>
+<p>Engineers: <font color="blue">识别所有回文串。</font>每次取出第一个和最后一个字符，比较，不一样就挂，一样就删掉。</p>
+<p>Ophanim（隐藏关）: <font color="blue">给定两个二进制数（依然蓝1红0，用一个绿字符分隔），如果第一个数比第二个数大，就接受。 </font>这个题比较猎奇，虽然有很多描述起来很简单的做法，但实际用给定的那个机器实现的话很容易就发现棋盘不够大了…… 我用的方法是先去掉前导零，然后直接从前向后进行比较，在发现第一个不同后再比长度。</p>
+<p>Metatron（隐藏关）: <font color="blue">给定两个二进制数（表示方法与上题相同），输出它们的和。</font>不会。试了很多方法，都没法压缩到放得进给定的13x13棋盘内……</p>
+<link rel="stylesheet" href="/cnblog/css/spoiler.css" type="text/css"><script src="/cnblog/js/spoiler.js" type="text/javascript" async></script>
+      
+    </div>
+
+    
+      
+
+    
+
+    <footer class="article-footer">
+    <!--
+      <a data-url="2015/01/15/2015-01-15/" data-id="cl4nq6z8x003cbeor57yvd9hb" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+    -->
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/%E6%9D%82%E8%B0%88%E6%B0%B4/" rel="tag">杂谈水</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+    
+<ul id="article-nav" class="nav nav-pills nav-justified">
+  
+  <li role="presentation">
+    <a href="../../../../2014/10/24/2014-10-24/" id="article-nav-older" class="article-nav-link-wrap">
+      <i class="fa fa-chevron-left pull-left"></i>
+      <span class="article-nav-link-title">某无聊产物</span>
+    </a>
+  </li>
+  
+  
+  <li role="presentation">
+    <a href="../../../03/08/2015-03-08/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-link-title">最近的一些无聊折腾过程</span>
+      <i class="fa fa-chevron-right pull-right"></i>
+    </a>
+  </li>
+  
+</ul>
+
+
+  
+</article>
+
+
+
+
+        </div>
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+          
+  
+
+
+  
+  <div class="sidebar-module">
+    <h4>Tags</h4>
+    <ul class="sidebar-module-list" itemprop="keywords"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/ACM/" rel="tag">ACM</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/OI/" rel="tag">OI</a><span class="sidebar-module-list-count">23</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/" rel="tag">技术杂谈</a><span class="sidebar-module-list-count">12</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%9D%82%E8%B0%88/" rel="tag">杂谈</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%9D%82%E8%B0%88%E6%B0%B4/" rel="tag">杂谈水</a><span class="sidebar-module-list-count">9</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%B5%81%E6%B0%B4%E8%B4%A6/" rel="tag">流水账</a><span class="sidebar-module-list-count">15</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E9%A2%98%E8%A7%A3/" rel="tag">题解</a><span class="sidebar-module-list-count">24</span></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Tag Cloud</h4>
+    <p class="tagcloud">
+      <a href="../../../../tags/ACM/" style="font-size: 10px;">ACM</a> <a href="../../../../tags/OI/" style="font-size: 18.33px;">OI</a> <a href="../../../../tags/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/" style="font-size: 15px;">技术杂谈</a> <a href="../../../../tags/%E6%9D%82%E8%B0%88/" style="font-size: 11.67px;">杂谈</a> <a href="../../../../tags/%E6%9D%82%E8%B0%88%E6%B0%B4/" style="font-size: 13.33px;">杂谈水</a> <a href="../../../../tags/%E6%B5%81%E6%B0%B4%E8%B4%A6/" style="font-size: 16.67px;">流水账</a> <a href="../../../../tags/%E9%A2%98%E8%A7%A3/" style="font-size: 20px;">题解</a>
+    </p>
+  </div>
+
+
+  
+  <div class="sidebar-module">
+    <h4>Archives</h4>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2022/">2022</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2018/">2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2017/">2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2015/">2015</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2014/">2014</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2013/">2013</a><span class="sidebar-module-list-count">7</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2012/">2012</a><span class="sidebar-module-list-count">27</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2011/">2011</a><span class="sidebar-module-list-count">11</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2010/">2010</a><span class="sidebar-module-list-count">1</span></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Recents</h4>
+    <ul class="sidebar-module-list">
+      
+        <li>
+          <a href="../../../../2022/01/31/2022-01-31/">写于PhD的第三年</a>
+        </li>
+      
+        <li>
+          <a href="../../../../2018/03/14/2018-03-14/">胡思乱想</a>
+        </li>
+      
+        <li>
+          <a href="../../../../2017/05/25/2017-05-25/">WF2017 滚粗记</a>
+        </li>
+      
+        <li>
+          <a href="../../../05/21/2015-05-21/">WF2015 滚粗记</a>
+        </li>
+      
+        <li>
+          <a href="../../../04/12/2015-04-12/">TC SRM655 &amp; TCO2015 R1A</a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+
+        </div>
+    </div>
+  </div>
+  <footer class="blog-footer">
+  <div class="container">
+    <div id="footer-info" class="inner">
+      &copy; 2022 Haoran Xu<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+  
+
+<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>-->
+
+<script src="../../../../js/bootstrap/bootstrap.min.js"></script>
+
+
+
+  
+<link rel="stylesheet" href="../../../../fancybox/jquery.fancybox.css">
+
+  
+<script src="../../../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="../../../../js/script.js"></script>
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    menuSettings: {
+      zoom: "None"
+    },
+    showMathMenu: false,
+    jax: ["input/TeX","output/CommonHTML"],
+    extensions: ["tex2jax.js"],
+    TeX: {
+      extensions: ["AMSmath.js","AMSsymbols.js"],
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    },
+    tex2jax: {
+      inlineMath: [["\\(", "\\)"]],
+      displayMath: [["\\[", "\\]"]]
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.1/MathJax.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+ 
+
+</body>
+</html>

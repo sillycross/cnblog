@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <title>POJ2839 计算几何 | </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="原题地址 http:&#x2F;&#x2F;poj.org&#x2F;problem?id&#x3D;2839 有点忙…… 题解就简单写吧…… 大概就是给一个点数10W的凸包…… 然后要支持查询某个三角形与凸包的交面积…… 查询规模也是10W…… 这个显然要找出对数级别的算法…… 首先要把凸包的基本操作支持起来…… 现在假设凸包已经建好了…… 木有重点木有三点共线，逆时针排过序了…… 然后查询一条线段与凸包的交点数目（严格相交）……">
+<meta property="og:type" content="article">
+<meta property="og:title" content="POJ2839 计算几何">
+<meta property="og:url" content="2011/12/20/2011-12-20/index.html">
+<meta property="og:site_name">
+<meta property="og:description" content="原题地址 http:&#x2F;&#x2F;poj.org&#x2F;problem?id&#x3D;2839 有点忙…… 题解就简单写吧…… 大概就是给一个点数10W的凸包…… 然后要支持查询某个三角形与凸包的交面积…… 查询规模也是10W…… 这个显然要找出对数级别的算法…… 首先要把凸包的基本操作支持起来…… 现在假设凸包已经建好了…… 木有重点木有三点共线，逆时针排过序了…… 然后查询一条线段与凸包的交点数目（严格相交）……">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2011-12-20T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-21T05:27:00.644Z">
+<meta property="article:author" content="Haoran Xu">
+<meta property="article:tag" content="题解">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="../../../../atom.xml" title="" type="application/atom+xml">
+  
+  
+  
+    <!--<link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">-->
+    
+<link rel="stylesheet" href="../../../../css/source_code_pro.css">
+
+  
+
+  <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">-->
+  
+<link rel="stylesheet" href="../../../../css/bootstrap/bootstrap.min.css">
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
+
+  
+<link rel="stylesheet" href="../../../../css/styles.css">
+
+  
+
+  
+  <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" integrity="sha384-8gBf6Y4YYq7Jx97PIqmTwLPin4hxIzQw5aDmUg/DDhul9fFpbbLcLh3nTIIDJKhx" crossorigin="anonymous"></script>-->
+  
+<script src="../../../../js/jquery.min.js"></script>
+
+
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><nav class="navbar navbar-inverse">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="main-menu-navbar">
+      <ul class="nav navbar-nav">
+        
+          <li><a class=""
+                 href="../../../../index.html">Archives</a></li>
+        
+          <li><a class=""
+                 href="../../../../about/">About</a></li>
+        
+          <li><a class=""
+                 href="../../../../../">English Blog</a></li>
+        
+      </ul>
+
+      <!--
+      <ul class="nav navbar-nav navbar-right">
+        
+          <li><a href="/atom.xml" title="RSS Feed"><i class="fa fa-rss"></i></a></li>
+        
+      </ul>
+      -->
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+  <div class="container">
+    <div class="blog-header">
+  <h1 class="blog-title"></h1>
+  
+    <p class="blog-description">「こんなきれいな星も、やっぱりここまで来てから、見れたのだと思うから。だから・・もっと遠くへ・・」</p>
+  
+</div>
+
+    <div class="row">
+        <div class="col-sm-8 blog-main">
+          <article id="post-2011-12-20" class="article article-type-post" itemscope itemprop="blogPost">
+
+  <header class="article-header">
+    
+  
+    <h1 class="article-title" itemprop="name">
+      POJ2839 计算几何
+    </h1>
+  
+
+
+  </header>
+
+  <div class="article-meta">
+    <div class="article-datetime">
+  <a href="" class="article-date"><time datetime="2011-12-20T00:00:00.000Z" itemprop="datePublished">2011-12-20</time></a>
+</div>
+
+    
+    
+
+  </div>
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>原题地址 http://poj.org/problem?id=2839</p>
+<p>有点忙…… 题解就简单写吧……</p>
+<p>大概就是给一个点数10W的凸包…… 然后要支持查询某个三角形与凸包的交面积…… 查询规模也是10W……</p>
+<p>这个显然要找出对数级别的算法……</p>
+<p>首先要把凸包的基本操作支持起来…… 现在假设凸包已经建好了…… 木有重点木有三点共线，逆时针排过序了……</p>
+<p>然后查询一条线段与凸包的交点数目（严格相交）……  这个相当于求直线与凸包的交点……</p>
+<p>于是关键就是快速找到直线与哪两条线段相交…… 一个显然的观察是叉积必然一段正的一段负的…… 交界处就是交的那条线段（这里为简单其间不讨论平行、重叠、非正规相交等蛋疼情况…… 当然代码还是要考虑的……）……</p>
+<p>然后我们发现只要在正的一段中找到一个点…… 负的一段中找到一个点…… 那么就满足二分要求，直接二分找临界点就可以了……</p>
+<p>然后可以发现这样一个事实…… 就是距离这条直线最远的两个点必然是满足要求的一正一负的两个点……</p>
+<p>显然凸包上点到直线距离这个东西是单峰的（假如只考虑某个半凸包的话）…… 而且连接峰值点的那两条线段斜率正好把查询的这条直线的斜率夹在中间，这样往后走或者往前走距离都会减少，于是这个点就最大了……</p>
+<p>于是先把N条边按斜率排序…… 然后二分查找两次，找到一正一负两个峰值点…… 然后判断这两个峰值点的连线段是不是和这条直线相交…… 如果不想交那直线就在凸包外，就直接木有交点了</p>
+<p>否则以峰值点为边界，再二分两次…… 找到临界点…… 非正规相交、平行等蛋疼情况自行处理……</p>
+<p>这样一条线段与凸包的交点数目就在O(lgN)级别完成了……</p>
+<p>然后判定一个点是否在凸包内…… 这个就很简单了，这个点与无穷远点连线段，用上面的方法判定交点个数就行了…… 也能做到O(lgN)……</p>
+<p>然后还有个技术问题就是求一条直线（两端点在凸包端点上）切割凸包后某一侧的面积…… 这个可以用线段树解决……</p>
+<p>S(a,b)表示点a和b的连直线切出来的的逆时针方向面积……</p>
+<p>则显然S(a,b)=S(a,mid)+S(mid,b)+Triangle_Area(a,mid,b)…… 这里就是普通的无向面积……</p>
+<p>然后就用线段树维护吧…… 这样切割出的面积查询也是O(lgN)……</p>
+<p>再然后……查询一条任意直线切割凸包的面积…… 这个很简单…… 就是分解成上一个问题加上一个四边形面积…… 这样就行了…… 注意跨越N的情况处理……</p>
+<p>然后要特判三角形和凸包的包含关系……（同样，简单起见，边界情况不讨论，写代码时自行考虑）</p>
+<p>三角形与凸包交面积为0当且进当三角形三边与凸包无交点，三点在凸包外，且凸包上任意一点在三角形外。</p>
+<p>三角形与凸包交面积为凸包面积当且进当三角形三边与凸包无交点，三点在凸包外，且凸包上任意一点在三角形内。</p>
+<p>三角形与凸包交面积为三角形面积当且进当三角形三边与凸包无交点且三点在凸包内。</p>
+<p>剩下的就是常规情况了……</p>
+<p>可以在纸上自己画图…… 分成一块块计算…… 都可以表示成查询一条任意直线切割凸包的面积这样的形式…… 某个面积是否存在取决于某条边是否与凸包相交…… 或者某个点是否在凸包以内…… 注意起点终点相同的话面积要舍弃之类的特判……</p>
+<p>然后就写代码吧…… 我写了14+K…… 调了3天才AC……</p>
+<p>代码不贴。 因为我也不保证考虑到了所有的特判所有的情况，只是AC了而已。 为防误人子弟就不贴了。</p>
+<p>好像还是写了很多的样子…… T_T</p>
+<link rel="stylesheet" href="/cnblog/css/spoiler.css" type="text/css"><script src="/cnblog/js/spoiler.js" type="text/javascript" async></script>
+      
+    </div>
+
+    
+      
+
+    
+
+    <footer class="article-footer">
+    <!--
+      <a data-url="2011/12/20/2011-12-20/" data-id="cl4nq6z7u000qbeor36y52dag" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+    -->
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/%E9%A2%98%E8%A7%A3/" rel="tag">题解</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+    
+<ul id="article-nav" class="nav nav-pills nav-justified">
+  
+  <li role="presentation">
+    <a href="../../14/2011-12-14/" id="article-nav-older" class="article-nav-link-wrap">
+      <i class="fa fa-chevron-left pull-left"></i>
+      <span class="article-nav-link-title">POJ3247 3D计算几何，矩阵乘法，线段树</span>
+    </a>
+  </li>
+  
+  
+  <li role="presentation">
+    <a href="../../../../2012/01/13/2012-01-13/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-link-title">两张图…… 蛋疼产物&gt;_&lt;</span>
+      <i class="fa fa-chevron-right pull-right"></i>
+    </a>
+  </li>
+  
+</ul>
+
+
+  
+</article>
+
+
+
+
+        </div>
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+          
+  
+
+
+  
+  <div class="sidebar-module">
+    <h4>Tags</h4>
+    <ul class="sidebar-module-list" itemprop="keywords"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/ACM/" rel="tag">ACM</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/OI/" rel="tag">OI</a><span class="sidebar-module-list-count">23</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/" rel="tag">技术杂谈</a><span class="sidebar-module-list-count">12</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%9D%82%E8%B0%88/" rel="tag">杂谈</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%9D%82%E8%B0%88%E6%B0%B4/" rel="tag">杂谈水</a><span class="sidebar-module-list-count">9</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%B5%81%E6%B0%B4%E8%B4%A6/" rel="tag">流水账</a><span class="sidebar-module-list-count">15</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E9%A2%98%E8%A7%A3/" rel="tag">题解</a><span class="sidebar-module-list-count">24</span></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Tag Cloud</h4>
+    <p class="tagcloud">
+      <a href="../../../../tags/ACM/" style="font-size: 10px;">ACM</a> <a href="../../../../tags/OI/" style="font-size: 18.33px;">OI</a> <a href="../../../../tags/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/" style="font-size: 15px;">技术杂谈</a> <a href="../../../../tags/%E6%9D%82%E8%B0%88/" style="font-size: 11.67px;">杂谈</a> <a href="../../../../tags/%E6%9D%82%E8%B0%88%E6%B0%B4/" style="font-size: 13.33px;">杂谈水</a> <a href="../../../../tags/%E6%B5%81%E6%B0%B4%E8%B4%A6/" style="font-size: 16.67px;">流水账</a> <a href="../../../../tags/%E9%A2%98%E8%A7%A3/" style="font-size: 20px;">题解</a>
+    </p>
+  </div>
+
+
+  
+  <div class="sidebar-module">
+    <h4>Archives</h4>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2022/">2022</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2018/">2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2017/">2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2015/">2015</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2014/">2014</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2013/">2013</a><span class="sidebar-module-list-count">7</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2012/">2012</a><span class="sidebar-module-list-count">27</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2011/">2011</a><span class="sidebar-module-list-count">11</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2010/">2010</a><span class="sidebar-module-list-count">1</span></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Recents</h4>
+    <ul class="sidebar-module-list">
+      
+        <li>
+          <a href="../../../../2022/01/31/2022-01-31/">写于PhD的第三年</a>
+        </li>
+      
+        <li>
+          <a href="../../../../2018/03/14/2018-03-14/">胡思乱想</a>
+        </li>
+      
+        <li>
+          <a href="../../../../2017/05/25/2017-05-25/">WF2017 滚粗记</a>
+        </li>
+      
+        <li>
+          <a href="../../../../2015/05/21/2015-05-21/">WF2015 滚粗记</a>
+        </li>
+      
+        <li>
+          <a href="../../../../2015/04/12/2015-04-12/">TC SRM655 &amp; TCO2015 R1A</a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+
+        </div>
+    </div>
+  </div>
+  <footer class="blog-footer">
+  <div class="container">
+    <div id="footer-info" class="inner">
+      &copy; 2022 Haoran Xu<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+  
+
+<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>-->
+
+<script src="../../../../js/bootstrap/bootstrap.min.js"></script>
+
+
+
+  
+<link rel="stylesheet" href="../../../../fancybox/jquery.fancybox.css">
+
+  
+<script src="../../../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="../../../../js/script.js"></script>
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    menuSettings: {
+      zoom: "None"
+    },
+    showMathMenu: false,
+    jax: ["input/TeX","output/CommonHTML"],
+    extensions: ["tex2jax.js"],
+    TeX: {
+      extensions: ["AMSmath.js","AMSsymbols.js"],
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    },
+    tex2jax: {
+      inlineMath: [["\\(", "\\)"]],
+      displayMath: [["\\[", "\\]"]]
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.1/MathJax.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+ 
+
+</body>
+</html>

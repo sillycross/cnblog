@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <title>THUSC Day -1 训练日记 | </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Codeforces 200A 有很多种思路…… 我第一想法是先把候选坐标序列求出来，然后找到第一个未被占领的坐标，这样可以转化成LCP，用树状数组+二分做。 但因为边界原因这个方法必须把地图大小扩展到10000*10000，直接就挂了 然后考虑坐标旋转(x,y)&#x3D;&gt;(x+y,x-y)，这样首先我们可以发现，可以先二分出最小的绝对值和。这个坐标转化后是矩形用个二维树状数组维 护一下就好了。二">
+<meta property="og:type" content="article">
+<meta property="og:title" content="THUSC Day -1 训练日记">
+<meta property="og:url" content="2012/06/25/2012-06-25/index.html">
+<meta property="og:site_name">
+<meta property="og:description" content="Codeforces 200A 有很多种思路…… 我第一想法是先把候选坐标序列求出来，然后找到第一个未被占领的坐标，这样可以转化成LCP，用树状数组+二分做。 但因为边界原因这个方法必须把地图大小扩展到10000*10000，直接就挂了 然后考虑坐标旋转(x,y)&#x3D;&gt;(x+y,x-y)，这样首先我们可以发现，可以先二分出最小的绝对值和。这个坐标转化后是矩形用个二维树状数组维 护一下就好了。二">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2012-06-25T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-21T05:27:00.644Z">
+<meta property="article:author" content="Haoran Xu">
+<meta property="article:tag" content="题解">
+<meta property="article:tag" content="OI">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="../../../../atom.xml" title="" type="application/atom+xml">
+  
+  
+  
+    <!--<link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">-->
+    
+<link rel="stylesheet" href="../../../../css/source_code_pro.css">
+
+  
+
+  <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">-->
+  
+<link rel="stylesheet" href="../../../../css/bootstrap/bootstrap.min.css">
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
+
+  
+<link rel="stylesheet" href="../../../../css/styles.css">
+
+  
+
+  
+  <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" integrity="sha384-8gBf6Y4YYq7Jx97PIqmTwLPin4hxIzQw5aDmUg/DDhul9fFpbbLcLh3nTIIDJKhx" crossorigin="anonymous"></script>-->
+  
+<script src="../../../../js/jquery.min.js"></script>
+
+
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><nav class="navbar navbar-inverse">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="main-menu-navbar">
+      <ul class="nav navbar-nav">
+        
+          <li><a class=""
+                 href="../../../../index.html">Archives</a></li>
+        
+          <li><a class=""
+                 href="../../../../about/">About</a></li>
+        
+          <li><a class=""
+                 href="../../../../../">English Blog</a></li>
+        
+      </ul>
+
+      <!--
+      <ul class="nav navbar-nav navbar-right">
+        
+          <li><a href="/atom.xml" title="RSS Feed"><i class="fa fa-rss"></i></a></li>
+        
+      </ul>
+      -->
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+  <div class="container">
+    <div class="blog-header">
+  <h1 class="blog-title"></h1>
+  
+    <p class="blog-description">「こんなきれいな星も、やっぱりここまで来てから、見れたのだと思うから。だから・・もっと遠くへ・・」</p>
+  
+</div>
+
+    <div class="row">
+        <div class="col-sm-8 blog-main">
+          <article id="post-2012-06-25" class="article article-type-post" itemscope itemprop="blogPost">
+
+  <header class="article-header">
+    
+  
+    <h1 class="article-title" itemprop="name">
+      THUSC Day -1 训练日记
+    </h1>
+  
+
+
+  </header>
+
+  <div class="article-meta">
+    <div class="article-datetime">
+  <a href="" class="article-date"><time datetime="2012-06-25T00:00:00.000Z" itemprop="datePublished">2012-06-25</time></a>
+</div>
+
+    
+    
+
+  </div>
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>Codeforces 200A</strong></p>
+<p>有很多种思路……<br>
+我第一想法是先把候选坐标序列求出来，然后找到第一个未被占领的坐标，这样可以转化成LCP，用树状数组+二分做。<br>
+但因为边界原因这个方法必须把地图大小扩展到10000*10000，直接就挂了<br>
+然后考虑坐标旋转(x,y)=&gt;(x+y,x-y)，这样首先我们可以发现，可以先二分出最小的绝对值和。这个坐标转化后是矩形用个二维树状数组维 护一下就好了。二分出这个答案S后，可以发现，距离(x,y)曼哈顿距离小于等于S的点坐标转化后图形肯定是一个矩形框，中间没有点（否则就有小于S的解 了），然后考虑坐标转化后的矩形的4个象限，每个象限内又是具有二分性质的（画个图就知道了），因此可以枚举每个象限，再二分一次求出最终答案。这样虽然 理论可行，但代码会很恶心，复杂度也不太靠谱O(Klg^3N)的…… （刚才翻了AC的人的代码，发现真有人这么做的orz……）<br>
+最后想到了暴力……… 暴力可以维护每一行可用的块，然后直接搞，可以O(NK)，这样K=10^5,N=2000,感觉压力大，但实际可以过……<br>
+于是就瞎狗眼了</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        code
+    </div>
+    <div class='spoiler-content'>
+        <figure class="highlight pascal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span></span><br><span class="line">n,m:longint;</span><br><span class="line">prev,next:<span class="keyword">array</span>[<span class="number">0</span>..<span class="number">2010</span>,<span class="number">0</span>..<span class="number">2010</span>] <span class="keyword">of</span> longint;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">procedure</span> <span class="title">upd</span><span class="params">(<span class="keyword">var</span> ax,ay,dx,dy:longint; _ax,_ay,_dx,_dy:longint)</span>;</span></span><br><span class="line"><span class="keyword">var</span> f:boolean;</span><br><span class="line"><span class="keyword">begin</span> <span class="keyword">if</span> (_dx&lt;=<span class="number">0</span>)<span class="keyword">or</span>(_dx&gt;n)<span class="keyword">or</span>(_dy&lt;=<span class="number">0</span>)<span class="keyword">or</span>(_dy&gt;m) <span class="keyword">then</span> <span class="keyword">exit</span>;</span><br><span class="line">      f:=false;</span><br><span class="line">      <span class="keyword">if</span> _ax+_ay&lt;&gt;ax+ay <span class="keyword">then</span> <span class="keyword">if</span> _ax+_ay&lt;ax+ay <span class="keyword">then</span> f:=true <span class="keyword">else</span> <span class="keyword">exit</span>;</span><br><span class="line">      <span class="keyword">if</span> <span class="keyword">not</span> f <span class="keyword">then</span> <span class="keyword">if</span> _dx&lt;&gt;dx <span class="keyword">then</span> <span class="keyword">if</span> _dx&lt;dx <span class="keyword">then</span> f:=true <span class="keyword">else</span> <span class="keyword">exit</span>;</span><br><span class="line">      <span class="keyword">if</span> <span class="keyword">not</span> f <span class="keyword">then</span> <span class="keyword">if</span> _dy&gt;=dy <span class="keyword">then</span> <span class="keyword">exit</span>;</span><br><span class="line">      ax:=_ax; ay:=_ay; dx:=_dx; dy:=_dy;</span><br><span class="line"><span class="keyword">end</span>;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">procedure</span> <span class="title">lemon</span><span class="params">()</span>;</span></span><br><span class="line"><span class="keyword">var</span> man,i,j,k,x,y,ax,ay,dx,dy:longint;</span><br><span class="line"><span class="keyword">begin</span> readln(n,m,man);</span><br><span class="line">      <span class="keyword">for</span> i:=<span class="number">1</span> <span class="keyword">to</span> n <span class="keyword">do</span></span><br><span class="line">            <span class="keyword">for</span> j:=<span class="number">0</span> <span class="keyword">to</span> m+<span class="number">1</span> <span class="keyword">do</span></span><br><span class="line">            <span class="keyword">begin</span> prev[i,j]:=j;</span><br><span class="line">                  next[i,j]:=j;</span><br><span class="line">            <span class="keyword">end</span>;</span><br><span class="line">      <span class="keyword">for</span> i:=<span class="number">1</span> <span class="keyword">to</span> man <span class="keyword">do</span></span><br><span class="line">      <span class="keyword">begin</span> readln(x,y); ax:=<span class="number">10000</span>; ay:=<span class="number">10000</span>; dx:=<span class="number">0</span>; dy:=<span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span> k:=x <span class="keyword">downto</span> <span class="number">1</span> <span class="keyword">do</span></span><br><span class="line">            <span class="keyword">begin</span> <span class="keyword">if</span> x-k&gt;ax+ay <span class="keyword">then</span> <span class="keyword">break</span>;</span><br><span class="line">                  upd(ax,ay,dx,dy,x-k,y-prev[k,y],k,prev[k,y]);</span><br><span class="line">                  upd(ax,ay,dx,dy,x-k,next[k,y]-y,k,next[k,y]);</span><br><span class="line">            <span class="keyword">end</span>;</span><br><span class="line">            <span class="keyword">for</span> k:=x <span class="keyword">to</span> n <span class="keyword">do</span></span><br><span class="line">            <span class="keyword">begin</span> <span class="keyword">if</span> k-x&gt;ax+ay <span class="keyword">then</span> <span class="keyword">break</span>;</span><br><span class="line">                  upd(ax,ay,dx,dy,k-x,y-prev[k,y],k,prev[k,y]);</span><br><span class="line">                  upd(ax,ay,dx,dy,k-x,next[k,y]-y,k,next[k,y]);</span><br><span class="line">            <span class="keyword">end</span>;</span><br><span class="line">            writeln(dx,<span class="string">' '</span>,dy);</span><br><span class="line">            <span class="keyword">for</span> k:=<span class="number">1</span> <span class="keyword">to</span> dy <span class="keyword">do</span> <span class="keyword">if</span> next[dx,k]=dy <span class="keyword">then</span> next[dx,k]:=next[dx,dy+<span class="number">1</span>];</span><br><span class="line">            <span class="keyword">for</span> k:=m <span class="keyword">downto</span> dy <span class="keyword">do</span> <span class="keyword">if</span> prev[dx,k]=dy <span class="keyword">then</span> prev[dx,k]:=prev[dx,dy-<span class="number">1</span>];</span><br><span class="line">      <span class="keyword">end</span>;</span><br><span class="line"><span class="keyword">end</span>;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line">lemon();</span><br><span class="line"><span class="keyword">end</span>.</span><br></pre></td></tr></table></figure>
+    </div>
+</div>
+<br>
+<p><strong>国家集训队互测题 陈丽洁 middle</strong></p>
+<p>给定一个序列，求左端点在[a,b]，右端点在[c,d]的子序列的最大中位数。<br>
+大概是二分答案，然后变成+1,-1序列，转化为前后缀最大和。<br>
+然后这个转化序列不太好搞，于是我们发现可以用函数式数据结构把所有的n棵线段树都建起来就行了。<br>
+二分的细节很多</p>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        code
+    </div>
+    <div class='spoiler-content'>
+        <figure class="highlight pascal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span></span><br><span class="line">      pointer=^node;</span><br><span class="line">      node=<span class="keyword">record</span></span><br><span class="line">                  left,right,mid,len,sum,lmax,rmax:longint;</span><br><span class="line">                  lc,rc:pointer;</span><br><span class="line">            <span class="keyword">end</span>;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">build</span><span class="params">(bg,ed:longint)</span>:</span>pointer;</span><br><span class="line"><span class="keyword">begin</span> new(build);</span><br><span class="line">      <span class="keyword">with</span> build^ <span class="keyword">do</span></span><br><span class="line">      <span class="keyword">begin</span> left:=bg; right:=ed;</span><br><span class="line">            mid:=(left+right)&gt;&gt;<span class="number">1</span>;</span><br><span class="line">            len:=right-left+<span class="number">1</span>; </span><br><span class="line">            sum:=len; lmax:=len; rmax:=len;</span><br><span class="line">            lc:=<span class="keyword">nil</span>; rc:=<span class="keyword">nil</span>; </span><br><span class="line">            <span class="keyword">if</span> left=right <span class="keyword">then</span> <span class="keyword">exit</span>;</span><br><span class="line">            lc:=build(bg,mid); rc:=build(mid+<span class="number">1</span>,ed);</span><br><span class="line">      <span class="keyword">end</span>;</span><br><span class="line"><span class="keyword">end</span>;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">max2</span><span class="params">(x,y:longint)</span>:</span>longint;</span><br><span class="line"><span class="keyword">begin</span> <span class="keyword">if</span> x&gt;y <span class="keyword">then</span> <span class="keyword">exit</span>(x) <span class="keyword">else</span> <span class="keyword">exit</span>(y); <span class="keyword">end</span>;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">serere</span><span class="params">(root:pointer; where,dt:longint)</span>:</span>pointer;</span><br><span class="line"><span class="keyword">begin</span> new(serere); serere^:=root^;</span><br><span class="line">      <span class="keyword">with</span> serere^ <span class="keyword">do</span></span><br><span class="line">      <span class="keyword">begin</span> <span class="keyword">if</span> left=right <span class="keyword">then</span> </span><br><span class="line">            <span class="keyword">begin</span> sum:=dt; <span class="keyword">if</span> dt&gt;<span class="number">0</span> <span class="keyword">then</span> lmax:=dt <span class="keyword">else</span> lmax:=<span class="number">0</span>;</span><br><span class="line">                  rmax:=lmax; <span class="keyword">exit</span>;</span><br><span class="line">            <span class="keyword">end</span>;</span><br><span class="line">            <span class="keyword">if</span> where&lt;=mid <span class="keyword">then</span> lc:=serere(lc,where,dt) <span class="keyword">else</span> rc:=serere(rc,where,dt);</span><br><span class="line">            lmax:=max2(lc^.lmax,lc^.sum+rc^.lmax);</span><br><span class="line">            rmax:=max2(rc^.rmax,rc^.sum+lc^.rmax);</span><br><span class="line">            sum:=lc^.sum+rc^.sum;</span><br><span class="line">      <span class="keyword">end</span>;</span><br><span class="line"><span class="keyword">end</span>;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">type</span></span><br><span class="line">      atype=<span class="keyword">record</span> dt,where:longint; <span class="keyword">end</span>;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span></span><br><span class="line">e:<span class="keyword">array</span>[<span class="number">0</span>..<span class="number">20010</span>] <span class="keyword">of</span> atype;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">procedure</span> <span class="title">sort</span><span class="params">(l,r:longint)</span>;</span></span><br><span class="line"><span class="keyword">var</span> i,j:longint;</span><br><span class="line">    x,y:atype;</span><br><span class="line"><span class="keyword">begin</span> i:=l;</span><br><span class="line">      j:=r;</span><br><span class="line">      x:=e[l+random(r-l+<span class="number">1</span>)];</span><br><span class="line">      <span class="keyword">repeat</span></span><br><span class="line">            <span class="keyword">while</span> e[i].dt&lt;x.dt <span class="keyword">do</span> inc(i);</span><br><span class="line">            <span class="keyword">while</span> x.dt&lt;e[j].dt <span class="keyword">do</span> dec(j);</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span>(i&gt;j) <span class="keyword">then</span></span><br><span class="line">            <span class="keyword">begin</span> y:=e[i]; e[i]:=e[j]; e[j]:=y;</span><br><span class="line">                  inc(i); j:=j-<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">end</span>;</span><br><span class="line">      <span class="keyword">until</span> i&gt;j;</span><br><span class="line">      <span class="keyword">if</span> l&lt;j <span class="keyword">then</span> sort(l,j);</span><br><span class="line">      <span class="keyword">if</span> i&lt;r <span class="keyword">then</span> sort(i,r);</span><br><span class="line"><span class="keyword">end</span>;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">type</span></span><br><span class="line">      restype=<span class="keyword">record</span> sum,lmax,rmax:longint; <span class="keyword">end</span>;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mp</span><span class="params">(x,y,z:longint)</span>:</span>restype;</span><br><span class="line"><span class="keyword">begin</span> mp.sum:=x; mp.lmax:=y; mp.rmax:=z; <span class="keyword">end</span>;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">query</span><span class="params">(root:pointer; bg,ed:longint)</span>:</span>restype;</span><br><span class="line"><span class="keyword">var</span> r1,r2:restype;</span><br><span class="line"><span class="keyword">begin</span> <span class="keyword">with</span> root^ <span class="keyword">do</span></span><br><span class="line">      <span class="keyword">begin</span> <span class="keyword">if</span> (bg&lt;=left)<span class="keyword">and</span>(right&lt;=ed) <span class="keyword">then</span> <span class="keyword">exit</span>(mp(sum,lmax,rmax));</span><br><span class="line">            <span class="keyword">if</span> ed&lt;=mid <span class="keyword">then</span> <span class="keyword">exit</span>(query(lc,bg,ed));</span><br><span class="line">            <span class="keyword">if</span> mid&lt;bg <span class="keyword">then</span> <span class="keyword">exit</span>(query(rc,bg,ed));</span><br><span class="line">            r1:=query(lc,bg,ed); r2:=query(rc,bg,ed);</span><br><span class="line">            query.sum:=r1.sum+r2.sum;</span><br><span class="line">            query.lmax:=max2(r1.lmax,r1.sum+r2.lmax);</span><br><span class="line">            query.rmax:=max2(r2.rmax,r2.sum+r1.rmax);</span><br><span class="line">      <span class="keyword">end</span>;</span><br><span class="line"><span class="keyword">end</span>;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span></span><br><span class="line">q:<span class="keyword">array</span>[<span class="number">1</span>..<span class="number">4</span>] <span class="keyword">of</span> longint;</span><br><span class="line">root:<span class="keyword">array</span>[<span class="number">0</span>..<span class="number">20010</span>] <span class="keyword">of</span> pointer;</span><br><span class="line">d:<span class="keyword">array</span>[<span class="number">0</span>..<span class="number">20010</span>] <span class="keyword">of</span> longint;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">procedure</span> <span class="title">lemon</span><span class="params">()</span>;</span></span><br><span class="line"><span class="keyword">var</span> n,i,j,cur,last,k,left,right,mid,all,temp,_Q,lastans,ans:longint;</span><br><span class="line"><span class="keyword">begin</span> readln(n); </span><br><span class="line">      <span class="keyword">for</span> i:=<span class="number">1</span> <span class="keyword">to</span> n <span class="keyword">do</span> <span class="keyword">begin</span> <span class="keyword">read</span>(e[i].dt); e[i].where:=i; <span class="keyword">end</span>;</span><br><span class="line">      sort(<span class="number">1</span>,n);</span><br><span class="line">      root[<span class="number">0</span>]:=build(<span class="number">1</span>,n);</span><br><span class="line">      all:=<span class="number">0</span>; last:=<span class="number">1</span>; cur:=<span class="number">1</span>;</span><br><span class="line">      <span class="keyword">while</span> cur&lt;=n <span class="keyword">do</span></span><br><span class="line">      <span class="keyword">begin</span> inc(all); root[all]:=root[all-<span class="number">1</span>]; d[all]:=e[cur].dt;</span><br><span class="line">            <span class="comment">//for j:=last to cur-1 do root[all]:=serere(root[all],e[j].where,-1);</span></span><br><span class="line">            last:=cur;</span><br><span class="line">            <span class="keyword">while</span> (cur&lt;=n)<span class="keyword">and</span>(e[cur].dt=e[last].dt) <span class="keyword">do</span> </span><br><span class="line">            <span class="keyword">begin</span> root[all]:=serere(root[all],e[cur].where,-<span class="number">1</span>);</span><br><span class="line">                  inc(cur);</span><br><span class="line">            <span class="keyword">end</span>;</span><br><span class="line">      <span class="keyword">end</span>;</span><br><span class="line">      readln(_Q); lastans:=<span class="number">0</span>;</span><br><span class="line">      <span class="keyword">for</span> i:=<span class="number">1</span> <span class="keyword">to</span> _Q <span class="keyword">do</span></span><br><span class="line">      <span class="keyword">begin</span> <span class="keyword">for</span> j:=<span class="number">1</span> <span class="keyword">to</span> <span class="number">4</span> <span class="keyword">do</span> <span class="keyword">begin</span> <span class="keyword">read</span>(q[j]); q[j]:=int64(q[j]+lastans) <span class="keyword">mod</span> n+<span class="number">1</span>; <span class="keyword">end</span>;</span><br><span class="line">            <span class="keyword">for</span> j:=<span class="number">1</span> <span class="keyword">to</span> <span class="number">3</span> <span class="keyword">do</span></span><br><span class="line">                  <span class="keyword">for</span> k:=j+<span class="number">1</span> <span class="keyword">to</span> <span class="number">4</span> <span class="keyword">do</span></span><br><span class="line">                        <span class="keyword">if</span> q[j]&gt;q[k] <span class="keyword">then</span></span><br><span class="line">                        <span class="keyword">begin</span> temp:=q[j]; q[j]:=q[k]; q[k]:=temp; <span class="keyword">end</span>;</span><br><span class="line">            left:=<span class="number">1</span>; right:=all; ans:=<span class="number">0</span>;</span><br><span class="line">            <span class="keyword">while</span> left&lt;=right <span class="keyword">do</span></span><br><span class="line">            <span class="keyword">begin</span> mid:=(left+right)&gt;&gt;<span class="number">1</span>;</span><br><span class="line">                  <span class="keyword">if</span> query(root[mid],q[<span class="number">1</span>],q[<span class="number">2</span>]-<span class="number">1</span>).rmax+query(root[mid],q[<span class="number">2</span>],q[<span class="number">3</span>]).sum+query(root[mid],q[<span class="number">3</span>]+<span class="number">1</span>,q[<span class="number">4</span>]).lmax&gt;=<span class="number">0</span> <span class="keyword">then</span></span><br><span class="line">                  <span class="keyword">begin</span> ans:=mid;</span><br><span class="line">                        left:=mid+<span class="number">1</span>;</span><br><span class="line">                   <span class="keyword">end</span></span><br><span class="line">                  <span class="keyword">else</span>  right:=mid-<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">end</span>;</span><br><span class="line">            writeln(d[ans+<span class="number">1</span>]); lastans:=d[ans+<span class="number">1</span>];</span><br><span class="line">      <span class="keyword">end</span>;</span><br><span class="line"><span class="keyword">end</span>;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line">lemon();</span><br><span class="line"><span class="keyword">end</span>.</span><br></pre></td></tr></table></figure>
+    </div>
+</div>
+<link rel="stylesheet" href="/cnblog/css/spoiler.css" type="text/css"><script src="/cnblog/js/spoiler.js" type="text/javascript" async></script>
+      
+    </div>
+
+    
+      
+
+    
+
+    <footer class="article-footer">
+    <!--
+      <a data-url="2012/06/25/2012-06-25/" data-id="cl4nq6z88001rbeorcj0id5vn" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+    -->
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/OI/" rel="tag">OI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/%E9%A2%98%E8%A7%A3/" rel="tag">题解</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+    
+<ul id="article-nav" class="nav nav-pills nav-justified">
+  
+  <li role="presentation">
+    <a href="../../07/2012-06-07/" id="article-nav-older" class="article-nav-link-wrap">
+      <i class="fa fa-chevron-left pull-left"></i>
+      <span class="article-nav-link-title">JSOI省选差额</span>
+    </a>
+  </li>
+  
+  
+  <li role="presentation">
+    <a href="../../26/2012-06-26/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-link-title">THUSC Day 0 训练日记</span>
+      <i class="fa fa-chevron-right pull-right"></i>
+    </a>
+  </li>
+  
+</ul>
+
+
+  
+</article>
+
+
+
+
+        </div>
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+          
+  
+
+
+  
+  <div class="sidebar-module">
+    <h4>Tags</h4>
+    <ul class="sidebar-module-list" itemprop="keywords"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/ACM/" rel="tag">ACM</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/OI/" rel="tag">OI</a><span class="sidebar-module-list-count">23</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/" rel="tag">技术杂谈</a><span class="sidebar-module-list-count">12</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%9D%82%E8%B0%88/" rel="tag">杂谈</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%9D%82%E8%B0%88%E6%B0%B4/" rel="tag">杂谈水</a><span class="sidebar-module-list-count">9</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%B5%81%E6%B0%B4%E8%B4%A6/" rel="tag">流水账</a><span class="sidebar-module-list-count">15</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E9%A2%98%E8%A7%A3/" rel="tag">题解</a><span class="sidebar-module-list-count">24</span></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Tag Cloud</h4>
+    <p class="tagcloud">
+      <a href="../../../../tags/ACM/" style="font-size: 10px;">ACM</a> <a href="../../../../tags/OI/" style="font-size: 18.33px;">OI</a> <a href="../../../../tags/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/" style="font-size: 15px;">技术杂谈</a> <a href="../../../../tags/%E6%9D%82%E8%B0%88/" style="font-size: 11.67px;">杂谈</a> <a href="../../../../tags/%E6%9D%82%E8%B0%88%E6%B0%B4/" style="font-size: 13.33px;">杂谈水</a> <a href="../../../../tags/%E6%B5%81%E6%B0%B4%E8%B4%A6/" style="font-size: 16.67px;">流水账</a> <a href="../../../../tags/%E9%A2%98%E8%A7%A3/" style="font-size: 20px;">题解</a>
+    </p>
+  </div>
+
+
+  
+  <div class="sidebar-module">
+    <h4>Archives</h4>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2022/">2022</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2018/">2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2017/">2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2015/">2015</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2014/">2014</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2013/">2013</a><span class="sidebar-module-list-count">7</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2012/">2012</a><span class="sidebar-module-list-count">27</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2011/">2011</a><span class="sidebar-module-list-count">11</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2010/">2010</a><span class="sidebar-module-list-count">1</span></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Recents</h4>
+    <ul class="sidebar-module-list">
+      
+        <li>
+          <a href="../../../../2022/01/31/2022-01-31/">写于PhD的第三年</a>
+        </li>
+      
+        <li>
+          <a href="../../../../2018/03/14/2018-03-14/">胡思乱想</a>
+        </li>
+      
+        <li>
+          <a href="../../../../2017/05/25/2017-05-25/">WF2017 滚粗记</a>
+        </li>
+      
+        <li>
+          <a href="../../../../2015/05/21/2015-05-21/">WF2015 滚粗记</a>
+        </li>
+      
+        <li>
+          <a href="../../../../2015/04/12/2015-04-12/">TC SRM655 &amp; TCO2015 R1A</a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+
+        </div>
+    </div>
+  </div>
+  <footer class="blog-footer">
+  <div class="container">
+    <div id="footer-info" class="inner">
+      &copy; 2022 Haoran Xu<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+  
+
+<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>-->
+
+<script src="../../../../js/bootstrap/bootstrap.min.js"></script>
+
+
+
+  
+<link rel="stylesheet" href="../../../../fancybox/jquery.fancybox.css">
+
+  
+<script src="../../../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="../../../../js/script.js"></script>
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    menuSettings: {
+      zoom: "None"
+    },
+    showMathMenu: false,
+    jax: ["input/TeX","output/CommonHTML"],
+    extensions: ["tex2jax.js"],
+    TeX: {
+      extensions: ["AMSmath.js","AMSsymbols.js"],
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    },
+    tex2jax: {
+      inlineMath: [["\\(", "\\)"]],
+      displayMath: [["\\[", "\\]"]]
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.1/MathJax.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+ 
+
+</body>
+</html>

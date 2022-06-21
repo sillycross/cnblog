@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <title>QTREE系列题目(QTREE1~5)解题报告 | </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="QTREE系列题目，是SPOJ上的一系列数据结构题，共有6题，名称依次是QTREE1~5，其中QTREE3有盗版和正版之分……题目会给定一棵树，要求你回答树上的各种询问。 下面是QTREE1~5我的AC记录 解题报告： QTREE 原题地址 http:&#x2F;&#x2F;www.spoj.pl&#x2F;problems&#x2F;QTREE&#x2F; 给定一棵n个结点的树，树的边上有权。你被要求支持： 1.修改一条边上的权值。  2.查询">
+<meta property="og:type" content="article">
+<meta property="og:title" content="QTREE系列题目(QTREE1~5)解题报告">
+<meta property="og:url" content="2011/02/19/2011-02-19/index.html">
+<meta property="og:site_name">
+<meta property="og:description" content="QTREE系列题目，是SPOJ上的一系列数据结构题，共有6题，名称依次是QTREE1~5，其中QTREE3有盗版和正版之分……题目会给定一棵树，要求你回答树上的各种询问。 下面是QTREE1~5我的AC记录 解题报告： QTREE 原题地址 http:&#x2F;&#x2F;www.spoj.pl&#x2F;problems&#x2F;QTREE&#x2F; 给定一棵n个结点的树，树的边上有权。你被要求支持： 1.修改一条边上的权值。  2.查询">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2011-02-19T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-21T05:27:00.644Z">
+<meta property="article:author" content="Haoran Xu">
+<meta property="article:tag" content="题解">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="../../../../atom.xml" title="" type="application/atom+xml">
+  
+  
+  
+    <!--<link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">-->
+    
+<link rel="stylesheet" href="../../../../css/source_code_pro.css">
+
+  
+
+  <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">-->
+  
+<link rel="stylesheet" href="../../../../css/bootstrap/bootstrap.min.css">
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
+
+  
+<link rel="stylesheet" href="../../../../css/styles.css">
+
+  
+
+  
+  <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" integrity="sha384-8gBf6Y4YYq7Jx97PIqmTwLPin4hxIzQw5aDmUg/DDhul9fFpbbLcLh3nTIIDJKhx" crossorigin="anonymous"></script>-->
+  
+<script src="../../../../js/jquery.min.js"></script>
+
+
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><nav class="navbar navbar-inverse">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="main-menu-navbar">
+      <ul class="nav navbar-nav">
+        
+          <li><a class=""
+                 href="../../../../index.html">Archives</a></li>
+        
+          <li><a class=""
+                 href="../../../../about/">About</a></li>
+        
+          <li><a class=""
+                 href="../../../../../">English Blog</a></li>
+        
+      </ul>
+
+      <!--
+      <ul class="nav navbar-nav navbar-right">
+        
+          <li><a href="/atom.xml" title="RSS Feed"><i class="fa fa-rss"></i></a></li>
+        
+      </ul>
+      -->
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+  <div class="container">
+    <div class="blog-header">
+  <h1 class="blog-title"></h1>
+  
+    <p class="blog-description">「こんなきれいな星も、やっぱりここまで来てから、見れたのだと思うから。だから・・もっと遠くへ・・」</p>
+  
+</div>
+
+    <div class="row">
+        <div class="col-sm-8 blog-main">
+          <article id="post-2011-02-19" class="article article-type-post" itemscope itemprop="blogPost">
+
+  <header class="article-header">
+    
+  
+    <h1 class="article-title" itemprop="name">
+      QTREE系列题目(QTREE1~5)解题报告
+    </h1>
+  
+
+
+  </header>
+
+  <div class="article-meta">
+    <div class="article-datetime">
+  <a href="" class="article-date"><time datetime="2011-02-19T00:00:00.000Z" itemprop="datePublished">2011-02-19</time></a>
+</div>
+
+    
+    
+
+  </div>
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>QTREE系列题目，是SPOJ上的一系列数据结构题，共有6题，名称依次是QTREE1~5，其中QTREE3有盗版和正版之分……题目会给定一棵树，要求你回答树上的各种询问。</p>
+<p>下面是QTREE1~5我的AC记录</p>
+<p>解题报告：</p>
+<p><strong>QTREE</strong></p>
+<p>原题地址 http://www.spoj.pl/problems/QTREE/</p>
+<p>给定一棵n个结点的树，树的边上有权。你被要求支持：</p>
+<pre><code>1.修改一条边上的权值。
+
+2.查询两个结点x和y之间的最短路径中经过的最大的边的权值。
+</code></pre>
+<p>其中n&lt;=10^4.</p>
+<p>很明显的这题是树的轻重边路径划分（树链剖分）的练手题。</p>
+<p><strong>QTREE2</strong></p>
+<p>原题地址http://www.spoj.pl/problems/QTREE2/</p>
+<p>给定一棵n个结点的树，树的边上有权。你被要求支持：</p>
+<p>1.查询两个结点x和y之间的最短路径长度。</p>
+<p>2.查询从x到y的最短路径的第K条边的长度。</p>
+<p>其中n&lt;=10^4.</p>
+<p>因为没有修改操作，这题其实和树链剖分一点关系没有。设p[i,j]表示结点i的第2^j个祖先的编号。这显然可以通过一个O(nlgn)的预处理求出。然后求最近公共祖先（lca）就是O(lgn)每次了。设dist[i]表示从结点1到结点i的距离。然后显然对于操作1，答案为dist[x]+dist[y]-dist[lca[x,y]]*2；而对于操作2，答案可以通过利用p数组通过倍增在O(lgn)内求出。于是问题得到了解决。</p>
+<p><strong>盗版QTREE3</strong></p>
+<p>原题地址 http://www.spoj.pl/problems/QTREE3/</p>
+<p>给定一棵n个结点的树，树的每个结点有黑白两色，初始时所有的结点都是白的。你被要求支持：</p>
+<p>1.对一个结点执行反色操作（白变黑，黑变白）</p>
+<p>2.查询从1号结点到i号结点的路径上的第一个黑色结点编号。</p>
+<p>其中n&lt;=10^5. 查询数目不超过10^5.</p>
+<p>这显然用树链剖分可以解决，其实甚至比QTREE都要简单，因为没有了轻边，只剩下了重链要维护。这可以用线段树或树状数组或堆方便的解决。</p>
+<p>前几天听说了这题一种很强悍的树状数组维护dfs序列的解法。每当一个结点被染色时，就把该子树对应的区间所有数加一。这样在查询时可以通过倍增祖先和一些技巧解决。时间复杂度依然是O(nlgn+Qlg^2n).（这个解法是广陵lonely散神犇提出的，在此膜拜一下。表示我没有写这个解法……但觉得应该没有太大的问题）</p>
+<p><strong>正版QTREE3</strong></p>
+<p>原题地址https://www.spoj.pl/problems/PT07J/</p>
+<p>囧……因为我太傻×，到现在才知道原来QTREE3是这一题……</p>
+<p>给定一棵有根树，树根为1，树的点上有权，要求支持查询以某个点为根的子树中第K大的权值。</p>
+<p>因为没有修改操作，这题就是很裸的划分树维护DFS序列……注意常数优化即可。</p>
+<p><strong>QTREE4</strong></p>
+<p>原题地址 http://www.spoj.pl/problems/QTREE4/</p>
+<p>给定一棵n个结点的树，树的边上有权，每个结点有黑白两色，初始时所有的结点都是白的。你被要求支持：</p>
+<p>1.对一个结点执行反色操作（白变黑，黑变白）</p>
+<p>2.查询树中距离最远的两个白点的距离。</p>
+<p>其中n&lt;=10^5，查询数目不超过10^5.</p>
+<p>这题可以用树链剖分解决。主的分治思想是对于一条重链，最远距离有可能经过或不经过这条重链。不经过的情况可以分治处理。对于经过的情况，可以用线段树+堆维护。具体可以参见漆子超的论文。这题是个好题目。不仅锻炼代码能力，而且可以对树链剖分的本质有更深的理解。</p>
+<p><strong>QTREE5</strong></p>
+<p>原题地址 http://www.spoj.pl/problems/QTREE5/</p>
+<p>给定一棵n个结点的树，边权均为1。每个结点有黑白两色，初始时所有结点都是黑的。你被要求支持：</p>
+<p>1.对一个结点执行反色操作（白变黑，黑变白）</p>
+<p>2.查询距离某个特定结点i最远的白点的距离。</p>
+<p>其中n&lt;=10^5，查询数目不超过10^5.</p>
+<p>这题显然像QTREE4一样链分治也是可以的。但其实边分治对这题也是适用的，而且编程复杂度更小。考虑当把一棵树通过中心边分治成两棵子树时，距离某个点i（假设这个点在其中一颗子树中）最远的白点距离可能是：1.在另一棵子树中，显然最远距离是dist[i到这棵子树的根]+1+另一棵子树的根到其子树内某个白点的最远距离。2.在自身所在的子树中，这可以继续分治处理。</p>
+<p>于是，我们的任务就变成了维护各个分治子树中的白点距离根的距离，要求支持插入、删除、取最大值。这显然用堆可以完成，但考虑到边权均为1，也就是最大可能的距离不会很大，所以用树状数组是更好的选择。</p>
+<p>当修改时，对包含该点的每个子树处理。时间复杂度O(lg^2n)。当查询时，类似的，对包含该点的每个子树查询，取最大值即可，时间复杂度依然为O(lg^2n)。</p>
+<p>加点（通过添加无用点把每个点度数降到3以内）是必须的……然后要注意常数优化……表示我开始时偷懒没加点，结果被极端数据搞掉了……然后加了点，常数却写大了还是tle……最后搞了若干常数优化终于ac。然后发现光荣的垫底了……看来边分治虽然好写，但时间复杂度容易退化，常数也很大。唉，一等价钱一等货啊。</p>
+<link rel="stylesheet" href="/cnblog/css/spoiler.css" type="text/css"><script src="/cnblog/js/spoiler.js" type="text/javascript" async></script>
+      
+    </div>
+
+    
+      
+
+    
+
+    <footer class="article-footer">
+    <!--
+      <a data-url="2011/02/19/2011-02-19/" data-id="cl4nq6z7g0007beorfm48a1ko" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+    -->
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/%E9%A2%98%E8%A7%A3/" rel="tag">题解</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+    
+<ul id="article-nav" class="nav nav-pills nav-justified">
+  
+  <li role="presentation">
+    <a href="../../../../2010/09/22/2010-12-20/" id="article-nav-older" class="article-nav-link-wrap">
+      <i class="fa fa-chevron-left pull-left"></i>
+      <span class="article-nav-link-title">SPOJ GSS2 极好的练习线段树懒标记的题目</span>
+    </a>
+  </li>
+  
+  
+  <li role="presentation">
+    <a href="../../../05/28/2011-05-28/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-link-title">POJ2841 斜率优化的DP</span>
+      <i class="fa fa-chevron-right pull-right"></i>
+    </a>
+  </li>
+  
+</ul>
+
+
+  
+</article>
+
+
+
+
+        </div>
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+          
+  
+
+
+  
+  <div class="sidebar-module">
+    <h4>Tags</h4>
+    <ul class="sidebar-module-list" itemprop="keywords"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/ACM/" rel="tag">ACM</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/OI/" rel="tag">OI</a><span class="sidebar-module-list-count">23</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/" rel="tag">技术杂谈</a><span class="sidebar-module-list-count">12</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%9D%82%E8%B0%88/" rel="tag">杂谈</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%9D%82%E8%B0%88%E6%B0%B4/" rel="tag">杂谈水</a><span class="sidebar-module-list-count">9</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%B5%81%E6%B0%B4%E8%B4%A6/" rel="tag">流水账</a><span class="sidebar-module-list-count">15</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E9%A2%98%E8%A7%A3/" rel="tag">题解</a><span class="sidebar-module-list-count">24</span></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Tag Cloud</h4>
+    <p class="tagcloud">
+      <a href="../../../../tags/ACM/" style="font-size: 10px;">ACM</a> <a href="../../../../tags/OI/" style="font-size: 18.33px;">OI</a> <a href="../../../../tags/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/" style="font-size: 15px;">技术杂谈</a> <a href="../../../../tags/%E6%9D%82%E8%B0%88/" style="font-size: 11.67px;">杂谈</a> <a href="../../../../tags/%E6%9D%82%E8%B0%88%E6%B0%B4/" style="font-size: 13.33px;">杂谈水</a> <a href="../../../../tags/%E6%B5%81%E6%B0%B4%E8%B4%A6/" style="font-size: 16.67px;">流水账</a> <a href="../../../../tags/%E9%A2%98%E8%A7%A3/" style="font-size: 20px;">题解</a>
+    </p>
+  </div>
+
+
+  
+  <div class="sidebar-module">
+    <h4>Archives</h4>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2022/">2022</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2018/">2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2017/">2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2015/">2015</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2014/">2014</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2013/">2013</a><span class="sidebar-module-list-count">7</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2012/">2012</a><span class="sidebar-module-list-count">27</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2011/">2011</a><span class="sidebar-module-list-count">11</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2010/">2010</a><span class="sidebar-module-list-count">1</span></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Recents</h4>
+    <ul class="sidebar-module-list">
+      
+        <li>
+          <a href="../../../../2022/01/31/2022-01-31/">写于PhD的第三年</a>
+        </li>
+      
+        <li>
+          <a href="../../../../2018/03/14/2018-03-14/">胡思乱想</a>
+        </li>
+      
+        <li>
+          <a href="../../../../2017/05/25/2017-05-25/">WF2017 滚粗记</a>
+        </li>
+      
+        <li>
+          <a href="../../../../2015/05/21/2015-05-21/">WF2015 滚粗记</a>
+        </li>
+      
+        <li>
+          <a href="../../../../2015/04/12/2015-04-12/">TC SRM655 &amp; TCO2015 R1A</a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+
+        </div>
+    </div>
+  </div>
+  <footer class="blog-footer">
+  <div class="container">
+    <div id="footer-info" class="inner">
+      &copy; 2022 Haoran Xu<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+  
+
+<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>-->
+
+<script src="../../../../js/bootstrap/bootstrap.min.js"></script>
+
+
+
+  
+<link rel="stylesheet" href="../../../../fancybox/jquery.fancybox.css">
+
+  
+<script src="../../../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="../../../../js/script.js"></script>
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    menuSettings: {
+      zoom: "None"
+    },
+    showMathMenu: false,
+    jax: ["input/TeX","output/CommonHTML"],
+    extensions: ["tex2jax.js"],
+    TeX: {
+      extensions: ["AMSmath.js","AMSsymbols.js"],
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    },
+    tex2jax: {
+      inlineMath: [["\\(", "\\)"]],
+      displayMath: [["\\[", "\\]"]]
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.1/MathJax.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+ 
+
+</body>
+</html>

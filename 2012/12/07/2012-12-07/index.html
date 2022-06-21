@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <title>THU集训 小结 | </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="参加了集训队在THU的集训。 发挥的很糟糕。 记录一下比赛过程。 Day1 先看了第三题 模积和 题目如下 求∑∑((n mod i)*(m mod j))其中1&lt;&#x3D;i&lt;&#x3D;n,1&lt;&#x3D;j&lt;&#x3D;m,i≠j  显然利用n&#x2F;i的取值只有O(N^0.5)种这个性质，一次统计n&#x2F;i&#x3D;k的所有情况的和即可。 写了大约0.5h。但悲剧的没看见i≠j这个限制 于是0分了。。。 第二题 序列染色">
+<meta property="og:type" content="article">
+<meta property="og:title" content="THU集训 小结">
+<meta property="og:url" content="2012/12/07/2012-12-07/index.html">
+<meta property="og:site_name">
+<meta property="og:description" content="参加了集训队在THU的集训。 发挥的很糟糕。 记录一下比赛过程。 Day1 先看了第三题 模积和 题目如下 求∑∑((n mod i)*(m mod j))其中1&lt;&#x3D;i&lt;&#x3D;n,1&lt;&#x3D;j&lt;&#x3D;m,i≠j  显然利用n&#x2F;i的取值只有O(N^0.5)种这个性质，一次统计n&#x2F;i&#x3D;k的所有情况的和即可。 写了大约0.5h。但悲剧的没看见i≠j这个限制 于是0分了。。。 第二题 序列染色">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2012-12-07T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-21T05:27:00.644Z">
+<meta property="article:author" content="Haoran Xu">
+<meta property="article:tag" content="流水账">
+<meta property="article:tag" content="OI">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="../../../../atom.xml" title="" type="application/atom+xml">
+  
+  
+  
+    <!--<link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">-->
+    
+<link rel="stylesheet" href="../../../../css/source_code_pro.css">
+
+  
+
+  <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">-->
+  
+<link rel="stylesheet" href="../../../../css/bootstrap/bootstrap.min.css">
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
+
+  
+<link rel="stylesheet" href="../../../../css/styles.css">
+
+  
+
+  
+  <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" integrity="sha384-8gBf6Y4YYq7Jx97PIqmTwLPin4hxIzQw5aDmUg/DDhul9fFpbbLcLh3nTIIDJKhx" crossorigin="anonymous"></script>-->
+  
+<script src="../../../../js/jquery.min.js"></script>
+
+
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><nav class="navbar navbar-inverse">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="main-menu-navbar">
+      <ul class="nav navbar-nav">
+        
+          <li><a class=""
+                 href="../../../../index.html">Archives</a></li>
+        
+          <li><a class=""
+                 href="../../../../about/">About</a></li>
+        
+          <li><a class=""
+                 href="../../../../../">English Blog</a></li>
+        
+      </ul>
+
+      <!--
+      <ul class="nav navbar-nav navbar-right">
+        
+          <li><a href="/atom.xml" title="RSS Feed"><i class="fa fa-rss"></i></a></li>
+        
+      </ul>
+      -->
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+  <div class="container">
+    <div class="blog-header">
+  <h1 class="blog-title"></h1>
+  
+    <p class="blog-description">「こんなきれいな星も、やっぱりここまで来てから、見れたのだと思うから。だから・・もっと遠くへ・・」</p>
+  
+</div>
+
+    <div class="row">
+        <div class="col-sm-8 blog-main">
+          <article id="post-2012-12-07" class="article article-type-post" itemscope itemprop="blogPost">
+
+  <header class="article-header">
+    
+  
+    <h1 class="article-title" itemprop="name">
+      THU集训 小结
+    </h1>
+  
+
+
+  </header>
+
+  <div class="article-meta">
+    <div class="article-datetime">
+  <a href="" class="article-date"><time datetime="2012-12-07T00:00:00.000Z" itemprop="datePublished">2012-12-07</time></a>
+</div>
+
+    
+    
+
+  </div>
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>参加了集训队在THU的集训。 发挥的很糟糕。 记录一下比赛过程。</p>
+<p><strong>Day1</strong></p>
+<p>先看了第三题 模积和 题目如下</p>
+<pre><code>求∑∑((n mod i)*(m mod j))其中1&lt;=i&lt;=n,1&lt;=j&lt;=m,i≠j
+</code></pre>
+<p>显然利用n/i的取值只有O(N^0.5)种这个性质，一次统计n/i=k的所有情况的和即可。<br>
+写了大约0.5h。但悲剧的没看见i≠j这个限制 于是0分了。。。</p>
+<p>第二题 序列染色 题目大意如下</p>
+<pre><code>给定一个长度N的序列（100W规模），由B,W,X构成。你需要把所有X染成B或W，使得到的序列中，存在k个连续的B在k个连续的W的左边。 问方案数目。
+</code></pre>
+<p>这题也比较显然，只要注意dp的时候不重不漏即可。考虑只计算连续k个B第一次出现的位置。这样可以维护当前染了前x个时：第一次出现连续k个B恰好在位置x的方案数 以及 出现了连续k个B的方案数。 转移比较显然，要用部分和把转移弄成O(1)。 连续k个W同理，最后把它们合起来。<br>
+写了大约2h。 AC了。</p>
+<p>第一题 楼房重建 题目大意如下</p>
+<pre><code>维护序列H，支持： 1.修改一个值。 2.查询有多少个i满足 对所有的 1 &lt;= j &lt; i 都有 Hi &gt; Hj 。
+</code></pre>
+<p>乱搞做法比较显然：把序列分成S块，每块内维护这个上升序列，然后得到前面的最高高度后在当前块内二分计算对答案的贡献。O(N^1.5*lgN)<br>
+经过常数优化…… 交了一个AC的版本……<br>
+然后我发现，似乎把S从N^0.5调整为(N^0.5)/1.5后快了一些？ 于是改了分块大小，又交了一次……<br>
+当然事实是残酷的…… 实际它变慢了，而且T了一个点。 于是就这样SB的丢了10分。</p>
+<p>最终190，因为看错题，果断跪了。</p>
+<p><strong>Day2</strong></p>
+<p>第一题要求动态维护边双连通分量缩点后得到的树的路径和。 似乎要动态树，果断放弃。</p>
+<p>然后看了第三题 题意大概如下</p>
+<pre><code>要求支持： 1.插入圆心在(x,y)的过原点的圆 2.查询某个点是否在所有圆内。 规模50w
+</code></pre>
+<p>做法还是比较显然的。<br>
+点(x,y)在圆心为(Cx,Cy)的过原点圆中，等价于<br>
+(x-Cx)^2+(y-Cy)^2&lt;=Cx^2+Cy^2<br>
+也就是，2x<em>Cx+2y</em>Cy&gt;=x^2+y^2<br>
+也就是，(Cx,Cy)位于某直线的一侧<br>
+所以点(x,y)在所有圆内，等价于所有的圆心都在某条直线的一侧，即所有圆心构成的凸包在某条直线的一侧。<br>
+于是对时间分治，求凸包，把凸包按斜率排序，二分一下即可回答询问。可以做到O(nlg^2n)或O(nlgn)<br>
+但是…… C++ atan2函数的参数中，第一个参数是y坐标，第二个参数是x坐标…… 我很不幸的记错了，传反了……</p>
+<p>于是…… 结果是残酷的…… 0分 （而且对拍了很多组大数据都没出错）</p>
+<p>第二题是裸的求平面图的对偶图的最小树形图（=__=!!)<br>
+因为以为第三题没什么问题，于是就强写这题了。 写了平面图转对偶图后，写了60分的MST+20分的状压求最小树形图。<br>
+但不知为什么，结果只有40分。 可能有的地方写挂了。</p>
+<p>Day2于是大悲剧的只有40分了。</p>
+<p>教训：</p>
+<ol>
+<li>不熟悉常用函数害死人。</li>
+<li>一定所有题都要至少写出暴力！如果第一题写了暴力30分，结果会好不少。</li>
+<li>代码能力很重要！！ 写第二题写的太慢了，导致连第一题的暴力都来不及写。 计算几何模板还是应该强背下来，保证能快速的一次默对，不然考试花了很多时间写，最后还写错了，就吃大亏了。</li>
+<li>数据结构题，要把暴力和正解整合到一个程序里，当规模小的时候跑暴力，规模大的时候跑正解！这样即使正解写错也至少有暴力分。 （实际上，因为标程似乎和我算法不完全一样，我第三题的暴力做法也能得80分，而因为正解写错，甚至暴力的80分都白白丢掉了）</li>
+</ol>
+<p><strong>Day3</strong></p>
+<p>先看了第三题，题目给了一个简化的打BOSS的模型，要求给最优策略。<br>
+虽然题目很复杂，逐步推后发现，其实可以分离出3个独立的dp，最后把他们合并起来。 于是AC了</p>
+<p>然后看了第二题，题目给了麻将和牌的规则，问你对于给定的牌堆，随意摸14张，直接和牌的概率。<br>
+用丽洁的话说，就是 “一口血喷出来了”，出题人什么心态！<br>
+先写了个朴素，发现会被卡时间！然后发现，对每个花色分开处理后，似乎就能AC了？ 因为不想要写了1个多小时的朴素爆零，我做出了比赛中最脑残的决定： 放弃第一题，写第二题的满分做法。<br>
+于是我写啊写啊写啊写啊写啊写…… 写到最后一分钟，终于过样例了！ 然后，然后，没来及提交上去！！！</p>
+<p>然后发现第一题，是SB数据结构，直接线段树随便维护一下，就能过了（虽然卡常数，但有80分以上应该问题不大） 于是，最简单的题目，被我脑残放弃了！</p>
+<p>最后 0+30+100=130 直接滚粗了。</p>
+<p>教训：</p>
+<ol>
+<li>再一次！ 代码能力很重要！！ 特别是在写代码量巨大的题目时候，代码能力强带来的优势是极为巨大的。以后训练还是不贴模板为好。</li>
+<li>再一次！ 一定所有的题目都要写暴力！</li>
+<li>所有的题目都要认真看完，想一会。 千万不能看到一题会做但不好写的就果断跳进坑里了。 更不能为了一个会TLE的朴素而因小失大。 如果比赛时认真看了第一题，想2分钟，就肯定能发现做法，不会白白跳进第二题的惊天大坑里了。</li>
+</ol>
+<p>（其实，我也很奇怪，当时看到第一题怎么居然没有立即反应，可能是这几天重感冒头太晕，或者考试一开始还没进入状态，但后来做完3后居然没有认真看1，真的太不应该了）</p>
+<p><strong>Day4</strong></p>
+<p>看了第一题，尼玛又是裸的平面图转对偶图+状压后网络流！<br>
+因为上次平面图转对偶图写挂了，而且还没找到错在哪里，于是没敢写这题。</p>
+<p>第二题是个交互题，看了后感觉挺可做的。<br>
+于是写了几个算法，然后小优化了一下，就交了。 最后98分，几乎AC的好成绩。<br>
+但第二题写太慢了，写了2h+，实在很糟糕。</p>
+<p>第三题，看完后无奈了。 做法很显然，计算几何算出所有圆周被覆盖的区间，然后映射到[0,2pi/m)的区间内，扫描线扫一遍。<br>
+但代码量就无力吐槽了。 使劲写第三题，果然计算几何还是写挂了。 最后27分。 听说纯随机都能30+分。彻底无语了。</p>
+<p>教训：</p>
+<ol>
+<li>再一次的再一次！！ 代码能力很重要！ 这次考试中，2题都是算法显然，但代码恶心的题目。 代码能力弱的话，后果只能是像我一样，写了很久，最后交上去的还是错的。 以后训练绝对不贴模板！ 好好训练代码能力！</li>
+<li>再一次的再一次！！ 所有题都要写暴力！！ 丽洁说过，写正解很容易玩脱，有时候还不如东骗一点分西骗一点分效果好。至少每题都要骗。</li>
+</ol>
+<p><strong>总结</strong></p>
+<p>这次集训我发挥的非常不理想，主要因素还是，考试技巧不足，代码能力太差，并且不够认真仔细。<br>
+以后训练计划的调整：</p>
+<ol>
+<li>要在重视思维能力的同时，也重视代码能力。 尽量不要想出算法后就懒得写，就算是乱搞题也是训练代码能力、代码速度和1Y率的材料。</li>
+<li>绝对不贴模板，所有的模板都背下来，并且要求在给定时间内正确的敲出来，这样考试才能保证快速写对。</li>
+<li>各种常用的STL和自带函数要足够熟悉。</li>
+</ol>
+<p>还有就是考试技巧的问题：<br>
+0. 所有的题都要认真读，如果看错题，不但会严重影响心理状态，而且基本就跪了。</p>
+<ol>
+<li>所有题都要写暴力，都要骗分。</li>
+<li>一定至少把所有题目都认真看一遍，想几分钟，然后再选择题目。选择之前，要正确估计拍代码的难度和时间，不能头脑发热。</li>
+<li>数据结构题，交上去的代码里，小数据应该用暴力跑，保证得分。</li>
+</ol>
+<link rel="stylesheet" href="/cnblog/css/spoiler.css" type="text/css"><script src="/cnblog/js/spoiler.js" type="text/javascript" async></script>
+      
+    </div>
+
+    
+      
+
+    
+
+    <footer class="article-footer">
+    <!--
+      <a data-url="2012/12/07/2012-12-07/" data-id="cl4nq6z8m002fbeorh61e91rh" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+    -->
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/OI/" rel="tag">OI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/%E6%B5%81%E6%B0%B4%E8%B4%A6/" rel="tag">流水账</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+    
+<ul id="article-nav" class="nav nav-pills nav-justified">
+  
+  <li role="presentation">
+    <a href="../../../11/19/2012-11-19/" id="article-nav-older" class="article-nav-link-wrap">
+      <i class="fa fa-chevron-left pull-left"></i>
+      <span class="article-nav-link-title">Ray Tracing</span>
+    </a>
+  </li>
+  
+  
+  <li role="presentation">
+    <a href="../../../../2013/01/31/2013-01-31/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-link-title">WC2013 流水帐</span>
+      <i class="fa fa-chevron-right pull-right"></i>
+    </a>
+  </li>
+  
+</ul>
+
+
+  
+</article>
+
+
+
+
+        </div>
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+          
+  
+
+
+  
+  <div class="sidebar-module">
+    <h4>Tags</h4>
+    <ul class="sidebar-module-list" itemprop="keywords"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/ACM/" rel="tag">ACM</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/OI/" rel="tag">OI</a><span class="sidebar-module-list-count">23</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/" rel="tag">技术杂谈</a><span class="sidebar-module-list-count">12</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%9D%82%E8%B0%88/" rel="tag">杂谈</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%9D%82%E8%B0%88%E6%B0%B4/" rel="tag">杂谈水</a><span class="sidebar-module-list-count">9</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%B5%81%E6%B0%B4%E8%B4%A6/" rel="tag">流水账</a><span class="sidebar-module-list-count">15</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E9%A2%98%E8%A7%A3/" rel="tag">题解</a><span class="sidebar-module-list-count">24</span></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Tag Cloud</h4>
+    <p class="tagcloud">
+      <a href="../../../../tags/ACM/" style="font-size: 10px;">ACM</a> <a href="../../../../tags/OI/" style="font-size: 18.33px;">OI</a> <a href="../../../../tags/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/" style="font-size: 15px;">技术杂谈</a> <a href="../../../../tags/%E6%9D%82%E8%B0%88/" style="font-size: 11.67px;">杂谈</a> <a href="../../../../tags/%E6%9D%82%E8%B0%88%E6%B0%B4/" style="font-size: 13.33px;">杂谈水</a> <a href="../../../../tags/%E6%B5%81%E6%B0%B4%E8%B4%A6/" style="font-size: 16.67px;">流水账</a> <a href="../../../../tags/%E9%A2%98%E8%A7%A3/" style="font-size: 20px;">题解</a>
+    </p>
+  </div>
+
+
+  
+  <div class="sidebar-module">
+    <h4>Archives</h4>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2022/">2022</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2018/">2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2017/">2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2015/">2015</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2014/">2014</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2013/">2013</a><span class="sidebar-module-list-count">7</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2012/">2012</a><span class="sidebar-module-list-count">27</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2011/">2011</a><span class="sidebar-module-list-count">11</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2010/">2010</a><span class="sidebar-module-list-count">1</span></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Recents</h4>
+    <ul class="sidebar-module-list">
+      
+        <li>
+          <a href="../../../../2022/01/31/2022-01-31/">写于PhD的第三年</a>
+        </li>
+      
+        <li>
+          <a href="../../../../2018/03/14/2018-03-14/">胡思乱想</a>
+        </li>
+      
+        <li>
+          <a href="../../../../2017/05/25/2017-05-25/">WF2017 滚粗记</a>
+        </li>
+      
+        <li>
+          <a href="../../../../2015/05/21/2015-05-21/">WF2015 滚粗记</a>
+        </li>
+      
+        <li>
+          <a href="../../../../2015/04/12/2015-04-12/">TC SRM655 &amp; TCO2015 R1A</a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+
+        </div>
+    </div>
+  </div>
+  <footer class="blog-footer">
+  <div class="container">
+    <div id="footer-info" class="inner">
+      &copy; 2022 Haoran Xu<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+  
+
+<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>-->
+
+<script src="../../../../js/bootstrap/bootstrap.min.js"></script>
+
+
+
+  
+<link rel="stylesheet" href="../../../../fancybox/jquery.fancybox.css">
+
+  
+<script src="../../../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="../../../../js/script.js"></script>
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    menuSettings: {
+      zoom: "None"
+    },
+    showMathMenu: false,
+    jax: ["input/TeX","output/CommonHTML"],
+    extensions: ["tex2jax.js"],
+    TeX: {
+      extensions: ["AMSmath.js","AMSsymbols.js"],
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    },
+    tex2jax: {
+      inlineMath: [["\\(", "\\)"]],
+      displayMath: [["\\[", "\\]"]]
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.1/MathJax.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+ 
+
+</body>
+</html>

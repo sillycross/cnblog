@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <title>POJ2841 斜率优化的DP | </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="原题地址 http:&#x2F;&#x2F;poj.org&#x2F;problem?id&#x3D;2841 中文题意就直接复制applepi神犇的了……翻译技巧太好了orz…… 题目大意：航海游戏你感兴趣么？想象你指挥着一艘NB的多桅帆船打算横穿一个从未有人穿越过的大洋，确切的说是从南岸开到北岸。在 大洋两岸都有很多港口，由于你要完成的是人类历史上不曾有的壮举……所以说你可以选择从任何一个港口出发以及到达任何一个港口。 当然了，你的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="POJ2841 斜率优化的DP">
+<meta property="og:url" content="2011/05/28/2011-05-28/index.html">
+<meta property="og:site_name">
+<meta property="og:description" content="原题地址 http:&#x2F;&#x2F;poj.org&#x2F;problem?id&#x3D;2841 中文题意就直接复制applepi神犇的了……翻译技巧太好了orz…… 题目大意：航海游戏你感兴趣么？想象你指挥着一艘NB的多桅帆船打算横穿一个从未有人穿越过的大洋，确切的说是从南岸开到北岸。在 大洋两岸都有很多港口，由于你要完成的是人类历史上不曾有的壮举……所以说你可以选择从任何一个港口出发以及到达任何一个港口。 当然了，你的">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2011-05-28T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-21T05:27:00.644Z">
+<meta property="article:author" content="Haoran Xu">
+<meta property="article:tag" content="题解">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="../../../../atom.xml" title="" type="application/atom+xml">
+  
+  
+  
+    <!--<link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">-->
+    
+<link rel="stylesheet" href="../../../../css/source_code_pro.css">
+
+  
+
+  <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">-->
+  
+<link rel="stylesheet" href="../../../../css/bootstrap/bootstrap.min.css">
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
+
+  
+<link rel="stylesheet" href="../../../../css/styles.css">
+
+  
+
+  
+  <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" integrity="sha384-8gBf6Y4YYq7Jx97PIqmTwLPin4hxIzQw5aDmUg/DDhul9fFpbbLcLh3nTIIDJKhx" crossorigin="anonymous"></script>-->
+  
+<script src="../../../../js/jquery.min.js"></script>
+
+
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><nav class="navbar navbar-inverse">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="main-menu-navbar">
+      <ul class="nav navbar-nav">
+        
+          <li><a class=""
+                 href="../../../../index.html">Archives</a></li>
+        
+          <li><a class=""
+                 href="../../../../about/">About</a></li>
+        
+          <li><a class=""
+                 href="../../../../../">English Blog</a></li>
+        
+      </ul>
+
+      <!--
+      <ul class="nav navbar-nav navbar-right">
+        
+          <li><a href="/atom.xml" title="RSS Feed"><i class="fa fa-rss"></i></a></li>
+        
+      </ul>
+      -->
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+  <div class="container">
+    <div class="blog-header">
+  <h1 class="blog-title"></h1>
+  
+    <p class="blog-description">「こんなきれいな星も、やっぱりここまで来てから、見れたのだと思うから。だから・・もっと遠くへ・・」</p>
+  
+</div>
+
+    <div class="row">
+        <div class="col-sm-8 blog-main">
+          <article id="post-2011-05-28" class="article article-type-post" itemscope itemprop="blogPost">
+
+  <header class="article-header">
+    
+  
+    <h1 class="article-title" itemprop="name">
+      POJ2841 斜率优化的DP
+    </h1>
+  
+
+
+  </header>
+
+  <div class="article-meta">
+    <div class="article-datetime">
+  <a href="" class="article-date"><time datetime="2011-05-28T00:00:00.000Z" itemprop="datePublished">2011-05-28</time></a>
+</div>
+
+    
+    
+
+  </div>
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>原题地址 http://poj.org/problem?id=2841</p>
+<p>中文题意就直接复制applepi神犇的了……翻译技巧太好了orz……</p>
+<p>题目大意：航海游戏你感兴趣么？想象你指挥着一艘NB的多桅帆船打算横穿一个从未有人穿越过的大洋，确切的说是从南岸开到北岸。在</p>
+<p>大洋两岸都有很多港口，由于你要完成的是人类历史上不曾有的壮举……所以说你可以选择从任何一个港口出发以及到达任何一个港口。</p>
+<p>当然了，你的船不能在岸上跑。</p>
+<p>我们把大洋分成N * M（N, M≤1000）个方格。首先，作为勇敢无畏，一往无前的船长，你的船绝对不能往南走，而只能往北、东、西三个</p>
+<p>方向走。往北走就意味着离目标更进一步，所以说你通常情况下只需要1个单位的时间就可以走到下一个格子；向东、西走就意味着踌躇</p>
+<p>不前，所以说如果你之前已经连续向东西方向走了X格，这一步通常就需要X + 1个时间单位才能走一格。</p>
+<p>你不想绕任何远路。所以说，一旦你离开了一个格子，你就永远不能再回来。</p>
+<p>海里还有一些特殊的格子：</p>
+<p>O：代表障碍物（Obstacles）。这样的格子里有暗礁，为了你的安全，你永远不能进入这些格子。</p>
+<p>F：代表命运之轮（Fortune’s wheels）。一旦你踏上有命运之轮的格子，你的命运就会逆转。我们深知你作为一个OIER</p>
+<p>连GF都找不到的囧境……所以说你必须在到达终点前经过奇数次命运之轮。</p>
+<p>B：代表祝福之石（Blessing stones）。你进入这样的格子不花费任何时间（但请注意横向移动的步数照样累计）。</p>
+<p>S：代表风暴之咒（Invocations of storm）。你进入这样的格子就需要两倍于通常的时间（同上）。</p>
+<p>其他的通常格子用一个点表示。</p>
+<p>输入数据的第一行和最后一行代表海岸，上北下南。海岸用H表示港口，一个点表示陆地。</p>
+<p>好了，天亮了……请计算你至少需要多少时间才能完成这个任务。</p>
+<hr>
+<p>算法1：</p>
+<p>用dp[i,j,k,state]表示船到达i行j列，已经连续东西方向走了k格，现在已经经过的命运之轮的奇偶性为state的最小时间.则</p>
+<p>状态显然是O(nm^2)的，转移显然是O(1)的，总时间复杂度O(nm^2)，不可接受……</p>
+<p>算法2：</p>
+<p>看一下算法1，光是状态数就已经不可接受了，怎么办？当然应该改进状态表示……</p>
+<p>用dp[i,j,state]表示船刚刚从i-1行j列跑到了i行j列，现在经过命运之轮奇偶性为state所花的最小时间。则转移是:</p>
+<p>dp[i,j]=min(dp[i-1,k]+w[k,j])+d<a href="1%3C=k%3C=m">i,j</a></p>
+<p>其中，w[i,j]表示从第i-1行k列到第i-1行j列所花费的时间。d[i,j]表示从第i-1行j列到第i行j列所花费的时间。我们发现，</p>
+<p>这个转移是O(m)的，状态数是O(nm)的，总时间复杂度依然是O(nm^2)，依然不可接受。但这个dp方程为后面的优化</p>
+<p>提供了可能。</p>
+<p>算法3：</p>
+<p>为了后面的推倒过程方便，列的坐标范围是0~m-1.sea[]表示第i-1行海面的情况，具体字母代表含义是和输入数据一样</p>
+<p>的。</p>
+<p>我们考虑如何计算w[j,i].</p>
+<p>我们只考虑j&lt;=i的情况，因为对于j&gt;=i的情况只要把海面左右对掉，就等价于j&lt;=i的情况了。</p>
+<p>显然，如果海面什么都没有，w[j,i]=(i-j+1)*(i-j)/2.</p>
+<p>那么，海面上神马东西可以对w造成影响呢？只有风暴之咒(S)和祝福之石(B).</p>
+<p>风暴之咒的效果相当于额外付出进入这个格子一次的代价，祝福之石相当于少付出进入这个格子一次的代价。他们恰好效</p>
+<p>果相反，因此我们只讨论风暴之咒的情况。祝福之石只要把加号变减号，减号变加号即可。</p>
+<p>我们定义</p>
+<p>ws[i]=sum(sea[j]=‘S’?j:0)0&lt;=j&lt;=i</p>
+<p>cs[i]=sum(sea[j]=‘S’?1:0)0&lt;=j&lt;=i</p>
+<p>则可以发现，用ws[i]-ws[j]-j*(cs[i]-cs[j])就可以表示新增加的费用了……不明白的话在纸上画一下就明白了……</p>
+<p>因此</p>
+<p>cost(j,i)=(i-j+1)<em>(i-j)/2+(ws[i]-ws[j])-j</em>(cs[i]-cs[j])-(wb[i]-wb[j])+j*(cb[i]-cb[j])</p>
+<p>=(i-j+1)<em>(i-j)/2+(ws[i]-wb[i])-(ws[j]-wb[j])-j</em>(cs[i]-cb[i])+j*(cs[j]-cb[j])</p>
+<p>令w[i]=ws[i]-wb[i] c[i]=cs[i]-cb[i]</p>
+<p>则</p>
+<p>cost(j,i)=(i-j+1)<em>(i-j)/2+(w[i]-w[j])-j</em>(c[i]-c[j])</p>
+<p>我们试着观察有没有单调性之类的东西的存在……</p>
+<p>如果对于某个特定的i，存在j1&lt;j2且f[j1,state1]+cost[j1,i]&lt;f[j2,state2]+cost[j2,i]，那么应该满足什么条件？</p>
+<p>f[j1,state1]+cost[j1,i]&lt;f[j2,state2]+cost[j2,i]</p>
+<p>展开并化简之，我们可以得到：</p>
+<p>((2<em>f[j2,state2]+j2^2-2</em>w[j2]+2<em>j2</em>c[j2])-(2<em>f[j1,state1]+j1^2-2</em>w[j1]+2<em>j1</em>c[j1]))/(2*(j2-j1))&gt;c[i]+i</p>
+<p>这是一个斜率式！这时斜率优化的模型已经十分明显了。而且，我们观察到c[i]+i随i上升单调不降（证明：</p>
+<p>c[i]&gt;=c[i-1]-1所以c[i]+i&gt;=c[i-1]-1+(i-1)+1=c[i-1]+(i-1))。</p>
+<p>如果把决策j映射到点p(2j,2<em>f[j,state2]+j^2-2</em>w[j]+2<em>j</em>c[j])上，那么上面的式子就像当于：</p>
+<p>对于状态i，决策j1优于j2，当且仅当(p1,p2)的斜率大于c[i]+i</p>
+<p>令式子左边的部分为slope(j1,j2)</p>
+<p>考虑对于状态i，三个映射到的X坐标递增的决策点x&lt;z&lt;y.如果z是最优决策，则必定有</p>
+<p>slope(z,y)&gt;c[i]+i</p>
+<p>slope(x,z)&lt;c[i]+i</p>
+<p>即slope(x,z)&lt;slope(z,y)！</p>
+<p>也就是说，所有可能成为最优决策的决策点组成了一个下凸的半凸壳！</p>
+<p>而且，因为c[i]+i随i上升单调不降，所以可以用一个单调队列维护半凸壳，最优决策是X坐标最小的点。这样，插入新决</p>
+<p>策点并维护凸壳、更新c[i]+i并维护凸壳、取得最优决策点都是均摊O(1)的。</p>
+<p>这样转移的时间复杂度就变成均摊O(1)了……总时间复杂度为状态数O(nm)，达到理论下界。</p>
+<p>这还没完，我们发现，我们还没考虑到命运之石这种东西呢……于是一个单调队列不够了……需要两个单调队列分别存储</p>
+<p>经过奇数、偶数次命运之石的可行决策，当遇到命运之石的时候就交换两个队列。</p>
+<p>至于障碍物（Obstacles）的处理就很简单了……直接清空两个队列&gt;_&lt;</p>
+<p>注意上面只是j&lt;i的情况的讨论……我们还需要就j&gt;i的情况用同样方法再做一次斜率优化dp（只要把海面左右反转一下就</p>
+<p>可以了）。</p>
+<p>然后就是拍代码的问题了……代码比较蛋疼……各种恶心……而且这题数据很强，想用有bug的代码水过不那么容易……</p>
+<p>几个注意点：1. n&lt;=2的时候要特判。2.虽然所有数据都可以用longint存下，但算斜率（叉积）的时候是需要用int64强制</p>
+<p>类型转换一下的，否则中间结果就溢出了……</p>
+<p>代码 https://ideone.com/7hH3L</p>
+<link rel="stylesheet" href="/cnblog/css/spoiler.css" type="text/css"><script src="/cnblog/js/spoiler.js" type="text/javascript" async></script>
+      
+    </div>
+
+    
+      
+
+    
+
+    <footer class="article-footer">
+    <!--
+      <a data-url="2011/05/28/2011-05-28/" data-id="cl4nq6z7h0009beorcfk431vx" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+    -->
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/%E9%A2%98%E8%A7%A3/" rel="tag">题解</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+    
+<ul id="article-nav" class="nav nav-pills nav-justified">
+  
+  <li role="presentation">
+    <a href="../../../02/19/2011-02-19/" id="article-nav-older" class="article-nav-link-wrap">
+      <i class="fa fa-chevron-left pull-left"></i>
+      <span class="article-nav-link-title">QTREE系列题目(QTREE1~5)解题报告</span>
+    </a>
+  </li>
+  
+  
+  <li role="presentation">
+    <a href="../../../08/28/2011-08-28/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-link-title">POJ2422 很有意思的博弈搜索</span>
+      <i class="fa fa-chevron-right pull-right"></i>
+    </a>
+  </li>
+  
+</ul>
+
+
+  
+</article>
+
+
+
+
+        </div>
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+          
+  
+
+
+  
+  <div class="sidebar-module">
+    <h4>Tags</h4>
+    <ul class="sidebar-module-list" itemprop="keywords"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/ACM/" rel="tag">ACM</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/OI/" rel="tag">OI</a><span class="sidebar-module-list-count">23</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/" rel="tag">技术杂谈</a><span class="sidebar-module-list-count">12</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%9D%82%E8%B0%88/" rel="tag">杂谈</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%9D%82%E8%B0%88%E6%B0%B4/" rel="tag">杂谈水</a><span class="sidebar-module-list-count">9</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%B5%81%E6%B0%B4%E8%B4%A6/" rel="tag">流水账</a><span class="sidebar-module-list-count">15</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E9%A2%98%E8%A7%A3/" rel="tag">题解</a><span class="sidebar-module-list-count">24</span></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Tag Cloud</h4>
+    <p class="tagcloud">
+      <a href="../../../../tags/ACM/" style="font-size: 10px;">ACM</a> <a href="../../../../tags/OI/" style="font-size: 18.33px;">OI</a> <a href="../../../../tags/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/" style="font-size: 15px;">技术杂谈</a> <a href="../../../../tags/%E6%9D%82%E8%B0%88/" style="font-size: 11.67px;">杂谈</a> <a href="../../../../tags/%E6%9D%82%E8%B0%88%E6%B0%B4/" style="font-size: 13.33px;">杂谈水</a> <a href="../../../../tags/%E6%B5%81%E6%B0%B4%E8%B4%A6/" style="font-size: 16.67px;">流水账</a> <a href="../../../../tags/%E9%A2%98%E8%A7%A3/" style="font-size: 20px;">题解</a>
+    </p>
+  </div>
+
+
+  
+  <div class="sidebar-module">
+    <h4>Archives</h4>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2022/">2022</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2018/">2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2017/">2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2015/">2015</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2014/">2014</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2013/">2013</a><span class="sidebar-module-list-count">7</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2012/">2012</a><span class="sidebar-module-list-count">27</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2011/">2011</a><span class="sidebar-module-list-count">11</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2010/">2010</a><span class="sidebar-module-list-count">1</span></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Recents</h4>
+    <ul class="sidebar-module-list">
+      
+        <li>
+          <a href="../../../../2022/01/31/2022-01-31/">写于PhD的第三年</a>
+        </li>
+      
+        <li>
+          <a href="../../../../2018/03/14/2018-03-14/">胡思乱想</a>
+        </li>
+      
+        <li>
+          <a href="../../../../2017/05/25/2017-05-25/">WF2017 滚粗记</a>
+        </li>
+      
+        <li>
+          <a href="../../../../2015/05/21/2015-05-21/">WF2015 滚粗记</a>
+        </li>
+      
+        <li>
+          <a href="../../../../2015/04/12/2015-04-12/">TC SRM655 &amp; TCO2015 R1A</a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+
+        </div>
+    </div>
+  </div>
+  <footer class="blog-footer">
+  <div class="container">
+    <div id="footer-info" class="inner">
+      &copy; 2022 Haoran Xu<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+  
+
+<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>-->
+
+<script src="../../../../js/bootstrap/bootstrap.min.js"></script>
+
+
+
+  
+<link rel="stylesheet" href="../../../../fancybox/jquery.fancybox.css">
+
+  
+<script src="../../../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="../../../../js/script.js"></script>
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    menuSettings: {
+      zoom: "None"
+    },
+    showMathMenu: false,
+    jax: ["input/TeX","output/CommonHTML"],
+    extensions: ["tex2jax.js"],
+    TeX: {
+      extensions: ["AMSmath.js","AMSsymbols.js"],
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    },
+    tex2jax: {
+      inlineMath: [["\\(", "\\)"]],
+      displayMath: [["\\[", "\\]"]]
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.1/MathJax.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+ 
+
+</body>
+</html>

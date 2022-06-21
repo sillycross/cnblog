@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <title>太可怕了…… 卡掉字典序hash的方法 | </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="字典序hash大家应该都知道吧…… \[hash[i]&#x3D;hash[i-1]*seed+value[i]\] 溢出不用管，相当于对2^32或2^64取模…… 然后就可以O(1)取出一个子串的hash值，然后O(1)比较两个字串是否相等…… 这个方法看似很靠谱 但POI的数据告诉我们，这个方法不靠谱（fotile跟我讲的，orz） 首先seed是偶数的话 显然如果两个串，低位的字符都相同，然后高位有一">
+<meta property="og:type" content="article">
+<meta property="og:title" content="太可怕了…… 卡掉字典序hash的方法">
+<meta property="og:url" content="2012/05/18/2012-05-18/index.html">
+<meta property="og:site_name">
+<meta property="og:description" content="字典序hash大家应该都知道吧…… \[hash[i]&#x3D;hash[i-1]*seed+value[i]\] 溢出不用管，相当于对2^32或2^64取模…… 然后就可以O(1)取出一个子串的hash值，然后O(1)比较两个字串是否相等…… 这个方法看似很靠谱 但POI的数据告诉我们，这个方法不靠谱（fotile跟我讲的，orz） 首先seed是偶数的话 显然如果两个串，低位的字符都相同，然后高位有一">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2012-05-18T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-21T05:27:00.644Z">
+<meta property="article:author" content="Haoran Xu">
+<meta property="article:tag" content="技术杂谈">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="../../../../atom.xml" title="" type="application/atom+xml">
+  
+  
+  
+    <!--<link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">-->
+    
+<link rel="stylesheet" href="../../../../css/source_code_pro.css">
+
+  
+
+  <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">-->
+  
+<link rel="stylesheet" href="../../../../css/bootstrap/bootstrap.min.css">
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
+
+  
+<link rel="stylesheet" href="../../../../css/styles.css">
+
+  
+
+  
+  <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" integrity="sha384-8gBf6Y4YYq7Jx97PIqmTwLPin4hxIzQw5aDmUg/DDhul9fFpbbLcLh3nTIIDJKhx" crossorigin="anonymous"></script>-->
+  
+<script src="../../../../js/jquery.min.js"></script>
+
+
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><nav class="navbar navbar-inverse">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="main-menu-navbar">
+      <ul class="nav navbar-nav">
+        
+          <li><a class=""
+                 href="../../../../index.html">Archives</a></li>
+        
+          <li><a class=""
+                 href="../../../../about/">About</a></li>
+        
+          <li><a class=""
+                 href="../../../../../">English Blog</a></li>
+        
+      </ul>
+
+      <!--
+      <ul class="nav navbar-nav navbar-right">
+        
+          <li><a href="/atom.xml" title="RSS Feed"><i class="fa fa-rss"></i></a></li>
+        
+      </ul>
+      -->
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+  <div class="container">
+    <div class="blog-header">
+  <h1 class="blog-title"></h1>
+  
+    <p class="blog-description">「こんなきれいな星も、やっぱりここまで来てから、見れたのだと思うから。だから・・もっと遠くへ・・」</p>
+  
+</div>
+
+    <div class="row">
+        <div class="col-sm-8 blog-main">
+          <article id="post-2012-05-18" class="article article-type-post" itemscope itemprop="blogPost">
+
+  <header class="article-header">
+    
+  
+    <h1 class="article-title" itemprop="name">
+      太可怕了…… 卡掉字典序hash的方法
+    </h1>
+  
+
+
+  </header>
+
+  <div class="article-meta">
+    <div class="article-datetime">
+  <a href="" class="article-date"><time datetime="2012-05-18T00:00:00.000Z" itemprop="datePublished">2012-05-18</time></a>
+</div>
+
+    
+    
+
+  </div>
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>字典序hash大家应该都知道吧……</p>
+<p>\[hash[i]=hash[i-1]*seed+value[i]\]</p>
+<p>溢出不用管，相当于对2^32或2^64取模……</p>
+<p>然后就可以O(1)取出一个子串的hash值，然后O(1)比较两个字串是否相等……</p>
+<p>这个方法看似很靠谱</p>
+<p>但POI的数据告诉我们，这个方法不靠谱（fotile跟我讲的，orz）</p>
+<p>首先seed是偶数的话</p>
+<p>显然如果两个串，低位的字符都相同，然后高位有一个字符不相同，那么hash值就会相差seed^x，这个x是个比较大的数，而seed是偶数，导致这个差值是2^32的倍数，于是就导致得出两个串hash值相同</p>
+<p>然后seed是奇数的话</p>
+<p>我们考虑一个01串</p>
+<p>我们定义\(not(s)\)为字符串\(s\)的每个位置取反（0变成1，1变成0）得到的新串</p>
+<p>我们这样构造</p>
+<p>\[S(1)=``0&quot;\]</p>
+<p>\[S(n)=S(n-1)+not(S(n-1))\]</p>
+<p>于是考虑\(S(n)\)与\(not(S(n))\)的hash值的差</p>
+<p>可以发现</p>
+<p>\[f( 1 ) = -1\]</p>
+<p>\[f( n ) = f( n - 1) * ( seed ^ { 2 ^ { n - 1 } } - 1 )\]</p>
+<p>于是</p>
+<p>\[f( n ) = \prod_{i=0}^{n-1}(seed^{2^i}-1)\]</p>
+<p>我们考虑\(g(k)=seed^{2^k}-1\)有多少个因数2.</p>
+<p>显然应用平方差得</p>
+<p>\[g(k)=seed^{2^k}-1=(seed^{2^{k-1}}-1)*(seed^{2^{k-1}}+1)=g(k-1)*(seed^{2^{k-1}}+1)\]</p>
+<p>\(g(0)=seed-1\)，因为seed为奇数，所以至少有一个因数2</p>
+<p>所以\(g(k)\)至少有\(k+1\)个因数2</p>
+<p>\[f(n)=g(0)*g(1)*\cdots*g(n-1)\]</p>
+<p>所以\(f(n)\)至少有\(1+2+3+…+n=n(n+1)/2\)个因数2</p>
+<p>当\(n=11\)时，字符串的长度仅仅为2048，但可以保证这两个串的hash值的差至少含有66个因数2，因为对2^64取模，所以这两个串的hash值差必然为0</p>
+<p>但事实上，这两个串没有一个字符是相同的= =</p>
+<p>于是就被卡掉了</p>
+<p>然后如果取多个seed，有奇有偶，也很简单，在\(S(11)\)和\(not(S(11))\)的前面和后面都各加一串相同的字符即可。这样不管seed奇数偶数都能卡掉，而且就算取100个不同的seed，每次当100个hash值全一样时候才认为两个字符串相等，也一样卡掉，因为这个方法是和seed值无关的</p>
+<p>还有一个可能的对策是当hash值相同时，在两个串中随便找XX个位置，暴力比较是否相同…… 这个我们也可以卡，只要把“在前面和后面加的一串相同的字符”的长度搞大一点，一般这种题目字符串规模都是10W，我10万个字符里就2048个字符不同，其他字符全都相同，你每次暴力取20个字符能保证正好摸到我2048个字符里面？ 而且这种题目一般还是反复询问，那我就反复查询这10W个字符是否相同，你这次摸到了，下次还能摸到？ 下次又摸到了我还不信你10W个询问都能摸到…… 一次摸不到你就挂了…… 所以这种方法也没用……</p>
+<p>目前我想到的解决方法是：</p>
+<p>不用字典序hash</p>
+<p>或者不要用自然溢出，还是对一个大质数取模靠谱一点，虽然这样速度会慢一点……</p>
+<link rel="stylesheet" href="/cnblog/css/spoiler.css" type="text/css"><script src="/cnblog/js/spoiler.js" type="text/javascript" async></script>
+      
+    </div>
+
+    
+      
+
+    
+
+    <footer class="article-footer">
+    <!--
+      <a data-url="2012/05/18/2012-05-18/" data-id="cl4nq6z86001nbeorbqo315gh" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+    -->
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/" rel="tag">技术杂谈</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+    
+<ul id="article-nav" class="nav nav-pills nav-justified">
+  
+  <li role="presentation">
+    <a href="../../13/2012-05-13/" id="article-nav-older" class="article-nav-link-wrap">
+      <i class="fa fa-chevron-left pull-left"></i>
+      <span class="article-nav-link-title">PKU Campus 2012</span>
+    </a>
+  </li>
+  
+  
+  <li role="presentation">
+    <a href="../../../06/07/2012-06-07/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-link-title">JSOI省选差额</span>
+      <i class="fa fa-chevron-right pull-right"></i>
+    </a>
+  </li>
+  
+</ul>
+
+
+  
+</article>
+
+
+
+
+        </div>
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+          
+  
+
+
+  
+  <div class="sidebar-module">
+    <h4>Tags</h4>
+    <ul class="sidebar-module-list" itemprop="keywords"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/ACM/" rel="tag">ACM</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/OI/" rel="tag">OI</a><span class="sidebar-module-list-count">23</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/" rel="tag">技术杂谈</a><span class="sidebar-module-list-count">12</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%9D%82%E8%B0%88/" rel="tag">杂谈</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%9D%82%E8%B0%88%E6%B0%B4/" rel="tag">杂谈水</a><span class="sidebar-module-list-count">9</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%B5%81%E6%B0%B4%E8%B4%A6/" rel="tag">流水账</a><span class="sidebar-module-list-count">15</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E9%A2%98%E8%A7%A3/" rel="tag">题解</a><span class="sidebar-module-list-count">24</span></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Tag Cloud</h4>
+    <p class="tagcloud">
+      <a href="../../../../tags/ACM/" style="font-size: 10px;">ACM</a> <a href="../../../../tags/OI/" style="font-size: 18.33px;">OI</a> <a href="../../../../tags/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/" style="font-size: 15px;">技术杂谈</a> <a href="../../../../tags/%E6%9D%82%E8%B0%88/" style="font-size: 11.67px;">杂谈</a> <a href="../../../../tags/%E6%9D%82%E8%B0%88%E6%B0%B4/" style="font-size: 13.33px;">杂谈水</a> <a href="../../../../tags/%E6%B5%81%E6%B0%B4%E8%B4%A6/" style="font-size: 16.67px;">流水账</a> <a href="../../../../tags/%E9%A2%98%E8%A7%A3/" style="font-size: 20px;">题解</a>
+    </p>
+  </div>
+
+
+  
+  <div class="sidebar-module">
+    <h4>Archives</h4>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2022/">2022</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2018/">2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2017/">2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2015/">2015</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2014/">2014</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2013/">2013</a><span class="sidebar-module-list-count">7</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2012/">2012</a><span class="sidebar-module-list-count">27</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2011/">2011</a><span class="sidebar-module-list-count">11</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2010/">2010</a><span class="sidebar-module-list-count">1</span></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Recents</h4>
+    <ul class="sidebar-module-list">
+      
+        <li>
+          <a href="../../../../2022/01/31/2022-01-31/">写于PhD的第三年</a>
+        </li>
+      
+        <li>
+          <a href="../../../../2018/03/14/2018-03-14/">胡思乱想</a>
+        </li>
+      
+        <li>
+          <a href="../../../../2017/05/25/2017-05-25/">WF2017 滚粗记</a>
+        </li>
+      
+        <li>
+          <a href="../../../../2015/05/21/2015-05-21/">WF2015 滚粗记</a>
+        </li>
+      
+        <li>
+          <a href="../../../../2015/04/12/2015-04-12/">TC SRM655 &amp; TCO2015 R1A</a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+
+        </div>
+    </div>
+  </div>
+  <footer class="blog-footer">
+  <div class="container">
+    <div id="footer-info" class="inner">
+      &copy; 2022 Haoran Xu<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+  
+
+<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>-->
+
+<script src="../../../../js/bootstrap/bootstrap.min.js"></script>
+
+
+
+  
+<link rel="stylesheet" href="../../../../fancybox/jquery.fancybox.css">
+
+  
+<script src="../../../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="../../../../js/script.js"></script>
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    menuSettings: {
+      zoom: "None"
+    },
+    showMathMenu: false,
+    jax: ["input/TeX","output/CommonHTML"],
+    extensions: ["tex2jax.js"],
+    TeX: {
+      extensions: ["AMSmath.js","AMSsymbols.js"],
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    },
+    tex2jax: {
+      inlineMath: [["\\(", "\\)"]],
+      displayMath: [["\\[", "\\]"]]
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.1/MathJax.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+ 
+
+</body>
+</html>

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <title>JSOI省选Round 3 | </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="貌似这次每试4题…… Day1 T1 裸AC自动机…… 规模极度奇葩的10^7,也就是要在1秒内要读入20MB的东西还要把AC自动机建起来还要回答查询内存还只有256M尼马这不是坑爹吗…… 貌似后来评测时候出题人也意识到了不靠谱，只测了规模10^6的数据。 T2 题目大概说要把一个图的点划分成两个点集，使得两个导出子图的每个点都有偶数度数。可以考虑某个点属于哪个子图，然后发现要满足的条件就是异或方">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JSOI省选Round 3">
+<meta property="og:url" content="2012/04/22/2012-04-22/index.html">
+<meta property="og:site_name">
+<meta property="og:description" content="貌似这次每试4题…… Day1 T1 裸AC自动机…… 规模极度奇葩的10^7,也就是要在1秒内要读入20MB的东西还要把AC自动机建起来还要回答查询内存还只有256M尼马这不是坑爹吗…… 貌似后来评测时候出题人也意识到了不靠谱，只测了规模10^6的数据。 T2 题目大概说要把一个图的点划分成两个点集，使得两个导出子图的每个点都有偶数度数。可以考虑某个点属于哪个子图，然后发现要满足的条件就是异或方">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2012-04-22T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-21T05:27:00.644Z">
+<meta property="article:author" content="Haoran Xu">
+<meta property="article:tag" content="流水账">
+<meta property="article:tag" content="OI">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="../../../../atom.xml" title="" type="application/atom+xml">
+  
+  
+  
+    <!--<link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">-->
+    
+<link rel="stylesheet" href="../../../../css/source_code_pro.css">
+
+  
+
+  <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">-->
+  
+<link rel="stylesheet" href="../../../../css/bootstrap/bootstrap.min.css">
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
+
+  
+<link rel="stylesheet" href="../../../../css/styles.css">
+
+  
+
+  
+  <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" integrity="sha384-8gBf6Y4YYq7Jx97PIqmTwLPin4hxIzQw5aDmUg/DDhul9fFpbbLcLh3nTIIDJKhx" crossorigin="anonymous"></script>-->
+  
+<script src="../../../../js/jquery.min.js"></script>
+
+
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><nav class="navbar navbar-inverse">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="main-menu-navbar">
+      <ul class="nav navbar-nav">
+        
+          <li><a class=""
+                 href="../../../../index.html">Archives</a></li>
+        
+          <li><a class=""
+                 href="../../../../about/">About</a></li>
+        
+          <li><a class=""
+                 href="../../../../../">English Blog</a></li>
+        
+      </ul>
+
+      <!--
+      <ul class="nav navbar-nav navbar-right">
+        
+          <li><a href="/atom.xml" title="RSS Feed"><i class="fa fa-rss"></i></a></li>
+        
+      </ul>
+      -->
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+  <div class="container">
+    <div class="blog-header">
+  <h1 class="blog-title"></h1>
+  
+    <p class="blog-description">「こんなきれいな星も、やっぱりここまで来てから、見れたのだと思うから。だから・・もっと遠くへ・・」</p>
+  
+</div>
+
+    <div class="row">
+        <div class="col-sm-8 blog-main">
+          <article id="post-2012-04-22" class="article article-type-post" itemscope itemprop="blogPost">
+
+  <header class="article-header">
+    
+  
+    <h1 class="article-title" itemprop="name">
+      JSOI省选Round 3
+    </h1>
+  
+
+
+  </header>
+
+  <div class="article-meta">
+    <div class="article-datetime">
+  <a href="" class="article-date"><time datetime="2012-04-22T00:00:00.000Z" itemprop="datePublished">2012-04-22</time></a>
+</div>
+
+    
+    
+
+  </div>
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>貌似这次每试4题……</p>
+<p><strong>Day1</strong></p>
+<p>T1 裸AC自动机…… 规模极度奇葩的10^7,也就是要在1秒内要读入20MB的东西还要把AC自动机建起来还要回答查询内存还只有256M尼马这不是坑爹吗…… 貌似后来评测时候出题人也意识到了不靠谱，只测了规模10^6的数据。</p>
+<p>T2 题目大概说要把一个图的点划分成两个点集，使得两个导出子图的每个点都有偶数度数。可以考虑某个点属于哪个子图，然后发现要满足的条件就是异或方程组…… 于是高斯消元…… 规模2000，但只要压60位，1秒内卡过没问题。貌似数据再次出问题，后来重测了</p>
+<p>T3 物理题…… 给定起点和终点，要求找一条类似最速降线的东西…… 各种乱搞…… 貌似题目没说清楚到底中途能不能低于终点然后再回上来…… 我理解错题意了但还是骗到不少分囧……</p>
+<p>T4 给定一个棋盘(N&lt;=8,M&lt;=2^31-1)，其中一些格子被挖掉了(&lt;=100)…… 然后每个好的格子上站着一个小盆友，要和上下左右中的两个小盆友拉手，不可以自己拉自己的手…… 问有多少种方案…… 看到N&lt;=8显然状压，然后M规模大就是矩乘…… 推出矩阵乱搞。但是爆搞的话复杂度是(2^8)^3<em>31</em>100的，不可接受…… 然后想到一个方法就是，连续一段矩乘的时候，其实不需要快速幂…… 先倍增预处理出matrix的幂是2次方幂的结果，然后发现矩乘时候只是一个向量连续乘O(lgM)个矩阵…… 那显然如果快速幂先把后面lgM个矩阵乘起来就傻掉了…… 直接一个一个乘过去，每次都是一个向量乘以一个矩阵，于是时间复杂度就变成(2^8)^2<em>31</em>100了，可以接受…… 但发现倍增预处理那部分还是(2^8)^3*31的，照样被卡（不知道用时间复杂度低于3方的那些奇葩矩乘能不能卡过去……）…… 然后就不会了…… 标程貌似用了一个奇怪的方法，把矩阵边长变成了2^7，然后再倍增搞…… 没仔细看标程 UPD: JZP大神跟我讲了标程为什么矩阵只有100多…… 因为最后必然是很多回路，所以考虑某一列，只有偶数个1的状态是有效的，这样有效状态就只有100多了。</p>
+<p><strong>Day2</strong></p>
+<p>T1 给定一个带权无向图G，然后要你找一条边e，要求最大化G加上e这条边后的新图的最小权值的割边的权值。先边双联通缩点，然后发现得到一棵树，然后二分答案，然后考虑加上一条边e的效果就是e的两个端点的路径上所有边都废了。于是就转化成了，一棵树上能否用一条链覆盖一些给定边。这个可以树形DP各种乱搞O(N)能判出来。于是就O(NlgN)了。当时我对拍完后才发现系统栈太小，点数1W就直接爆栈，然后离考试结束只有不到半个小时了，感觉改非递归会蛋疼致死而且时间也不一定够，又感觉评测机设计不咋的，于是果断程序开头加上{$M 1000000000}…… 果然评测软件没有发现我这个非法行为…… 于是就90分了，有个点TLE了…… 貌似数据弱，直接双联通缩点后输出树上第3小边权值就能AC尼马</p>
+<p>T2 比较水的题目。3方DP显然，然后对着转移式子乱YY乱推倒，然后YY出来可以用部分和各种乱搞优化掉一维。于是平方了…… 取模的数P&lt;=255没看出意图。估计可能可以得到一个n*P的做法，不过n^2的做法对于给定的时限已经足够了，就没细想</p>
+<p>T3 乱搞题…… 首先发现长度N的一个环，任意染M种颜色，本质不同的方案数（旋转重合视为本质相同）就是裸Polya，答案就是1/n sigma { M ^ gcd( n , i ) } 1&lt;=i&lt;=N…… 然后这一步就算可以了。下一个问题就是长L的环染色，相邻颜色不同的方案数（不允许旋转），这个我考场直接找规律…… 然后发现是个递推式，于是直接矩乘就行了…… 到这一步就有80分了…… 100分的话N的规模有10^9，这也是可以处理的（虽然考试时候我没想到）…… 我们任务就是求sigma{M^gcd(n,i)},于是枚举N的约数，然后gcd(n,x)=k的x的取值数量就是欧拉函数…… 然后就没有然后了……</p>
+<p>T4 数据结构题…… 题目比较麻烦，就是给定一个不超过2行，不超过3列的黑白棋盘…… 然后每行、每列都有一个按钮，按一下就会导致这一行（列）反色。然后定义某个棋盘状态是“不好”的。然后你被要求维护一个按钮序列，定义这个序列里某个元素a[X]是“不好”的，当且仅当从第一个数顺次按按钮按到第X个数后，得到的棋盘状态是“不好”的。然后被要求支持区间修改和查询某段区间内有多少个元素是“不好”的。 首先显然一个按钮按两次等于没按…… 然后发现按按钮的状态只有2^5种…… 然后每一种都决定一个棋盘状态…… 然后发现按钮状态的合并就是异或…… 于是用线段树维护，每个节点维护一个长度32的数组表示当前区间的前缀能得到某个状态的数目。区间修改就是懒标记，查询就是各种乱搞…… 可以做到O(32lgN)…… 也可以块链，这样就是O(sqrt(N))，因为没有32这个常数，实际速度貌似差不多…… N=100W不用怕，因为操作只有12W，关键点只有24W，离散掉就不TLE不MLE了……</p>
+<link rel="stylesheet" href="/cnblog/css/spoiler.css" type="text/css"><script src="/cnblog/js/spoiler.js" type="text/javascript" async></script>
+      
+    </div>
+
+    
+      
+
+    
+
+    <footer class="article-footer">
+    <!--
+      <a data-url="2012/04/22/2012-04-22/" data-id="cl4nq6z810019beor3i8h0gn5" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+    -->
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/OI/" rel="tag">OI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/%E6%B5%81%E6%B0%B4%E8%B4%A6/" rel="tag">流水账</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+    
+<ul id="article-nav" class="nav nav-pills nav-justified">
+  
+  <li role="presentation">
+    <a href="../../16/2012-04-16-2/" id="article-nav-older" class="article-nav-link-wrap">
+      <i class="fa fa-chevron-left pull-left"></i>
+      <span class="article-nav-link-title">传说中的主席树</span>
+    </a>
+  </li>
+  
+  
+  <li role="presentation">
+    <a href="../../27/2012-04-27/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-link-title">传说中的后缀树</span>
+      <i class="fa fa-chevron-right pull-right"></i>
+    </a>
+  </li>
+  
+</ul>
+
+
+  
+</article>
+
+
+
+
+        </div>
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+          
+  
+
+
+  
+  <div class="sidebar-module">
+    <h4>Tags</h4>
+    <ul class="sidebar-module-list" itemprop="keywords"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/ACM/" rel="tag">ACM</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/OI/" rel="tag">OI</a><span class="sidebar-module-list-count">23</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/" rel="tag">技术杂谈</a><span class="sidebar-module-list-count">12</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%9D%82%E8%B0%88/" rel="tag">杂谈</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%9D%82%E8%B0%88%E6%B0%B4/" rel="tag">杂谈水</a><span class="sidebar-module-list-count">9</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%B5%81%E6%B0%B4%E8%B4%A6/" rel="tag">流水账</a><span class="sidebar-module-list-count">15</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E9%A2%98%E8%A7%A3/" rel="tag">题解</a><span class="sidebar-module-list-count">24</span></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Tag Cloud</h4>
+    <p class="tagcloud">
+      <a href="../../../../tags/ACM/" style="font-size: 10px;">ACM</a> <a href="../../../../tags/OI/" style="font-size: 18.33px;">OI</a> <a href="../../../../tags/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/" style="font-size: 15px;">技术杂谈</a> <a href="../../../../tags/%E6%9D%82%E8%B0%88/" style="font-size: 11.67px;">杂谈</a> <a href="../../../../tags/%E6%9D%82%E8%B0%88%E6%B0%B4/" style="font-size: 13.33px;">杂谈水</a> <a href="../../../../tags/%E6%B5%81%E6%B0%B4%E8%B4%A6/" style="font-size: 16.67px;">流水账</a> <a href="../../../../tags/%E9%A2%98%E8%A7%A3/" style="font-size: 20px;">题解</a>
+    </p>
+  </div>
+
+
+  
+  <div class="sidebar-module">
+    <h4>Archives</h4>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2022/">2022</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2018/">2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2017/">2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2015/">2015</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2014/">2014</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2013/">2013</a><span class="sidebar-module-list-count">7</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2012/">2012</a><span class="sidebar-module-list-count">27</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2011/">2011</a><span class="sidebar-module-list-count">11</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2010/">2010</a><span class="sidebar-module-list-count">1</span></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Recents</h4>
+    <ul class="sidebar-module-list">
+      
+        <li>
+          <a href="../../../../2022/01/31/2022-01-31/">写于PhD的第三年</a>
+        </li>
+      
+        <li>
+          <a href="../../../../2018/03/14/2018-03-14/">胡思乱想</a>
+        </li>
+      
+        <li>
+          <a href="../../../../2017/05/25/2017-05-25/">WF2017 滚粗记</a>
+        </li>
+      
+        <li>
+          <a href="../../../../2015/05/21/2015-05-21/">WF2015 滚粗记</a>
+        </li>
+      
+        <li>
+          <a href="../../../../2015/04/12/2015-04-12/">TC SRM655 &amp; TCO2015 R1A</a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+
+        </div>
+    </div>
+  </div>
+  <footer class="blog-footer">
+  <div class="container">
+    <div id="footer-info" class="inner">
+      &copy; 2022 Haoran Xu<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+  
+
+<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>-->
+
+<script src="../../../../js/bootstrap/bootstrap.min.js"></script>
+
+
+
+  
+<link rel="stylesheet" href="../../../../fancybox/jquery.fancybox.css">
+
+  
+<script src="../../../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="../../../../js/script.js"></script>
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    menuSettings: {
+      zoom: "None"
+    },
+    showMathMenu: false,
+    jax: ["input/TeX","output/CommonHTML"],
+    extensions: ["tex2jax.js"],
+    TeX: {
+      extensions: ["AMSmath.js","AMSsymbols.js"],
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    },
+    tex2jax: {
+      inlineMath: [["\\(", "\\)"]],
+      displayMath: [["\\[", "\\]"]]
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.1/MathJax.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+ 
+
+</body>
+</html>
