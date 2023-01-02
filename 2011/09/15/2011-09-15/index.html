@@ -13,7 +13,7 @@
 <meta property="og:description" content="HDU1693 Eat the Trees  这题应该是插头DP最入门的一题了吧……给定一个n*m棋盘(n,m&lt;&#x3D;11)，其中一些格子是被抠掉的，要求用一些哈米尔顿回路覆盖所有未被抠掉的格子。求有多少种方案。 因为这题没有限制回路的数量，所以连左插头右插头都不用记录了，也不用神马括号序列，直接记录某个位置有木有插头就可以了。转移完全木有限制，只要有个插头，随便往哪个方向跑都行（障碍物除外）">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2011-09-15T00:00:00.000Z">
-<meta property="article:modified_time" content="2022-06-21T05:27:00.644Z">
+<meta property="article:modified_time" content="2023-01-02T14:32:57.610Z">
 <meta property="article:author" content="Haoran Xu">
 <meta property="article:tag" content="题解">
 <meta name="twitter:card" content="summary">
@@ -173,7 +173,7 @@
 
     <footer class="article-footer">
     <!--
-      <a data-url="2011/09/15/2011-09-15/" data-id="cl4nq6z7l000ebeor35fd9kf6" class="article-share-link">
+      <a data-url="2011/09/15/2011-09-15/" data-id="clcewkccw000ei7ooda1t1zzo" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
     -->
@@ -221,7 +221,7 @@
   
   <div class="sidebar-module">
     <h4>Tags</h4>
-    <ul class="sidebar-module-list" itemprop="keywords"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/ACM/" rel="tag">ACM</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/OI/" rel="tag">OI</a><span class="sidebar-module-list-count">23</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/" rel="tag">技术杂谈</a><span class="sidebar-module-list-count">12</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%9D%82%E8%B0%88/" rel="tag">杂谈</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%9D%82%E8%B0%88%E6%B0%B4/" rel="tag">杂谈水</a><span class="sidebar-module-list-count">9</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%B5%81%E6%B0%B4%E8%B4%A6/" rel="tag">流水账</a><span class="sidebar-module-list-count">15</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E9%A2%98%E8%A7%A3/" rel="tag">题解</a><span class="sidebar-module-list-count">24</span></li></ul>
+    <ul class="sidebar-module-list" itemprop="keywords"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/ACM/" rel="tag">ACM</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/OI/" rel="tag">OI</a><span class="sidebar-module-list-count">23</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/" rel="tag">技术杂谈</a><span class="sidebar-module-list-count">12</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%9D%82%E8%B0%88/" rel="tag">杂谈</a><span class="sidebar-module-list-count">6</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%9D%82%E8%B0%88%E6%B0%B4/" rel="tag">杂谈水</a><span class="sidebar-module-list-count">9</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%B5%81%E6%B0%B4%E8%B4%A6/" rel="tag">流水账</a><span class="sidebar-module-list-count">15</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E9%A2%98%E8%A7%A3/" rel="tag">题解</a><span class="sidebar-module-list-count">24</span></li></ul>
   </div>
 
 
@@ -238,7 +238,7 @@
   
   <div class="sidebar-module">
     <h4>Archives</h4>
-    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2022/">2022</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2018/">2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2017/">2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2015/">2015</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2014/">2014</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2013/">2013</a><span class="sidebar-module-list-count">7</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2012/">2012</a><span class="sidebar-module-list-count">27</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2011/">2011</a><span class="sidebar-module-list-count">11</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2010/">2010</a><span class="sidebar-module-list-count">1</span></li></ul>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2023/">2023</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2022/">2022</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2018/">2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2017/">2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2015/">2015</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2014/">2014</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2013/">2013</a><span class="sidebar-module-list-count">7</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2012/">2012</a><span class="sidebar-module-list-count">27</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2011/">2011</a><span class="sidebar-module-list-count">11</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2010/">2010</a><span class="sidebar-module-list-count">1</span></li></ul>
   </div>
 
 
@@ -247,6 +247,10 @@
   <div class="sidebar-module">
     <h4>Recents</h4>
     <ul class="sidebar-module-list">
+      
+        <li>
+          <a href="../../../../2023/01/01/2023-01-01/">2022 年度反思</a>
+        </li>
       
         <li>
           <a href="../../../../2022/01/31/2022-01-31/">写于PhD的第三年</a>
@@ -264,10 +268,6 @@
           <a href="../../../../2015/05/21/2015-05-21/">WF2015 滚粗记</a>
         </li>
       
-        <li>
-          <a href="../../../../2015/04/12/2015-04-12/">TC SRM655 &amp; TCO2015 R1A</a>
-        </li>
-      
     </ul>
   </div>
 
@@ -279,7 +279,7 @@
   <footer class="blog-footer">
   <div class="container">
     <div id="footer-info" class="inner">
-      &copy; 2022 Haoran Xu<br>
+      &copy; 2023 Haoran Xu<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>

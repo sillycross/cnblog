@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <title>2022 年度反思 | </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="其实只是一些乱七八糟的想法，但还是借这个机会写一下吧。 今年上半年基本上没什么产出。我的研究内容需要自己重头写一个动态语言的VM出来，但我并不了解这部分知识。做这么大一个项目全靠闭门造车的话还是不太靠谱，所以还是决定先了解一下现有的架构和设计，然后决定读JSC的代码，结果上半年基本都在“低效地读代码”和“读不懂自闭”里循环。 总结问题的话，意外地，主观上能提高的点并不多。现在看，读JSC这个选择没">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2022 年度反思">
+<meta property="og:url" content="2023/01/01/2023-01-01/index.html">
+<meta property="og:site_name">
+<meta property="og:description" content="其实只是一些乱七八糟的想法，但还是借这个机会写一下吧。 今年上半年基本上没什么产出。我的研究内容需要自己重头写一个动态语言的VM出来，但我并不了解这部分知识。做这么大一个项目全靠闭门造车的话还是不太靠谱，所以还是决定先了解一下现有的架构和设计，然后决定读JSC的代码，结果上半年基本都在“低效地读代码”和“读不懂自闭”里循环。 总结问题的话，意外地，主观上能提高的点并不多。现在看，读JSC这个选择没">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-01-01T00:00:00.000Z">
+<meta property="article:modified_time" content="2023-01-02T14:32:57.610Z">
+<meta property="article:author" content="Haoran Xu">
+<meta property="article:tag" content="杂谈">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="../../../../atom.xml" title="" type="application/atom+xml">
+  
+  
+  
+    <!--<link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">-->
+    
+<link rel="stylesheet" href="../../../../css/source_code_pro.css">
+
+  
+
+  <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">-->
+  
+<link rel="stylesheet" href="../../../../css/bootstrap/bootstrap.min.css">
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
+
+  
+<link rel="stylesheet" href="../../../../css/styles.css">
+
+  
+
+  
+  <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" integrity="sha384-8gBf6Y4YYq7Jx97PIqmTwLPin4hxIzQw5aDmUg/DDhul9fFpbbLcLh3nTIIDJKhx" crossorigin="anonymous"></script>-->
+  
+<script src="../../../../js/jquery.min.js"></script>
+
+
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><nav class="navbar navbar-inverse">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="main-menu-navbar">
+      <ul class="nav navbar-nav">
+        
+          <li><a class=""
+                 href="../../../../index.html">Archives</a></li>
+        
+          <li><a class=""
+                 href="../../../../about/">About</a></li>
+        
+          <li><a class=""
+                 href="../../../../../">English Blog</a></li>
+        
+      </ul>
+
+      <!--
+      <ul class="nav navbar-nav navbar-right">
+        
+          <li><a href="/atom.xml" title="RSS Feed"><i class="fa fa-rss"></i></a></li>
+        
+      </ul>
+      -->
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+  <div class="container">
+    <div class="blog-header">
+  <h1 class="blog-title"></h1>
+  
+    <p class="blog-description">「こんなきれいな星も、やっぱりここまで来てから、見れたのだと思うから。だから・・もっと遠くへ・・」</p>
+  
+</div>
+
+    <div class="row">
+        <div class="col-sm-8 blog-main">
+          <article id="post-2023-01-01" class="article article-type-post" itemscope itemprop="blogPost">
+
+  <header class="article-header">
+    
+  
+    <h1 class="article-title" itemprop="name">
+      2022 年度反思
+    </h1>
+  
+
+
+  </header>
+
+  <div class="article-meta">
+    <div class="article-datetime">
+  <a href="" class="article-date"><time datetime="2023-01-01T00:00:00.000Z" itemprop="datePublished">2023-01-01</time></a>
+</div>
+
+    
+    
+
+  </div>
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>其实只是一些乱七八糟的想法，但还是借这个机会写一下吧。</p>
+<p>今年上半年基本上没什么产出。我的研究内容需要自己重头写一个动态语言的VM出来，但我并不了解这部分知识。做这么大一个项目全靠闭门造车的话还是不太靠谱，所以还是决定先了解一下现有的架构和设计，然后决定读JSC的代码，结果上半年基本都在“低效地读代码”和“读不懂自闭”里循环。</p>
+<p>总结问题的话，意外地，主观上能提高的点并不多。现在看，读JSC这个选择没有错，如果读V8估计遇到的麻烦会更多。但是没有编译器相关的知识基础，也没有太多能参考的资料（JSC代码没有文档，只能靠官方技术博客和零散的代码注释），阅读效率非常低也没办法。做得不够好的地方主要是我本该更早开写自己项目的代码的。开一个新天坑很容易畏首畏脚，我当时也觉得应该先理解JSC的设计架构再开写，防止无效劳动。但实际上，一个新坑最开始的几千行代码大部分都是不能留到最后的，畏首畏脚并不能避免多少无效劳动，只是降低了最终产出。</p>
+<p>顺带一提，读JSC代码的经历让我更加确信了“无知也是力量”这个想法：只要无知，就不会陷入前人的思维套路中。在读JSC代码之前，我是动态语言VM的外行，而现在我（大言不惭的话）算是半个专家。但是，如果要问我从JSC的代码里学到了哪些<em>精妙到超出我自身能力</em>的设计，我的回答是有，但不多。然而作为代价，我的思维却被固化在了JSC的设计上。而JSC的设计是否只是一个局部最优，是否存在一个颠覆性的更优秀的设计，没有任何人知道。换言之，如果时光回溯到读JSC代码之前的我，让我去设计一个VM，我可能会有很多奇思妙想，甚至可能能产生一个全新的设计（当然这个几率很小）。但读了JSC的代码之后，我的设计只会无意识地向JSC靠拢，最多进行一些细节上的优化，而几乎不可能跳出JSC设计的大框架了。</p>
+<p>当然，我不觉得“读JSC代码”是个错误的决定：对我目前的研究来说这是最稳妥的选择。但方法论地说，颠覆性的idea也恰恰是研究中最有价值的，所以那些无知所带来的奇思妙想，即使最后能work out的几率不高，期望收益也不可小视。蔑视几十年来整个领域无数天才的研究当然不可取（虽然整个领域完全走偏最后全部被扫进垃圾堆的情况也是有的，比如UML），但私以为正视“无知”的价值也是很重要的。</p>
+<p>言归正传，读JSC代码这事情本来远不是半年时间就能搞定的，但转机来得相当奇妙。苹果JSC组的一位大神回了我的邮件，然后竟然愿意定期和我meeting解答问题。这事情如果不是亲历实在是难以置信，工业界竟然还有热心到愿意牺牲大把个人时间来帮助素不相识的人，真是感激之情无以言表。本来看不懂的地方想要靠自己从代码里挖掘线索弄懂是非常耗时的一件事，但有开发者答疑就不一样了。所以只能说运气真的相当好——如之前所说，读JSC代码读到自闭其实主要是客观原因，即使从事后诸葛亮的角度，主观上能提高的点也不多，所以如果没碰上这位大神我的研究进度不知道要被拖慢多少。</p>
+<p>然后大概在4月份左右我的代码终于零零散散开坑了。准确地说，其实之前已经有一个repo了，因为我最初的计划是尽量少写没有research novelty的代码，先做一个POC出来。但是到4月份时候我终于确信这属实是步子太大扯到蛋了。VM可以说是一个整体，想釜底抽薪跳过没有novelty的底层部分直接写研究相关的部分无异于空中楼阁。于是我最终决定把之前的repo扔了，重头开始写，而且决定先写一个最后必定会被全部扔掉的朴素实现确保所有底层架构都能work，再考虑有研究价值的部分。现在看，这是一个正确的决定。而且事实上，即使决定了重头开始写，步子太大扯到蛋的决定还是很多：到现在为止依然有很多代码都只是单纯为未来预留的坑。这部分decision making客观上肯定是有不少可以提高的部分的，但是有多少事后诸葛亮的部分就不确定了。</p>
+<p>总结问题的话，其实写研究用代码也是一个复杂的optimization problem。其一，时间和精力都是有限的，所以必须放弃打磨艺术品的想法，只做好最重要的部分。但是，如果过度简化需求，不仅说服不了paper reviewer，也可能会导致代码变成空中楼阁反而写不下去。其二，因为研究的本质，代码未来的需求是很不可预测的，所以过于短视会导致大规模的重构浪费时间，但过于远视又会导致和空气斗智斗勇，甚至畏首畏脚写不下去。虽然我一直很鄙视所谓的敏捷开发，但现在看，或许对研究用代码项目来说，敏捷开发的principle是适用的。</p>
+<p>然后4月到年末基本一直都在写代码。对这部分的反思，感觉自己最大的问题是实在太momentum dependent了。有动力的时候就能一阵猛写，靠着momentum推出一大堆代码。但是一部分代码写完就很容易失去动力，然后进入低效时间，最后平均下来效率反而不高。感觉问题一部分原因还是在自己精神力量/自制力不足上，另一部分是身体也不够健康，打个covid疫苗能不良反应一个月，还经常莫名头痛，身体不舒服的时候想做写代码这种累人的劳动还是很有难度。虽然去医院也没查出个所以然来，但美国的庸医一向是拖字诀，或许自己应该更强势一点？</p>
+<p>回顾一年的话，PhD学业方面，虽然离下一篇paper遥遥无期，研究进度也本可以做得更好一些，但我个人已经基本满足了。毕竟PhD说到底，thesis写出来也不会有几个人看，本来就是自我满足的东西，所以能在自己觉得有价值的研究上有所前进就够了。</p>
+<p>记得年内某次和旧同事出去玩，不知怎么讨论到了人生目标，我当时毫不犹豫地回答说是让世界变得更好。这或许也是我这两年最大的变化吧。准确地说，这个回答在我心中从来没有变过，只是读PhD前的自己，或者一两年前的自己，是没有勇气把这句话说出口的。毕竟以自己有限的能力，这个目标实在是太困难了，即使是读PhD前的自己也对此有着充分的认识，而在读PhD以后，对此的认识则是更加深刻了。</p>
+<p>而变化的部分是态度。应不应该去做一件有价值但99%失败的事情？我曾经的回答是否定的。但是，在这两三年间我越来越相信，重要的是过程而不是结果。一方面，只论结果的话，人生本来就没有意义（这部分内容在上一篇日志谈了很多，所以这里就不赘述了）。另一方面，回顾自己的过去，就会发现绝大部分过去的努力对我的“现在”都没有任何直接价值。小学时候学了一大堆奥数，但初中就意识到自己并没有足够的数学天赋放弃了。中学时候学的物理化学生物地理杂七杂八的学科，上了大学就全部失去了作用。大学里学了一堆cs理论课，也只是让我明白了自己不是这块料，而这部分知识也就成了记忆垃圾。毕业去工业界做数据库，绝大部分大学的知识都没有用武之地。最后读PhD转向了PL/Compiler，在数据库方面积累的经验也失去了作用。对我现在身为PhD学生的研究产生直接影响的，其实只有我过去一年的研究而已。而且，这些转折都是不可预料的：我在上文中的任何一个时间点，都不可能预料到下一个时间点会发生什么。事实上，如果今年我没有幸运地遇上苹果的那位好心developer，我或许现在已经在考虑其他的研究方向了。</p>
+<p>既然我们根本不可能预测未来的方向，刻意追求某件事情的结果又有什么意义呢？不管结果好与坏，大概率在几年后，好与坏的区别，甚至这个“结果”自身所产生的影响都已经忽略不计了。而那些少数的结果对未来产生重大影响的事件，处于现在的我们根本无从知晓。而塑造现在、影响未来的，是整个过去所有的努力中一点一滴积累的transferrable knowledge，比如奥数培养的理科思维，文科培养的文笔逻辑，竞赛和cs专业课培养的编码能力和思维能力，等等。这些transferrable knowledge只能从工作的过程中获得，所以只要在过程中自己有所收获就足够了，结果如何相比之下并不重要。</p>
+<p>当然，知行合一很困难。即使这些道理都明白，也不能阻止我各种拖延各种找借口浪费时间2333 人毕竟不是机器，不是改一下代码就能立竿见影看到效果的，所以事情也只能一步一步改变。即使暂时做不到“行”，确信自己做到了“知”也多少是一个好开头。把这些思考整理清楚写下来也是出于这部分考虑，毕竟写下来总比忘了好。</p>
+<p>过去一年爱好方面，感觉相比前一年爱好更少了。hiking基本没有走过，日麻也很少打了，日语水平虽然大概没有退步但也基本没有长进。不过爱好本来就是顺其自然，所以也没啥可强求的。VN方面，年末啃完了濑户口吊了很久胃口的新作BLACK SHEEP TOWN，但说实话感觉完成度一般，也就可以图一乐的程度。本来承包了我每周笑点的水ダウ不知道为啥感觉过去一年节目质量也下降得厉害，几个星期里能找出一期好看的就不错了，甚至一度让我以为我笑点麻木了。</p>
+<p>未来一年的希望的话，希望能把目前这个研究项目的paper写出来吧。还有个相当没信心的实习也希望不要搞砸，除此之外好像就想不出别的了。</p>
+<link rel="stylesheet" href="/cnblog/css/spoiler.css" type="text/css"><script src="/cnblog/js/spoiler.js" type="text/javascript" async></script>
+      
+    </div>
+
+    
+      
+
+    
+
+    <footer class="article-footer">
+    <!--
+      <a data-url="2023/01/01/2023-01-01/" data-id="clcewkces003ti7oogjlcgzdn" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+    -->
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/%E6%9D%82%E8%B0%88/" rel="tag">杂谈</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+    
+<ul id="article-nav" class="nav nav-pills nav-justified">
+  
+  <li role="presentation">
+    <a href="../../../../2022/01/31/2022-01-31/" id="article-nav-older" class="article-nav-link-wrap">
+      <i class="fa fa-chevron-left pull-left"></i>
+      <span class="article-nav-link-title">写于PhD的第三年</span>
+    </a>
+  </li>
+  
+  
+</ul>
+
+
+  
+</article>
+
+
+
+
+        </div>
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+          
+  
+
+
+  
+  <div class="sidebar-module">
+    <h4>Tags</h4>
+    <ul class="sidebar-module-list" itemprop="keywords"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/ACM/" rel="tag">ACM</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/OI/" rel="tag">OI</a><span class="sidebar-module-list-count">23</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/" rel="tag">技术杂谈</a><span class="sidebar-module-list-count">12</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%9D%82%E8%B0%88/" rel="tag">杂谈</a><span class="sidebar-module-list-count">6</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%9D%82%E8%B0%88%E6%B0%B4/" rel="tag">杂谈水</a><span class="sidebar-module-list-count">9</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E6%B5%81%E6%B0%B4%E8%B4%A6/" rel="tag">流水账</a><span class="sidebar-module-list-count">15</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/%E9%A2%98%E8%A7%A3/" rel="tag">题解</a><span class="sidebar-module-list-count">24</span></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Tag Cloud</h4>
+    <p class="tagcloud">
+      <a href="../../../../tags/ACM/" style="font-size: 10px;">ACM</a> <a href="../../../../tags/OI/" style="font-size: 18.33px;">OI</a> <a href="../../../../tags/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/" style="font-size: 15px;">技术杂谈</a> <a href="../../../../tags/%E6%9D%82%E8%B0%88/" style="font-size: 11.67px;">杂谈</a> <a href="../../../../tags/%E6%9D%82%E8%B0%88%E6%B0%B4/" style="font-size: 13.33px;">杂谈水</a> <a href="../../../../tags/%E6%B5%81%E6%B0%B4%E8%B4%A6/" style="font-size: 16.67px;">流水账</a> <a href="../../../../tags/%E9%A2%98%E8%A7%A3/" style="font-size: 20px;">题解</a>
+    </p>
+  </div>
+
+
+  
+  <div class="sidebar-module">
+    <h4>Archives</h4>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2023/">2023</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2022/">2022</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2018/">2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2017/">2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2015/">2015</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2014/">2014</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2013/">2013</a><span class="sidebar-module-list-count">7</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2012/">2012</a><span class="sidebar-module-list-count">27</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2011/">2011</a><span class="sidebar-module-list-count">11</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../2010/">2010</a><span class="sidebar-module-list-count">1</span></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Recents</h4>
+    <ul class="sidebar-module-list">
+      
+        <li>
+          <a href="">2022 年度反思</a>
+        </li>
+      
+        <li>
+          <a href="../../../../2022/01/31/2022-01-31/">写于PhD的第三年</a>
+        </li>
+      
+        <li>
+          <a href="../../../../2018/03/14/2018-03-14/">胡思乱想</a>
+        </li>
+      
+        <li>
+          <a href="../../../../2017/05/25/2017-05-25/">WF2017 滚粗记</a>
+        </li>
+      
+        <li>
+          <a href="../../../../2015/05/21/2015-05-21/">WF2015 滚粗记</a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+
+        </div>
+    </div>
+  </div>
+  <footer class="blog-footer">
+  <div class="container">
+    <div id="footer-info" class="inner">
+      &copy; 2023 Haoran Xu<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+  
+
+<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>-->
+
+<script src="../../../../js/bootstrap/bootstrap.min.js"></script>
+
+
+
+  
+<link rel="stylesheet" href="../../../../fancybox/jquery.fancybox.css">
+
+  
+<script src="../../../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="../../../../js/script.js"></script>
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    menuSettings: {
+      zoom: "None"
+    },
+    showMathMenu: false,
+    jax: ["input/TeX","output/CommonHTML"],
+    extensions: ["tex2jax.js"],
+    TeX: {
+      extensions: ["AMSmath.js","AMSsymbols.js"],
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    },
+    tex2jax: {
+      inlineMath: [["\\(", "\\)"]],
+      displayMath: [["\\[", "\\]"]]
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.1/MathJax.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+ 
+
+</body>
+</html>
